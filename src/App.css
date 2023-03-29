@@ -10,22 +10,7 @@
  grid-gap: 10px;
 }
 
-.header {
- background-color: #e5e6e8;
- grid-area: h;
-}
 
-.header img {
- width: 60px;
- padding: 10px 0px;
-}
 
-.nav {
- background-color: rgb(250, 200, 199);
- grid-area: n;
-}
 
-.content{
- background-color: rgb(185, 200, 233);
- grid-area: c;
-}
+
