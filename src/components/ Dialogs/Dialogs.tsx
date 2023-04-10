@@ -2,20 +2,17 @@ import React from 'react';
 import s from "./Dialogs.module.css"
 import {NavLink} from "react-router-dom";
 
-
 type DialogsPropsType = {
     id: number
     name: string
 }
-
 type MessagePropsType = {
     id: number
     message: string
 }
-
 type DialogPagePropsType = {
-    DialogItem: Array<DialogsPropsType>
-    Message: Array<MessagePropsType>
+    dialogs: Array<DialogsPropsType>
+    message: Array<MessagePropsType>
 }
 
 const DialogItem = (props: DialogsPropsType) => {
@@ -24,13 +21,12 @@ const DialogItem = (props: DialogsPropsType) => {
         <NavLink to={path}>{props.name}</NavLink>
     </div>
 }
-
 const Message = (props:MessagePropsType) => {
     return  <div className={s.message}>{props.message}</div>
 }
-
 const Dialogs = (props:DialogPagePropsType) => {
-    let dialogsData = [
+
+    let dialogs = [
         {id:1, name:"Ann"},
         {id:2, name:"Valera"},
         {id:3, name:"Maks"},
@@ -38,29 +34,27 @@ const Dialogs = (props:DialogPagePropsType) => {
         {id:5, name:"Nick"},
         {id:6, name:"Tim"}
     ]
-    let messageData = [
+    let messages = [
         {id:1, message:"Hello"},
         {id:2, message:"How are you?"},
         {id:3, message:"Thank you"},
         {id:4, message:"What's up?"},
         {id:5, message:"How is your day going?"},
         {id:6, message:"Exactly!"}
-
     ]
+    let dialogsElement = dialogs.map(d =>  <DialogItem name={d.name} id={d.id} />)
+    let messageElement = messages.map(m =>  <Message message={m.message} id={m.id}/>)
+
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                <DialogItem name={dialogsData[0].name} id={dialogsData[0].id} />
-                <DialogItem name={dialogsData[1].name} id={dialogsData[1].id} />
-
+                {dialogsElement}
             </div>
             <div className={s.messages}>
-                <Message  message={messageData[0].message}  id={messageData[0].id}/>
-                <Message  message={messageData[1].message}  id={messageData[1].id}/>
+                {messageElement}
             </div>
-
         </div>
-
     )
 }
 export default Dialogs
