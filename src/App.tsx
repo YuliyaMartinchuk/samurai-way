@@ -3,26 +3,31 @@ import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
-import Dialogs, {DialogPagePropsType} from "./components/ Dialogs/Dialogs";
 import s from "./components/ Dialogs/Dialogs.module.css";
 import {BrowserRouter, Route} from "react-router-dom";
-import {MyPostsPropsType} from "./components/Profile/MyPosts/MyPosts";
+import Dialogs from "./components/ Dialogs/Dialogs";
+import state, {RootStateType} from './redux/state'
 
+type AppProps = {
+    state:RootStateType
+}
 
-const App = (props ) => {
+const App=(props:AppProps) => {
 
-
-    return (
+       return (
         <BrowserRouter>
         <div className="app-wrapper">
             <Header/>
             <Navbar/>
             <div className ="app-wrapper-content">
-                <Route path = "/profile" render = {()=><Profile posts={props.posts}/>} />
-                <Route path = "/dialogs"  render = {()=><Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
-                <Route path = "/news" component ={Profile}/> {/*Пока нет необходимой компоненты вставила Profile*/}
-                <Route path = "/music" component ={Profile}/> {/*Пока нет необходимой компоненты вставила Profile*/}
-                <Route path = "/settings" component ={Profile}/> {/*Пока нет необходимой компоненты вставила Profile*/}
+                <Route path = "/profile" render = {()=><Profile profilePage={props.state.profilePage} />} />
+                <Route path = "/dialogs"  render = {()=><Dialogs dialogsPage={props.state.dialogsPage}/>} />
+                {/*    // dialogs={ state.dialogsPage.dialogs}*/}
+                {/*    // messages={state.dialogsPage.messages}*/}
+                {/*/>}/>*/}
+                {/*<Route path = "/news" render = {()=><Profile />}/> /!*Пока нет необходимой компоненты вставила Profile*!/*/}
+                {/*<Route path = "/music" render = {()=><Profile />}/> /!*Пока нет необходимой компоненты вставила Profile*!/*/}
+                {/*<Route path = "/settings" render = {()=><Profile />}/> /!*Пока нет необходимой компоненты вставила Profile*!/*/}
 
             </div>
 
