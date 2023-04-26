@@ -1,24 +1,28 @@
 import React, {LegacyRef} from "react";
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
-import {PostPropsType, ProfilePagePropsType, RootStateType} from "../../../redux/state";
+import {ProfilePagePropsType} from "../../../redux/state";
 
 
 type PropsType = {
-    profilePage: ProfilePagePropsType
-
+    myPostPage: ProfilePagePropsType
+    addPostToMyPost: (postMessage:string) => void
 }
 
-const MyPosts = (props:PropsType) => {
+const MyPosts = (props: PropsType) => {
 
     let postsElement =
-        props.profilePage.posts.map(p=><Post message={p.message} likesCount={p.likesCount} />)
+        props.myPostPage.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
 
     let newPostElement = React.createRef<HTMLTextAreaElement>();
 
     const addPost = () => {
-        let text = newPostElement.current?.value
-            alert(text)
+        if (newPostElement.current) {
+            const text = newPostElement.current.value
+            props.addPostToMyPost(text)
+            newPostElement.current.value = ""
+            // props.addPostToMyPost.addPost(text)
+        }
     }
 
     return (
@@ -29,7 +33,7 @@ const MyPosts = (props:PropsType) => {
                     <textarea ref={newPostElement}></textarea>
                 </div>
                 <div>
-                    <button onClick={addPost}>Add post </button>
+                    <button onClick={addPost}>Add post</button>
                 </div>
 
             </div>
@@ -37,6 +41,6 @@ const MyPosts = (props:PropsType) => {
                 {postsElement}
             </div>
         </div>
-)
+    )
 }
 export default MyPosts
