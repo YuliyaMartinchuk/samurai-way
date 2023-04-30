@@ -3,11 +3,12 @@ import {rerenderEntireTree} from "../render";
 export type PostPropsType = {
     id: number
     message: string
-    likesCount:number
+    likesCount: number
 }
 
 export type ProfilePagePropsType = {
-    posts:Array<PostPropsType>
+    posts: Array<PostPropsType>
+    newPostText: string
 }
 export type MessagePropsType = {
     id: number
@@ -24,35 +25,36 @@ export type DialogPagePropsType = {
 }
 
 export type RootStateType = {
-    profilePage:ProfilePagePropsType
-    dialogsPage:DialogPagePropsType
+    profilePage: ProfilePagePropsType
+    dialogsPage: DialogPagePropsType
 }
 
-const state: RootStateType ={
+const state: RootStateType = {
     profilePage: {
         posts: [
-            {id:1, message:"Hi, how are you?", likesCount:25},
-            {id:2, message:"So cool", likesCount:40},
-            {id:3, message:"My day", likesCount:10},
-            {id:4, message:"It's my first post", likesCount:50}
-        ]
+            {id: 1, message: "Hi, how are you?", likesCount: 25},
+            {id: 2, message: "So cool", likesCount: 40},
+            {id: 3, message: "My day", likesCount: 10},
+            {id: 4, message: "It's my first post", likesCount: 50}
+        ],
+        newPostText: "it"
     },
     dialogsPage: {
         dialogs: [
-            {id:1, name:"Ann"},
-            {id:2, name:"Valera"},
-            {id:3, name:"Maks"},
-            {id:4, name:"Alex"},
-            {id:5, name:"Nick"},
-            {id:6, name:"Tim"}
+            {id: 1, name: "Ann"},
+            {id: 2, name: "Valera"},
+            {id: 3, name: "Maks"},
+            {id: 4, name: "Alex"},
+            {id: 5, name: "Nick"},
+            {id: 6, name: "Tim"}
         ],
         messages: [
-            {id:1, message:"Hello"},
-            {id:2, message:"How are you?"},
-            {id:3, message:"Thank you"},
-            {id:4, message:"What's up?"},
-            {id:5, message:"How is your day going?"},
-            {id:6, message:"Exactly!"}
+            {id: 1, message: "Hello"},
+            {id: 2, message: "How are you?"},
+            {id: 3, message: "Thank you"},
+            {id: 4, message: "What's up?"},
+            {id: 5, message: "How is your day going?"},
+            {id: 6, message: "Exactly!"}
         ]
     }
 
@@ -62,13 +64,18 @@ const state: RootStateType ={
 //     addPost: (postMessage:string)=> void
 // }
 
-export const addPost = (postMessage:string) => {
-    const newPost:PostPropsType = {
-        id:5,
-        message:postMessage,
-        likesCount:0
+export const addPost = () => {
+    const newPost: PostPropsType = {
+        id: 5,
+        message: state.profilePage.newPostText,
+        likesCount: 0
     }
     state.profilePage.posts.push(newPost)
-    rerenderEntireTree (state)
+    rerenderEntireTree(state)
+}
+
+export const updateNewPostText = (newText: string) => {
+    state.profilePage.newPostText = newText
+    rerenderEntireTree(state)
 }
 export default state

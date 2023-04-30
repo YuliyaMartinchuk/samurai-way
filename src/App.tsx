@@ -6,24 +6,31 @@ import Profile from "./components/Profile/Profile";
 import s from "./components/ Dialogs/Dialogs.module.css";
 import {BrowserRouter, Route} from "react-router-dom";
 import Dialogs from "./components/ Dialogs/Dialogs";
-import { RootStateType} from './redux/state'
+import {RootStateType} from './redux/state'
 
 type AppProps = {
-    state:RootStateType
-    addPost:(postMessage:string) =>void
+    state: RootStateType
+    addPost: () => void
+    updateNewPostText: (newText: string) => void
 }
 
 
-const App=(props:AppProps) => {
+const App = (props: AppProps) => {
 
     return (
         <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
                 <Navbar/>
-                <div className ="app-wrapper-content">
-                    <Route path = "/profile" render = {()=><Profile profilePage={props.state.profilePage} addPostProfile={props.addPost}/>} />
-                    <Route path = "/dialogs"  render = {()=><Dialogs dialogsPage={props.state.dialogsPage}/>} />
+                <div className="app-wrapper-content">
+                    <Route path="/profile" render={() => <Profile
+                        profilePage={props.state.profilePage}
+                        addPostProfile={props.addPost}
+                        updateNewPostText={props.updateNewPostText}
+                    />}
+                    />
+                    <Route path="/dialogs" render={() => <Dialogs
+                        dialogsPage={props.state.dialogsPage}/>}/>
                     {/*    // dialogs={ state.dialogsPage.dialogs}*/}
                     {/*    // messages={state.dialogsPage.messages}*/}
                     {/*/>}/>*/}
