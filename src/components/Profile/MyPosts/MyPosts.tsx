@@ -7,7 +7,6 @@ import {ProfilePagePropsType} from "../../../redux/state";
 type PropsType = {
     myPostPage: ProfilePagePropsType
     addPostToMyPost: () => void
-    newPostText:string
     updateNewPostText: (newText: string) => void
 }
 
@@ -19,17 +18,13 @@ const MyPosts = (props: PropsType) => {
     let newPostElement = React.createRef<HTMLTextAreaElement>();
 
     const addPost = () => {
-
-        let text = newPostElement.current.value
-            props.addPostToMyPost()
-           props.updateNewPostText("")
-            // props.addPostToMyPost.addPost(text)
-
+        props.addPostToMyPost()
     }
 
     const onPostChange = () => {
-        let text = newPostElement.current.value
-        props.updateNewPostText(text)
+
+        const text = newPostElement.current?.value
+        text && props.updateNewPostText(text)
     }
 
     return (
@@ -39,7 +34,7 @@ const MyPosts = (props: PropsType) => {
                 <div>
                     <textarea ref={newPostElement}
                               onChange={onPostChange}
-                              value={props.newPostText}
+                              value={props.myPostPage.newPostText}
                     />
                 </div>
                 <div>

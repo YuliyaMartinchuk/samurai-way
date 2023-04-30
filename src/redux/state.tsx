@@ -37,7 +37,7 @@ const state: RootStateType = {
             {id: 3, message: "My day", likesCount: 10},
             {id: 4, message: "It's my first post", likesCount: 50}
         ],
-        newPostText: "it"
+        newPostText: " "
     },
     dialogsPage: {
         dialogs: [
@@ -71,6 +71,7 @@ export const addPost = () => {
         likesCount: 0
     }
     state.profilePage.posts.push(newPost)
+    state.profilePage.newPostText =""
     rerenderEntireTree(state)
 }
 
