@@ -1,4 +1,4 @@
-import React, {LegacyRef} from "react";
+import React, {ChangeEvent, LegacyRef} from "react";
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import {ProfilePagePropsType} from "../../../redux/state";
@@ -8,6 +8,7 @@ type PropsType = {
     myPostPage: ProfilePagePropsType
     addPostToMyPost: () => void
     updateNewPostText: (newText: string) => void
+    newPostText: string
 }
 
 const MyPosts = (props: PropsType) => {
@@ -15,16 +16,15 @@ const MyPosts = (props: PropsType) => {
     let postsElement =
         props.myPostPage.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
 
-    let newPostElement = React.createRef<HTMLTextAreaElement>();
+    // let newPostElement = React.createRef<HTMLTextAreaElement>();
 
     const addPost = () => {
         props.addPostToMyPost()
     }
 
-    const onPostChange = () => {
-
-        const text = newPostElement.current?.value
-        text && props.updateNewPostText(text)
+    const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        const text = e.currentTarget.value
+        props.updateNewPostText(text)
     }
 
     return (
@@ -32,9 +32,9 @@ const MyPosts = (props: PropsType) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea ref={newPostElement}
-                              onChange={onPostChange}
-                              value={props.myPostPage.newPostText}
+                    <textarea
+                        onChange={onPostChange}
+                        value={props.newPostText}
                     />
                 </div>
                 <div>
