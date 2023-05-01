@@ -1,4 +1,4 @@
-import {rerenderEntireTree} from "../render";
+
 
 export type PostPropsType = {
     id: number
@@ -79,4 +79,13 @@ export const updateNewPostText = (newText: string) => {
     state.profilePage.newPostText = newText
     rerenderEntireTree(state)
 }
+
+let rerenderEntireTree= (state:RootStateType) => {
+    console.log("State changed")
+}
+
+export const subscribe = (observer:(state:RootStateType)=> void)=> {
+    rerenderEntireTree = observer // observer// паттерн
+}
+
 export default state
