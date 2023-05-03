@@ -6,16 +6,18 @@ import Profile from "./components/Profile/Profile";
 import s from "./components/ Dialogs/Dialogs.module.css";
 import {BrowserRouter, Route} from "react-router-dom";
 import Dialogs from "./components/ Dialogs/Dialogs";
-import {RootStateType} from './redux/state'
+import store, {RootStateType, StoreType} from './redux/state'
 
 type AppProps = {
     state: RootStateType
     addPost: () => void
     updateNewPostText: (newText: string) => void
+    store: StoreType
 }
 
 
 const App = (props: AppProps) => {
+    const state = props.store.getState
 
     return (
         <BrowserRouter>
