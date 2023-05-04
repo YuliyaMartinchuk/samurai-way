@@ -1,5 +1,3 @@
-
-
 export type PostPropsType = {
     id: number
     message: string
@@ -32,15 +30,15 @@ export type RootStateType = {
 
 export type StoreType = {
     _state: RootStateType
-    updateNewPostText:(newText: string)=>void
-    addPost: ()=>void
-    _callSubscriber:()=>void
-    subscribe: (observer:(_state:RootStateType)=> void)=>void
-    getState:()=>RootStateType
+    updateNewPostText: (newText: string) => void
+    addPost: () => void
+    _callSubscriber: (_state: RootStateType) => void
+    subscribe: (observer: () => void) => void
+    getState: () => RootStateType
 }
 
 
-let store:StoreType = {
+let store: StoreType = {
     _state: {
         profilePage: {
             posts: [
@@ -70,42 +68,41 @@ let store:StoreType = {
             ]
         }
 
-    } ,
-    getState () {
-        return this._state
-    },
-   addPost () {
-        const newPost: PostPropsType = {
-            id: 5,
-            message:  this._state.profilePage.newPostText,
-            likesCount: 0
-        }
-       this._state.profilePage.posts.push(newPost)
-       this._state.profilePage.newPostText =""
-       this._callSubscriber(this._state)
     },
 
-    updateNewPostText  (newText: string) {
+    getState() {
+        return this._state
+    },
+
+    _callSubscriber() {
+        console.log("State changed")
+    },
+    addPost() {
+        const newPost: PostPropsType = {
+            id: 5,
+            message: this._state.profilePage.newPostText,
+            likesCount: 0
+        }
+        this._state.profilePage.posts.push(newPost)
+        this._state.profilePage.newPostText = ""
+        this._callSubscriber(this._state)
+    },
+
+    updateNewPostText(newText: string) {
         this._state.profilePage.newPostText = newText
         this._callSubscriber(this._state)
     },
 
-   _callSubscriber (state:RootStateType)  {
-        console.log("State changed")
-    },
-
-    subscribe (observer) {
+    subscribe(observer) {
         this._callSubscriber = observer // observer// паттерн
     },
 
 }
 
 
-
 // export type addPostType = {
 //     addPost: (postMessage:string)=> void
 // }
-
 
 
 export default store
