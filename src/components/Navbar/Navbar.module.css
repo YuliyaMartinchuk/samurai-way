@@ -1,14 +1,38 @@
 .nav {
     background-color: rgb(231, 209, 206);
-    grid-area: n;
+    grid-area: n ;
     padding: 20px;
+    max-width: 200px;
 }
 
 
-.item {
+.item a{
     color: #898f9b;
     text-decoration: none
 }
-.item.active {
+.item a.active {
     color: black
+}
+.avatar {
+    grid-area: avatar ;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+}
+.name {
+    grid-area: name ;
+    color: blue;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+.friends {
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.friendsText {
+    margin: 10px auto;
+    color: blueviolet;
+   font-weight: lighter;
 }

@@ -23,7 +23,7 @@ const App: React.FC <AppProps> = (props) => {
         <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
-                <Navbar/>
+                <Navbar sidebar={props._state.sidebar}/>
                 <div className="app-wrapper-content">
                     <Route path="/profile" render={() => <Profile
                         profilePage={props._state.profilePage}
