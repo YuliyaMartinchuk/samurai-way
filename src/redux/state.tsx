@@ -33,7 +33,7 @@ export type StoreType = {
     updateNewPostText: (newText: string) => void
     addPost: () => void
     _callSubscriber: (_state: RootStateType) => void
-    subscribe: (observer: () => void) => void
+    subscribe: (observer: (_state: RootStateType) => void) => void
     getState: () => RootStateType
 }
 
