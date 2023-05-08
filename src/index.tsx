@@ -6,16 +6,15 @@ import './index.css';
 import  {RootStateType} from './redux/state';
 import store from "./redux/state";
 
-let rerenderEntireTree = (state:RootStateType) => {
+let rerenderEntireTree = (state:RootStateType) => { //state взят из 19строки
     ReactDOM.render(
-        <App _state={state}
-             addPost={store.addPost.bind(store)}
-             updateNewPostText = {store.updateNewPostText.bind(store)}
+        <App state={state}
+             dispatch={store.dispatch.bind(store)}
         />,
         document.getElementById('root')
     );
 }
 
-rerenderEntireTree(store.getState())
+rerenderEntireTree(store.getState()) //сюда приходит state
 store.subscribe (rerenderEntireTree)
 

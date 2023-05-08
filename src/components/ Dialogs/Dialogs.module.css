@@ -4,12 +4,12 @@
 
 }
 
-.dialogsItems {
+.dialogsItems a {
     padding: 10px;
     color: rgba(11, 182, 182, 0.89);
 
 }
-.dialog.active{
+.dialog a.active{
     color:gold;
 }
 
