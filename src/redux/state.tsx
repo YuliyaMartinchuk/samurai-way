@@ -51,16 +51,7 @@ export type StoreType = {
     dispatch: (action:ActionsTypes)=> void
 }
 
-export type AddPostActionType ={
-    type:"ADD-POST"
-}
 
-export type UpdateNewPostTextActionType ={
-    type:"UPDATE-NEW-POST-TEXT"
-    newText:string
-}
-
-export type ActionsTypes = AddPostActionType |  UpdateNewPostTextActionType
 
 
 
@@ -116,7 +107,7 @@ let store: StoreType = {
         this._callSubscriber = observer // observer// паттерн
     },
 
-      dispatch (action:any) {
+      dispatch (action:ActionsTypes) {
         if (action.type === "ADD-POST") {
             const newPost: PostPropsType = {
                 id: 5,
@@ -132,10 +123,18 @@ let store: StoreType = {
         }
 
     }
-
-
-
 }
+
+
+export type ActionsTypes = ReturnType<typeof addPostAC> |  ReturnType<typeof onPostChangeAC>
+
+export const addPostAC = () => ({type: "ADD-POST"} as const)
+
+export const onPostChangeAC = (newText:string)=> ({
+        type: "UPDATE-NEW-POST-TEXT",
+        newText:newText
+    } as const)
+
 
 
 // export type addPostType = {
