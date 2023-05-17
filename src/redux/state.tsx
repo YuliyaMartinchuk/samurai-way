@@ -27,6 +27,7 @@ export type FriendsPropsType = {
 export type DialogPagePropsType = {
     dialogs: Array<DialogsPropsType>
     messages: Array<MessagePropsType>
+    newMessageBody:string
 }
 
 
@@ -82,7 +83,8 @@ let store: StoreType = {
                 {id: 4, message: "What's up?"},
                 {id: 5, message: "How is your day going?"},
                 {id: 6, message: "Exactly!"}
-            ]
+            ],
+            newMessageBody: ""
         },
         sidebar: {
             friends: [
@@ -121,12 +123,22 @@ let store: StoreType = {
             this._state.profilePage.newPostText = action.newText
             this._callSubscriber(this._state)
         }
-
+        else if (action.type === "UPDATE-NEW-MESSAGE-BODY") {
+            this._state.dialogsPage.newMessageBody = action.body
+            this._callSubscriber(this._state)
+        }
+        else if (action.type === "SEND-MESSAGE") {
+            let body = this._state.dialogsPage.newMessageBody
+            this._state.dialogsPage.newMessageBody=""
+            this._state.dialogsPage.messages.push({id:6, message:body})
+            this._callSubscriber(this._state)
+        }
     }
 }
 
 
 export type ActionsTypes = ReturnType<typeof addPostAC> |  ReturnType<typeof onPostChangeAC>
+    | ReturnType<typeof sendMessageCreator> | ReturnType<typeof updateNewMessageBodyCreator>
 
 export const addPostAC = () => ({type: "ADD-POST"} as const)
 
@@ -135,11 +147,12 @@ export const onPostChangeAC = (newText:string)=> ({
         newText:newText
     } as const)
 
+export const sendMessageCreator = () => ({type: "SEND-MESSAGE"} as const)
 
-
-// export type addPostType = {
-//     addPost: (postMessage:string)=> void
-// }
+export const updateNewMessageBodyCreator = (body:string)=> ({
+    type: "UPDATE-NEW-MESSAGE-BODY",
+    body:body
+} as const)
 
 
 export default store
