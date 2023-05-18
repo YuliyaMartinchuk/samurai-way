@@ -1,3 +1,7 @@
+import profileReducer, {addPostAC, onPostChangeAC} from "./profile-reducer";
+import dialogsReducer, {sendMessageCreator, updateNewMessageBodyCreator} from "./dialogs-reducer";
+import sidebarReducer from "./sidebar-reducer";
+
 export type PostPropsType = {
     id: number
     message: string
@@ -110,49 +114,21 @@ let store: StoreType = {
     },
 
       dispatch (action:ActionsTypes) {
-        if (action.type === "ADD-POST") {
-            const newPost: PostPropsType = {
-                id: 5,
-                message: this._state.profilePage.newPostText,
-                likesCount: 0
-            }
-            this._state.profilePage.posts.push(newPost)
-            this._state.profilePage.newPostText = ""
-            this._callSubscriber(this._state)
-        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
-            this._state.profilePage.newPostText = action.newText
-            this._callSubscriber(this._state)
-        }
-        else if (action.type === "UPDATE-NEW-MESSAGE-BODY") {
-            this._state.dialogsPage.newMessageBody = action.body
-            this._callSubscriber(this._state)
-        }
-        else if (action.type === "SEND-MESSAGE") {
-            let body = this._state.dialogsPage.newMessageBody
-            this._state.dialogsPage.newMessageBody=""
-            this._state.dialogsPage.messages.push({id:6, message:body})
-            this._callSubscriber(this._state)
-        }
-    }
+          this._state.profilePage = profileReducer(this._state.profilePage, action)
+          this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+          this._state.sidebar = sidebarReducer(this._state.sidebar, action)
+          this._callSubscriber(this._state)
+      }
+
 }
 
 
 export type ActionsTypes = ReturnType<typeof addPostAC> |  ReturnType<typeof onPostChangeAC>
     | ReturnType<typeof sendMessageCreator> | ReturnType<typeof updateNewMessageBodyCreator>
 
-export const addPostAC = () => ({type: "ADD-POST"} as const)
 
-export const onPostChangeAC = (newText:string)=> ({
-        type: "UPDATE-NEW-POST-TEXT",
-        newText:newText
-    } as const)
 
-export const sendMessageCreator = () => ({type: "SEND-MESSAGE"} as const)
 
-export const updateNewMessageBodyCreator = (body:string)=> ({
-    type: "UPDATE-NEW-MESSAGE-BODY",
-    body:body
-} as const)
 
 
 export default store
