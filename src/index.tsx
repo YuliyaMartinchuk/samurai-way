@@ -3,8 +3,8 @@ import './index.css';
 import App from './App';
 import ReactDOM from 'react-dom';
 import './index.css';
-import  {RootStateType} from './redux/state';
-import store from "./redux/state";
+import  {RootStateType} from './redux/store';
+import store from "./redux/redux-store";
 import {BrowserRouter} from "react-router-dom";
 
 let rerenderEntireTree = (state:RootStateType) => { //state взят из 19строки
@@ -19,5 +19,8 @@ let rerenderEntireTree = (state:RootStateType) => { //state взят из 19ст
 }
 
 rerenderEntireTree(store.getState()) //сюда приходит state
-store.subscribe (rerenderEntireTree)
+store.subscribe (()=>{
+    let state = store.getState()
+    rerenderEntireTree(state)
+})
 
