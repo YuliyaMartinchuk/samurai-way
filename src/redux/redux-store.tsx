@@ -5,11 +5,13 @@ import sidebarReducer from "./sidebar-reducer";
 
 export type reducersType = ReturnType<typeof reducers>
 
+
 let reducers = combineReducers({
     profileReducer:profileReducer,
     dialogsReducer:dialogsReducer,
     sidebarReducer:sidebarReducer
 })
+
 
 
 let store = createStore(reducers)

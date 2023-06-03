@@ -1,4 +1,4 @@
-import profileReducer, {addPostAC, onPostChangeAC} from "./profile-reducer";
+import profileReducer, {addPostAC, updateNewPostAC} from "./profile-reducer";
 import dialogsReducer, {sendMessageCreator, updateNewMessageBodyCreator} from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
 
@@ -55,7 +55,6 @@ export type StoreType = {
     getState: () => RootStateType
     dispatch: (action:ActionsTypes)=> void
 }
-
 
 
 
@@ -123,7 +122,7 @@ let store: StoreType = {
 }
 
 
-export type ActionsTypes = ReturnType<typeof addPostAC> |  ReturnType<typeof onPostChangeAC>
+export type ActionsTypes = ReturnType<typeof addPostAC> |  ReturnType<typeof updateNewPostAC>
     | ReturnType<typeof sendMessageCreator> | ReturnType<typeof updateNewMessageBodyCreator>
 
 

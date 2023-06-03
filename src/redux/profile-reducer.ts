@@ -1,4 +1,6 @@
-import {ActionsTypes, PostPropsType, ProfilePagePropsType} from "./store";
+import {ActionsTypes, PostPropsType} from "./store";
+
+type InitialStateType = typeof initialState
 
 let initialState = {
 
@@ -7,11 +9,11 @@ let initialState = {
             {id: 2, message: "So cool", likesCount: 40},
             {id: 3, message: "My day", likesCount: 10},
             {id: 4, message: "It's my first post", likesCount: 50}
-        ],
+        ] ,
         newPostText: " "
 }
 
- const profileReducer = (state=initialState, action:ActionsTypes):ProfilePagePropsType=> {
+ const profileReducer = (state=initialState, action:ActionsTypes):InitialStateType=> {
      switch (action.type) {
          case "ADD-POST":
              const newPost: PostPropsType = {
@@ -32,7 +34,7 @@ let initialState = {
 
 export const addPostAC = () => ({type: "ADD-POST"} as const)
 
-export const onPostChangeAC = (newText:string)=> ({
+export const updateNewPostAC = (newText:string)=> ({
     type: "UPDATE-NEW-POST-TEXT",
     newText:newText
 } as const)
