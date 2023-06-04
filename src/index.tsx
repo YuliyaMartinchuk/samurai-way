@@ -3,25 +3,24 @@ import './index.css';
 import App from './App';
 import ReactDOM from 'react-dom';
 import './index.css';
-import store, {reducersType} from "./redux/redux-store";
+import store from "./redux/redux-store";
 import {BrowserRouter} from "react-router-dom";
+import {Provider} from "./StoreContext";
+import {RootStateType} from "./redux/store";
 
-let rerenderEntireTree = (state:reducersType) => { //state взят из 19строки
+let rerenderEntireTree = (state: RootStateType) => { //state взят из 19строки
     ReactDOM.render(
-    //     state={state}
-    // dispatch={store.dispatch.bind(store)}
-
         <BrowserRouter>
-        <App
-             store={store}
-        />
+            <Provider store={store}>
+                <App/>
+            </Provider>
         </BrowserRouter>,
         document.getElementById('root')
     );
 }
 
 rerenderEntireTree(store.getState()) //сюда приходит state
-store.subscribe (()=>{
+store.subscribe(() => {
     let state = store.getState()
     rerenderEntireTree(state)
 })

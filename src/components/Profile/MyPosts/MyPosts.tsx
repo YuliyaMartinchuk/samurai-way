@@ -4,7 +4,6 @@ import Post from "./Post/Post";
 import {PostPropsType} from "../../../redux/store";
 
 
-
 type PropsType = {
     updateNewPostText:(newText:string) => void
     addPost:()=> void

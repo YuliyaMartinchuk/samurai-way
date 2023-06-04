@@ -4,28 +4,18 @@ import Header from "./components/Header/Header";
 import Profile from "./components/Profile/Profile";
 import {Route} from "react-router-dom";
 import DialogsContainer from "./components/ Dialogs/DialogsContainer";
-import {ActionsTypes} from "./redux/store";
-import {reducersType} from "./redux/redux-store";
-import {Store} from "redux";
 import Navbar from "./components/Navbar/Navbar";
 
 
-
-type AppProps = {
-    store: Store<reducersType, ActionsTypes>
-
-}
-
-const App: React.FC <AppProps> = (props) => {
-    // const  state = props.store.getState()
+const App = () => {
     return (
 
             <div className="app-wrapper">
                 <Header/>
-                <Navbar sidebar={props.store}/>
+                <Navbar />
                 <div className="app-wrapper-content">
-                    <Route path="/profile" render={() => <Profile store={props.store }/>}/>
-                    <Route path="/dialogs" render={() => <DialogsContainer store={props.store}/>}/>
+                    <Route path="/profile" render={() => <Profile/>}/>
+                    <Route path="/dialogs" render={() => <DialogsContainer />}/>
 
                     {/*<Route path = "/news" render = {()=><Profile />}/> /!*Пока нет необходимой компоненты вставила Profile*!/*/}
                     {/*<Route path = "/music" render = {()=><Profile />}/> /!*Пока нет необходимой компоненты вставила Profile*!/*/}
