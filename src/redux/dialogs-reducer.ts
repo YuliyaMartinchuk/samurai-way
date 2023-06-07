@@ -1,6 +1,17 @@
-import {ActionsTypes, DialogPagePropsType} from "./store";
+import {ActionsTypes} from "./store";
 
-let initialState = {
+export type MessagePropsType = {
+    id: number
+    message: string
+    // avatar: string
+}
+
+export type DialogsPropsType = {
+    id: number
+    name: string
+}
+
+const initialState = {
     dialogs: [
         {id: 1, name: "Ann"},
         {id: 2, name: "Valera"},
@@ -8,7 +19,7 @@ let initialState = {
         {id: 4, name: "Alex"},
         {id: 5, name: "Nick"},
         {id: 6, name: "Tim"}
-    ],
+    ] as DialogsPropsType[],
     messages: [
         {id: 1, message: "Hello"},
         {id: 2, message: "How are you?"},
@@ -16,11 +27,13 @@ let initialState = {
         {id: 4, message: "What's up?"},
         {id: 5, message: "How is your day going?"},
         {id: 6, message: "Exactly!"}
-    ],
+    ] as MessagePropsType[],
     newMessageBody: ""
 }
 
-const dialogsReducer = (state=initialState, action: ActionsTypes): DialogPagePropsType => {
+export type initialStateType = typeof initialState
+
+const dialogsReducer = (state: initialStateType = initialState, action: ActionsTypes): initialStateType => {
     switch (action.type) {
         case "UPDATE-NEW-MESSAGE-BODY":
             state.newMessageBody = action.body
@@ -32,13 +45,14 @@ const dialogsReducer = (state=initialState, action: ActionsTypes): DialogPagePro
             return state
         default:
             return state
-    }}
+    }
+}
 
-export const sendMessageCreator = () => ({type: "SEND-MESSAGE"} as const)
+export const sendMessageAC = () => ({type: "SEND-MESSAGE"} as const)
 
-export const updateNewMessageBodyCreator = (body:string)=> ({
+export const updateNewMessageAC = (body: string) => ({
     type: "UPDATE-NEW-MESSAGE-BODY",
-    body:body
+    body: body
 } as const)
 
-    export default dialogsReducer
+export default dialogsReducer

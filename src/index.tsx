@@ -5,10 +5,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import store from "./redux/redux-store";
 import {BrowserRouter} from "react-router-dom";
-import {Provider} from "./StoreContext";
 import {RootStateType} from "./redux/store";
+import {Provider} from "react-redux";
 
-let rerenderEntireTree = (state: RootStateType) => { //state взят из 19строки
+let rerenderEntireTree = ( state: RootStateType) => { //state взят из 19строки
     ReactDOM.render(
         <BrowserRouter>
             <Provider store={store}>

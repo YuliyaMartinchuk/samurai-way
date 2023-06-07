@@ -1,22 +1,22 @@
 import React from "react";
 import s from "./Navbar.module.css"
 import {NavLink} from "react-router-dom";
-import StoreContext from "../../StoreContext";
+
 
 
 const Navbar = () => {
-    return (
-        <StoreContext.Consumer>
-            {(store) => {
-
-                const friendsList = store.getState().sidebar.friends.map(el => {
-                    return (
-                        <div key={el.id}>
-                            <img className={s.avatar} src={el.avatar}/>
-                            <div className={s.name}>{el.name}</div>
-                        </div>
-                    )
-                })
+    // return (
+        // <StoreContext.Consumer>
+        //     {(store) => {
+        //
+        //         const friendsList = store.getState().sidebar.friends.map(el => {
+        //             return (
+        //                 <div key={el.id}>
+        //                     <img className={s.avatar} src={el.avatar}/>
+        //                     <div className={s.name}>{el.name}</div>
+        //                 </div>
+        //             )
+        //         })
                 return (
                     <nav className={s.nav}>
                         <div className={s.item}>
@@ -38,13 +38,14 @@ const Navbar = () => {
                             Friends
                         </div>
                         <div className={s.friends}>
-                            {friendsList}
+                            {/*{friendsList}*/}
                         </div>
 
-                    </nav>)
-            }
-            }
-        </StoreContext.Consumer>
-    )
+                    </nav>
+                )
+        //     }
+        //     }
+        // </StoreContext.Consumer>
+    // )
 }
 export default Navbar
