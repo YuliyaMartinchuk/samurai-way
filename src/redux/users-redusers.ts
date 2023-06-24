@@ -9,8 +9,14 @@ export type UserPropsType = {
         country: string
     }
     status: string
-    photo: string
+    name: string
+    photos: {
+        small: string
+        large: string
+    },
+
 }
+
 
 const initialState = {
     users: [] as UserPropsType[]
