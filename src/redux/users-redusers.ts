@@ -1,25 +1,26 @@
 import {ActionsTypes} from "./store";
 
 export type UserPropsType = {
-    id: number
-    followed:boolean
-    fullName: string
-    location: {
-        city: string
-        country: string
-    }
-    status: string
     name: string
+    id: number
     photos: {
         small: string
         large: string
     },
-
+    status: string
+    followed:boolean
+    fullName: string
+    location?: {
+        city: string
+        country: string
+    }
 }
 
 
 const initialState = {
-    users: [] as UserPropsType[]
+    users: [] as UserPropsType[],
+    totalCount: 30,
+    error: null
 }
 
 export type InitialStateType = typeof initialState
