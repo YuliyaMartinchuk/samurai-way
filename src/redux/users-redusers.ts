@@ -1,26 +1,27 @@
 import {ActionsTypes} from "./store";
 
+export type PhotosType = {
+    small: string,
+    large: string
+}
+export type LocationType = {
+    city: string,
+    country: string
+}
+
 export type UserPropsType = {
-    name: string
-    id: number
-    photos: {
-        small: string
-        large: string
-    },
-    status: string
-    followed:boolean
-    fullName: string
-    location?: {
-        city: string
-        country: string
-    }
+    id: number,
+    followed: boolean,
+    photos: PhotosType,
+    name: string,
+    status: string,
+    location?: LocationType
 }
 
 
 const initialState = {
-    users: [] as UserPropsType[],
-    totalCount: 30,
-    error: null
+    users: [] as UserPropsType[]
+
 }
 
 export type InitialStateType = typeof initialState
@@ -28,22 +29,25 @@ export type InitialStateType = typeof initialState
 const usersReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
     switch (action.type) {
         case "FOLLOW": {
-            return {...state,
-                users: state.users.map(u=> u.id === action.userId
-                    ? {...u, followed:true}
+            return {
+                ...state,
+                users: state.users.map(u => u.id === action.userId
+                    ? {...u, followed: true}
                     : u)
             }
         }
-        case "UNFOLLOW":{
-            return {...state,
-                users: state.users.map(u=> u.id === action.userId
-                    ? {...u, followed:false}
+        case "UNFOLLOW": {
+            return {
+                ...state,
+                users: state.users.map(u => u.id === action.userId
+                    ? {...u, followed: false}
                     : u)
             }
         }
 
         case "SET_USERS": {
-            return {...state,
+            return {
+                ...state,
                 users: [...state.users, ...action.users]
             }
         }
@@ -54,9 +58,9 @@ const usersReducer = (state: InitialStateType = initialState, action: ActionsTyp
 }
 
 
-export const followAC = (userId:number) => ({type: "FOLLOW", userId} as const)
-export const unFollowAC = (userId:number) => ({type: "UNFOLLOW", userId} as const)
-export const setUsersAC = (users:UserPropsType[]) => ({type: "SET_USERS", users} as const)
+export const followAC = (userId: number) => ({type: "FOLLOW", userId} as const)
+export const unFollowAC = (userId: number) => ({type: "UNFOLLOW", userId} as const)
+export const setUsersAC = (users: UserPropsType[]) => ({type: "SET_USERS", users} as const)
 
 
 export default usersReducer
