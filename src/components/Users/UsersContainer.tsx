@@ -2,15 +2,18 @@ import React from 'react';
 import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux-store";
 import {
-    followAC,
     InitialStateType,
-    setCurrentPageAC, setTotalUsersCountAC,
-    setUsersAC,
-    unFollowAC,
     UserPropsType
-} from "../../redux/users-redusers";
+} from "../../redux/reducers/usersReducer";
 import {Dispatch} from "redux";
 import {Users} from "./Users";
+import {
+    followAC,
+    setCurrentPageAC,
+    setTotalUsersCountAC,
+    setUsersAC,
+    unFollowAC
+} from "../../redux/actions/usersAction";
 
 
 type MapStateToPropsType = {
