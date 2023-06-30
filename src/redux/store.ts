@@ -1,4 +1,4 @@
-import profileReducer, {addPostAC, updateNewPostAC} from "./profile-reducer";
+import profileReducer, {addPostAC, updateNewPostAC} from "./reducers/profileReducer";
 import dialogsReducer, {sendMessageAC, updateNewMessageAC} from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
 

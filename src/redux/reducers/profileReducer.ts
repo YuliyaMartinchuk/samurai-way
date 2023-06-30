@@ -1,4 +1,4 @@
-import {ActionsTypes} from "./store";
+import {ActionsTypes} from "../store";
 
 export type PostPropsType = {
     id: number
