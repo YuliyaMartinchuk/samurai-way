@@ -1,4 +1,5 @@
 import {
+    TOGGLE_IS_FETCHING,
     USERS_FOLLOW,
     USERS_SET_CURRENT_PAGE,
     USERS_SET_TOTAL_USERS_COUNT,
@@ -29,7 +30,8 @@ const initialState = {
     users: [] as UserPropsType[],
     pageSize: 5,
     totalUsersCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: false
 }
 
 export type InitialStateType = typeof initialState
@@ -69,6 +71,12 @@ const usersReducer = (state: InitialStateType = initialState, action: ActionType
             return {
                 ...state,
                 totalUsersCount: action.payload.totalCount
+            }
+        }
+        case TOGGLE_IS_FETCHING: {
+            return {
+                ...state,
+                isFetching: action.payload.isFetching
             }
         }
 
