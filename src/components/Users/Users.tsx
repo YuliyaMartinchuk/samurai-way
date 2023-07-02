@@ -2,6 +2,7 @@ import React from 'react';
 import s from "./users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 import {UserPropsType} from "../../redux/reducers/usersReducer";
+import {unFollow} from "../../redux/actions/usersAction";
 
 type PropsType = {
     users: UserPropsType[]
@@ -9,7 +10,7 @@ type PropsType = {
     totalUsersCount: number
     currentPage: number
     follow: (userId: number) => void
-    unfollow: (userId: number) => void
+    unFollow: (userId: number) => void
     onPageChanged: (pageNumber: number) => void
 }
 
@@ -20,7 +21,7 @@ export const Users: React.FC<PropsType> = ({
                                                totalUsersCount,
                                                currentPage,
                                                follow,
-                                               unfollow,
+                                               unFollow,
                                                onPageChanged
                                            }) => {
     const pagesCount = Math.ceil(totalUsersCount / pageSize)
@@ -47,7 +48,7 @@ export const Users: React.FC<PropsType> = ({
                         </div>
                         <div>
                             {u.followed
-                                ? <button onClick={() => unfollow(u.id)}>unfollow</button>
+                                ? <button onClick={() => unFollow(u.id)}>unfollow</button>
                                 : <button onClick={() => follow(u.id)}>follow</button>
                             }
                         </div>

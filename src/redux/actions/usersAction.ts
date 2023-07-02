@@ -10,22 +10,22 @@ import {
 
 
 export type UsersActionsTypes =
-    | ReturnType<typeof followAC>
-    | ReturnType<typeof unFollowAC>
-    | ReturnType<typeof setUsersAC>
-    | ReturnType<typeof setCurrentPageAC>
-    | ReturnType<typeof setTotalUsersCountAC>
-    | ReturnType<typeof toggleIsFetchingAC>
+    | ReturnType<typeof follow>
+    | ReturnType<typeof unFollow>
+    | ReturnType<typeof setUsers>
+    | ReturnType<typeof setCurrentPage>
+    | ReturnType<typeof setTotalUsersCount>
+    | ReturnType<typeof toggleIsFetching>
 
 
-export const followAC = (userId: number) => ({
+export const follow = (userId: number) => ({
     type: USERS_FOLLOW,
     payload: {
         userId
     }
 } as const)
 
-export const unFollowAC = (userId: number) => ({
+export const unFollow = (userId: number) => ({
     type: USERS_UNFOLLOW,
     payload: {
         userId
@@ -33,7 +33,7 @@ export const unFollowAC = (userId: number) => ({
 } as const)
 
 
-export const setUsersAC = (users: UserPropsType[]) =>
+export const setUsers = (users: UserPropsType[]) =>
     ({
         type: USERS_SET_USERS,
         payload: {
@@ -41,19 +41,19 @@ export const setUsersAC = (users: UserPropsType[]) =>
         }
     } as const)
 
-export const setCurrentPageAC = (currentPage: number) =>
+export const setCurrentPage = (currentPage: number) =>
     ({
         type: USERS_SET_CURRENT_PAGE,
         payload: {currentPage}
     } as const)
 
-export const setTotalUsersCountAC = (totalCount: number) =>
+export const setTotalUsersCount = (totalCount: number) =>
     ({
         type: USERS_SET_TOTAL_USERS_COUNT,
         payload: {totalCount}
     } as const)
 
-export const toggleIsFetchingAC = (isFetching: boolean) =>
+export const toggleIsFetching = (isFetching: boolean) =>
     ({
         type: TOGGLE_IS_FETCHING,
         payload: {isFetching}
