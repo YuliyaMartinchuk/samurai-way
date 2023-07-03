@@ -35,7 +35,7 @@ const ProfileInfo: React.FC<PropsType> = ({profile}) => {
                     <span>{profile.contacts.youtube ? `${profile?.contacts.youtube}` : null}</span>
                 </div>
                 <div className={s.otherDescription}>
-                    <span>job search:</span>
+                    <span>Job search: </span>
                     <span>{profile?.lookingForAJob}</span>
                     <span>{profile?.lookingForAJobDescription}</span>
                 </div>
