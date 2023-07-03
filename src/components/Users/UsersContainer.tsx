@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux-store";
 import {
     InitialStateType,
-    UserPropsType
+    UserType
 } from "../../redux/reducers/usersReducer";
 
 import axios from "axios";
@@ -29,7 +29,7 @@ type MapStateToPropsType = {
 type MapDispatchToPropsType = {
     follow: (userId: number) => void
     unFollow: (userId: number) => void
-    setUsers: (users: UserPropsType[]) => void
+    setUsers: (users: UserType[]) => void
     setCurrentPage: (currentPage: number) => void
     setTotalUsersCount: (totalCount: number) => void
     toggleIsFetching: (isFetching: boolean) => void

@@ -1,13 +1,20 @@
 import React from "react";
 import ProfileInfo from "./ProfileInfo/Profileinfo";
 import MyPostsContainer from "./MyPosts/Post/MyPostsContainer";
+import {Preloader} from "../common/Preloader/Preloader";
+import {ProfilePropsType} from "./ProfileContainer";
 
-const Profile = () => {
 
-    return (<div >
-        <ProfileInfo />
-        <MyPostsContainer />
+export const Profile: React.FC<ProfilePropsType> = ({profile}) => {
+    if (!profile) {
+        return <Preloader/>
+    }
+    return (
+        <div>
+            <ProfileInfo profile={profile}/>
+            <MyPostsContainer/>
 
-    </div>)
+        </div>)
 }
-export default Profile
+
+

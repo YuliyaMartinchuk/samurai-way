@@ -17,7 +17,7 @@ export type LocationType = {
     country: string
 }
 
-export type UserPropsType = {
+export type UserType = {
     id: number,
     followed: boolean,
     photos: PhotosType,
@@ -27,8 +27,8 @@ export type UserPropsType = {
 }
 
 const initialState = {
-    users: [] as UserPropsType[],
-    pageSize: 5,
+    users: [] as UserType[],
+    pageSize: 25,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false
@@ -36,7 +36,7 @@ const initialState = {
 
 export type InitialStateType = typeof initialState
 
-const usersReducer = (state: InitialStateType = initialState, action: ActionType): InitialStateType => {
+export const usersReducer = (state: InitialStateType = initialState, action: ActionType): InitialStateType => {
     switch (action.type) {
         case USERS_FOLLOW: {
             return {
@@ -85,5 +85,5 @@ const usersReducer = (state: InitialStateType = initialState, action: ActionType
     }
 }
 
-export default usersReducer
+
 

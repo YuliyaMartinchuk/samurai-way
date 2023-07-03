@@ -1,9 +1,42 @@
-import {ActionsTypes} from "../store";
+import {ActionType} from "../actions/actionTypes";
+import {PROFILE_ADD_POST, PROFILE_SET_USER_PROFILE, PROFILE_UPDATE_NEW_POST_TEXT} from "../actions/actionTypeTitle";
 
-export type PostPropsType = {
+
+export type PostType = {
     id: number
     message: string
     likesCount: number
+}
+
+export type ProfileContactsType = {
+    facebook: string|null
+    website: string|null
+    vk: string|null
+    twitter: string|null
+    instagram: string|null
+    youtube: string|null
+    github: string|null
+    mainLink: string|null
+}
+
+export type ProfilePhotoType = {
+    small: string,
+    large: string
+}
+
+export type ProfileType = {
+    aboutMe: string
+    contacts: ProfileContactsType
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
+    fullName: string
+    userId: number
+    photos: ProfilePhotoType
+}
+
+export type ProfilePageType = {
+    posts: PostType[]
+    newPostText: string
 }
 
 const initialState = {
@@ -12,16 +45,17 @@ const initialState = {
         {id: 2, message: "So cool", likesCount: 40},
         {id: 3, message: "My day", likesCount: 10},
         {id: 4, message: "It's my first post", likesCount: 50}
-    ] as PostPropsType[],
-    newPostText: " " as string
+    ] as PostType[],
+    newPostText: " " as string,
+    profile: null as ProfileType | null
 }
 
 export type InitialStateType = typeof initialState
 
-const profileReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
+export const profileReducer = (state: InitialStateType = initialState, action:ActionType ): InitialStateType => {
     switch (action.type) {
-        case "ADD-POST": {
-            const newPost: PostPropsType = {
+        case PROFILE_ADD_POST: {
+            const newPost: PostType = {
                 id: 5,
                 message: state.newPostText,
                 likesCount: 0
@@ -33,10 +67,16 @@ const profileReducer = (state: InitialStateType = initialState, action: ActionsT
             }
 
         }
-        case "UPDATE-NEW-POST-TEXT": {
+        case PROFILE_UPDATE_NEW_POST_TEXT: {
             return {
                 ...state,
-                newPostText: action.newText
+                newPostText: action.payload.newText
+            }
+        }
+        case PROFILE_SET_USER_PROFILE: {
+            return {
+                ...state,
+                profile: action.payload.profile
             }
         }
         default:
@@ -44,12 +84,5 @@ const profileReducer = (state: InitialStateType = initialState, action: ActionsT
     }
 }
 
-export const addPostAC = () => ({type: "ADD-POST"} as const)
 
-export const updateNewPostAC = (newText: string) => ({
-    type: "UPDATE-NEW-POST-TEXT",
-    newText: newText
-} as const)
-
-export default profileReducer
 

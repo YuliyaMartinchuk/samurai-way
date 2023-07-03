@@ -1,4 +1,4 @@
-import {UserPropsType} from "../reducers/usersReducer";
+import {UserType} from "../reducers/usersReducer";
 import {
     TOGGLE_IS_FETCHING,
     USERS_FOLLOW,
@@ -33,7 +33,7 @@ export const unFollow = (userId: number) => ({
 } as const)
 
 
-export const setUsers = (users: UserPropsType[]) =>
+export const setUsers = (users: UserType[]) =>
     ({
         type: USERS_SET_USERS,
         payload: {
