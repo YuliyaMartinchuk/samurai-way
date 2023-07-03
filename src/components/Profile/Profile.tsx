@@ -6,9 +6,7 @@ import {ProfilePropsType} from "./ProfileContainer";
 
 
 export const Profile: React.FC<ProfilePropsType> = ({profile}) => {
-    if (!profile) {
-        return <Preloader/>
-    }
+
     return (
         <div>
             <ProfileInfo profile={profile}/>
