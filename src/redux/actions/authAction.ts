@@ -5,10 +5,10 @@ import {
 
 
 export type SetUserDataTypes =
-    | ReturnType<typeof setUserDataAC>
+    | ReturnType<typeof setAuthUserDataAC>
 
 
-export const setUserDataAC = (userId: number | null, email: string | null, login: string | null) => ({
+export const setAuthUserDataAC = (userId: number | null, email: string | null, login: string | null) => ({
     type: SET_USER_DATA_AUTH,
     payload: {
         data: {

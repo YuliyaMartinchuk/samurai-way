@@ -7,12 +7,14 @@ const initialState = {
     id: null,
     email: null,
     login: null,
+    isAuth: false
 }
 
 export type InitialStateType =  {
     id: null|string
     email: null|string
     login: null|string
+    isAuth: boolean
 }
 
 export const authReducer = (state: InitialStateType = initialState, action: ActionType): InitialStateType => {
@@ -20,7 +22,8 @@ export const authReducer = (state: InitialStateType = initialState, action: Acti
         case SET_USER_DATA_AUTH: {
             return {
                 ...state,
-               ...action.payload.data
+               ...action.payload.data,
+                isAuth: true
             }
         }
 
