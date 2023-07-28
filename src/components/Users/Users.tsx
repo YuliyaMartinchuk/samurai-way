@@ -3,7 +3,7 @@ import s from "./users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 import {UserType} from "../../redux/reducers/usersReducer";
 import {NavLink} from "react-router-dom";
-import axios from "axios";
+import {usersAPI} from "../../api/api";
 
 type PropsType = {
     users: UserType[]
@@ -16,15 +16,8 @@ type PropsType = {
 }
 
 
-export const Users: React.FC<PropsType> = ({
-                                               users,
-                                               pageSize,
-                                               totalUsersCount,
-                                               currentPage,
-                                               follow,
-                                               unFollow,
-                                               onPageChanged
-                                           }) => {
+export const Users: React.FC<PropsType> = ({users, pageSize, totalUsersCount,
+                                               currentPage, follow, unFollow, onPageChanged}) => {
     const pagesCount = Math.ceil(totalUsersCount / pageSize)
     const pages = []
     for (let i = 1; i <= pagesCount; i++) {
@@ -37,9 +30,7 @@ export const Users: React.FC<PropsType> = ({
                         return (
                             <span onClick={() => onPageChanged(p)}
                                   className={currentPage === p ? s.selectedPage : ""}>{p}</span>
-                        )
-                    }
-                )}
+                        )})}
             </div>
 
             {users.map(u =>
@@ -53,17 +44,17 @@ export const Users: React.FC<PropsType> = ({
                         <div>
                             {u.followed
                                 ? <button onClick={() => {
-                                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}` , {withCredentials:true})
-                                        .then((res) => {
-                                            if (res.data.resultCode === 0) {
-                                                unFollow(u.id)
+                                    usersAPI.unFollow(u.id)
+                                        .then(data => {
+                                            if (data.resultCode === 0) {
+                                               unFollow(u.id)
                                             }
                                         })
                                 }}>unfollow</button>
                                 : <button onClick={() => {
-                                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}` , {}, {withCredentials:true})
-                                        .then((res) => {
-                                            if (res.data.resultCode === 0) {
+                                    usersAPI.follow(u.id)
+                                        .then(data => {
+                                            if (data.resultCode === 0) {
                                             follow(u.id)
                                             }
                                         })
@@ -85,9 +76,6 @@ export const Users: React.FC<PropsType> = ({
         </div>
     );
 }
-
-
-
 
 
 

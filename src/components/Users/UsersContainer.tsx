@@ -5,8 +5,6 @@ import {
     InitialStateType,
     UserType
 } from "../../redux/reducers/usersReducer";
-
-import axios from "axios";
 import {Users} from "./Users";
 import {Preloader} from "../common/Preloader/Preloader";
 import {
@@ -90,4 +88,5 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 export const UsersContainer = connect(mapStateToProps, {
     follow, unFollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching
 })(UsersContainerAPI as any)
+
 
