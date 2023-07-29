@@ -10,14 +10,17 @@ type PropsType = {
     pageSize: number
     totalUsersCount: number
     currentPage: number
+    followingInProgress: boolean
     follow: (userId: number) => void
     unFollow: (userId: number) => void
     onPageChanged: (pageNumber: number) => void
+    toggleFollowingProgress: (isFetching:boolean) => void
 }
 
 
 export const Users: React.FC<PropsType> = ({users, pageSize, totalUsersCount,
-                                               currentPage, follow, unFollow, onPageChanged}) => {
+                                               currentPage, follow, unFollow, onPageChanged,
+                                               toggleFollowingProgress, followingInProgress}) => {
     const pagesCount = Math.ceil(totalUsersCount / pageSize)
     const pages = []
     for (let i = 1; i <= pagesCount; i++) {
@@ -43,20 +46,24 @@ export const Users: React.FC<PropsType> = ({users, pageSize, totalUsersCount,
                         </div>
                         <div>
                             {u.followed
-                                ? <button onClick={() => {
+                                ? <button disabled={followingInProgress} onClick={() => {
+                                    toggleFollowingProgress(true)
                                     usersAPI.unFollow(u.id)
                                         .then(data => {
                                             if (data.resultCode === 0) {
                                                unFollow(u.id)
                                             }
+                                            toggleFollowingProgress(false)
                                         })
                                 }}>unfollow</button>
-                                : <button onClick={() => {
+                                : <button disabled={followingInProgress} onClick={() => {
+                                    toggleFollowingProgress(true)
                                     usersAPI.follow(u.id)
                                         .then(data => {
                                             if (data.resultCode === 0) {
                                             follow(u.id)
                                             }
+                                            toggleFollowingProgress(false)
                                         })
                                 }}>follow</button>
                             }

@@ -1,5 +1,5 @@
 import {
-    TOGGLE_IS_FETCHING,
+    TOGGLE_IS_FETCHING, TOGGLE_IS_FOLLOWING_PROGRESS,
     USERS_FOLLOW,
     USERS_SET_CURRENT_PAGE,
     USERS_SET_TOTAL_USERS_COUNT,
@@ -31,7 +31,8 @@ const initialState = {
     pageSize: 25,
     totalUsersCount: 0,
     currentPage: 1,
-    isFetching: false
+    isFetching: false,
+    followingInProgress: false
 }
 
 export type InitialStateType = typeof initialState
@@ -77,6 +78,12 @@ export const usersReducer = (state: InitialStateType = initialState, action: Act
             return {
                 ...state,
                 isFetching: action.payload.isFetching
+            }
+        }
+        case TOGGLE_IS_FOLLOWING_PROGRESS: {
+            return {
+                ...state,
+                followingInProgress: action.payload.isFetching
             }
         }
 
