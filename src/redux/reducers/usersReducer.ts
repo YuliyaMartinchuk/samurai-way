@@ -26,13 +26,15 @@ export type UserType = {
     location?: LocationType
 }
 
+ export type FollowingInProgressType = number[]
+
 const initialState = {
     users: [] as UserType[],
     pageSize: 25,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
-    followingInProgress: false
+    followingInProgress: [] as FollowingInProgressType
 }
 
 export type InitialStateType = typeof initialState
@@ -84,9 +86,10 @@ export const usersReducer = (state: InitialStateType = initialState, action: Act
             return {
                 ...state,
                 followingInProgress: action.payload.isFetching
+                    ? [...state.followingInProgress,action.payload.userId]
+                    : state.followingInProgress.filter(id => id !== action.payload.userId)
             }
         }
-
         default:
             return state
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux-store";
 import {
+    FollowingInProgressType,
     InitialStateType,
     UserType
 } from "../../redux/reducers/usersReducer";
@@ -23,7 +24,7 @@ type MapStateToPropsType = {
     totalUsersCount: number
     currentPage: number
     isFetching: boolean
-    followingInProgress: boolean
+    followingInProgress: FollowingInProgressType
 }
 
 type MapDispatchToPropsType = {

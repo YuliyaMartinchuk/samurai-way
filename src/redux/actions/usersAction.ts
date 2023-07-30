@@ -60,8 +60,8 @@ export const toggleIsFetching = (isFetching: boolean) =>
         payload: {isFetching}
     } as const)
 
-export const toggleFollowingProgress = (isFetching: boolean) =>
+export const toggleFollowingProgress = (isFetching: boolean, userId:number) =>
     ({
         type: TOGGLE_IS_FOLLOWING_PROGRESS,
-        payload: {isFetching}
+        payload: {isFetching,userId}
     } as const)
