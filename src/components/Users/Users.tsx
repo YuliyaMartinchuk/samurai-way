@@ -3,7 +3,6 @@ import s from "./users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 import {FollowingInProgressType, UserType} from "../../redux/reducers/usersReducer";
 import {NavLink} from "react-router-dom";
-import {usersAPI} from "../../api/api";
 
 type PropsType = {
     users: UserType[]
@@ -14,13 +13,14 @@ type PropsType = {
     follow: (userId: number) => void
     unFollow: (userId: number) => void
     onPageChanged: (pageNumber: number) => void
-    toggleFollowingProgress: (isFetching:boolean,userId: number ) => void
 }
 
 
-export const Users: React.FC<PropsType> = ({users, pageSize, totalUsersCount,
+export const Users: React.FC<PropsType> = ({
+                                               users, pageSize, totalUsersCount,
                                                currentPage, follow, unFollow, onPageChanged,
-                                               toggleFollowingProgress, followingInProgress}) => {
+                                                followingInProgress
+                                           }) => {
     const pagesCount = Math.ceil(totalUsersCount / pageSize)
     const pages = []
     for (let i = 1; i <= pagesCount; i++) {
@@ -30,10 +30,11 @@ export const Users: React.FC<PropsType> = ({users, pageSize, totalUsersCount,
         <div>
             <div>
                 {pages.map(p => {
-                        return (
-                            <span onClick={() => onPageChanged(p)}
-                                  className={currentPage === p ? s.selectedPage : ""}>{p}</span>
-                        )})}
+                    return (
+                        <span onClick={() => onPageChanged(p)}
+                              className={currentPage === p ? s.selectedPage : ""}>{p}</span>
+                    )
+                })}
             </div>
 
             {users.map(u =>
@@ -46,26 +47,16 @@ export const Users: React.FC<PropsType> = ({users, pageSize, totalUsersCount,
                         </div>
                         <div>
                             {u.followed
-                                ? <button disabled={followingInProgress.some(id => id === u.id)} onClick={() => {
-                                    toggleFollowingProgress(true, u.id)
-                                    usersAPI.unFollow(u.id)
-                                        .then(data => {
-                                            if (data.resultCode === 0) {
-                                               unFollow(u.id)
-                                            }
-                                            toggleFollowingProgress(false, u.id)
-                                        })
-                                }}>unfollow</button>
-                                : <button disabled={followingInProgress.some(id => id === u.id)} onClick={() => {
-                                    toggleFollowingProgress(true, u.id)
-                                    usersAPI.follow(u.id)
-                                        .then(data => {
-                                            if (data.resultCode === 0) {
-                                            follow(u.id)
-                                            }
-                                            toggleFollowingProgress(false, u.id)
-                                        })
-                                }}>follow</button>
+                                ? <button disabled={followingInProgress.some(id => id === u.id)}
+                                          onClick={() => {
+                                              unFollow(u.id)
+                                          }}>
+                                    unfollow</button>
+                                : <button disabled={followingInProgress.some(id => id === u.id)}
+                                          onClick={() => {
+                                              follow(u.id)
+                                          }}>
+                                    follow</button>
                             }
                         </div>
                     </span>
