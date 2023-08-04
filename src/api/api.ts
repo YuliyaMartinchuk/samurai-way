@@ -21,3 +21,14 @@ export const usersAPI = {
     }
 }
 
+export const profileAPI = {
+    getProfile(userId:string) {
+        return instance.get(`profile/${userId}`)
+    }
+}
+
+export const authAPI = {
+     me() {
+         return instance.get(`auth/me`)
+     }
+}
