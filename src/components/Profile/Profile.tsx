@@ -4,6 +4,7 @@ import MyPostsContainer from "./MyPosts/Post/MyPostsContainer";
 import {ProfilePropsType} from "./ProfileContainer";
 
 
+
 export const Profile: React.FC<ProfilePropsType> = ({profile}) => {
 
     return (
