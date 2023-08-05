@@ -4,16 +4,9 @@ import {AppStateType} from "../../redux/redux-store";
 import {
     FollowingInProgressType,
     InitialStateType,
-    UserType
 } from "../../redux/reducers/usersReducer";
 import {Users} from "./Users";
 import {Preloader} from "../common/Preloader/Preloader";
-import {
-    setCurrentPage,
-    setTotalUsersCount,
-    setUsers, toggleFollowingProgress,
-    toggleIsFetching,
-} from "../../redux/actions/usersAction";
 import {changePageTC, followTC, getUsersTC, unFollowTC} from "../../redux/thunks/usersThunks";
 
 type MapStateToPropsType = {
@@ -30,12 +23,6 @@ type MapDispatchToPropsType = {
     changePageTC: (pageNumber: number, pageSize:number) => void
     followTC: (userId: number) => void
     unFollowTC: (userId: number) => void
-    setUsers: (users: UserType[]) => void
-    setCurrentPage: (currentPage: number) => void
-    setTotalUsersCount: (totalCount: number) => void
-    toggleIsFetching: (isFetching: boolean) => void
-    toggleFollowingProgress: (isFetching:boolean) => void
-
 }
 
 export type UsersPropsType = MapStateToPropsType & MapDispatchToPropsType
@@ -81,8 +68,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 }
 
 export const UsersContainer = connect(mapStateToProps, {
-    followTC, unFollowTC, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching,
-    toggleFollowingProgress, getUsersTC, changePageTC
+     getUsersTC, changePageTC,followTC, unFollowTC
 })(UsersContainerAPI as any)
 
 
