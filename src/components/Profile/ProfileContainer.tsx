@@ -55,8 +55,6 @@ const AuthRedirectComponent = (props: ProfilePropsType) => {
 
 let withURLDataContainerComponent = withRouter(AuthRedirectComponent)
 
-
-
 export const ProfileContainer = withAuthRedirect(connect(mapStateToProps, {
     getUserProfileTC
 })(withURLDataContainerComponent))
