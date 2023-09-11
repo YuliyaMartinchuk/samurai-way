@@ -8,6 +8,8 @@ import {
 import {Users} from "./Users";
 import {Preloader} from "../common/Preloader/Preloader";
 import {changePageTC, followTC, getUsersTC, unFollowTC} from "../../redux/thunks/usersThunks";
+import {compose} from "redux";
+import {withAuthRedirectComponent} from "../../hok/withAuthRedirect";
 
 type MapStateToPropsType = {
     usersPage: InitialStateType
@@ -67,8 +69,8 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     }
 }
 
-export const UsersContainer = connect(mapStateToProps, {
+export const UsersContainer = compose<any>(connect(mapStateToProps, {
      getUsersTC, changePageTC,followTC, unFollowTC
-})(UsersContainerAPI as any)
+}), withAuthRedirectComponent) (UsersContainerAPI as any)
 
 
