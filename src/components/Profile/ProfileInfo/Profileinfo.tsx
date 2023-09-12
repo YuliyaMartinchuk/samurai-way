@@ -3,6 +3,7 @@ import s from "./Profileinfo.module.css"
 import {ProfileType} from "../../../redux/reducers/profileReducer";
 import backgroundImage from "../../../assets/images/backgroundImage.jpg"
 import {Preloader} from "../../common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus";
 
 
 type PropsType = {
@@ -22,6 +23,7 @@ const ProfileInfo: React.FC<PropsType> = ({profile}) => {
 
             <div className={s.descriptionBlock}>
                 <h1>{profile.fullName}</h1>
+                <ProfileStatus aboutMe={profile.aboutMe}/>
                 <span className={s.status}>{profile?.aboutMe}</span>
                 <div className={s.contacts}>
                     <span>My contacts: </span>
