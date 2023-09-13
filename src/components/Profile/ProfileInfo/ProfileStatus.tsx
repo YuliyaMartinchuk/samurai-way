@@ -1,23 +1,43 @@
 import React from "react";
 import s from "./Profileinfo.module.css"
-import {ProfileType} from "../../../redux/reducers/profileReducer";
+
 
 
 type PropsType = {
-    aboutMe: string
+    status: string
 }
 
-const ProfileStatus: React.FC<PropsType> = ({aboutMe}) => {
+class ProfileStatus extends React.Component<PropsType> {
+    state = {editMode: false}
 
-    return (
-        <div>
+    activateEditMode() {
+        this.setState({
+            editMode: true
+        })
+    }
+    deActivateEditMode() {
+        this.setState({
+            editMode: false
+        })
+    }
+
+    render() {
+        return (
             <div>
-                <span className={s.status}>{aboutMe}</span>
+                {!this.state.editMode &&
+                    <div>
+                        <span onDoubleClick={this.activateEditMode.bind(this)}
+                              className={s.status}>{this.props.status}</span>
+                    </div>
+                }
+                {this.state.editMode &&
+                    <div>
+                        <input autoFocus={true} onBlur={this.deActivateEditMode.bind(this)} className={s.status} value={this.props.status}/>
+                    </div>
+                }
             </div>
-            <div>
-                <input className={s.status}>{aboutMe}</input>
-            </div>
-        </div>
-    )
+        )
+    }
 }
+
 export default ProfileStatus

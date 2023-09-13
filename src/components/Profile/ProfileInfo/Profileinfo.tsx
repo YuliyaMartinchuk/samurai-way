@@ -23,8 +23,7 @@ const ProfileInfo: React.FC<PropsType> = ({profile}) => {
 
             <div className={s.descriptionBlock}>
                 <h1>{profile.fullName}</h1>
-                <ProfileStatus aboutMe={profile.aboutMe}/>
-                <span className={s.status}>{profile?.aboutMe}</span>
+                <ProfileStatus status={profile?.aboutMe}/>
                 <div className={s.contacts}>
                     <span>My contacts: </span>
                     <span>{profile.contacts.website ? `${profile.contacts.website} | ` : null}</span>
