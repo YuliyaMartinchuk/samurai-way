@@ -1,10 +1,16 @@
-import {PROFILE_ADD_POST, PROFILE_SET_USER_PROFILE, PROFILE_UPDATE_NEW_POST_TEXT} from "./actionTypeTitle";
+import {
+    PROFILE_ADD_POST,
+    PROFILE_SET_STATUS,
+    PROFILE_SET_USER_PROFILE,
+    PROFILE_UPDATE_NEW_POST_TEXT
+} from "./actionTypeTitle";
 import {ProfileType} from "../reducers/profileReducer";
 
 export type ProfileActionsTypes =
     | ReturnType<typeof addPostAC>
     | ReturnType<typeof updateNewPostAC>
     | ReturnType<typeof setUserProfile>
+    | ReturnType<typeof setUserStatus>
 
 
 export const addPostAC = () => ({type: PROFILE_ADD_POST} as const)
@@ -18,4 +24,9 @@ export const updateNewPostAC = (newText: string) => ({
 export const setUserProfile = (profile: ProfileType | null) => ({
     type: PROFILE_SET_USER_PROFILE,
     payload: {profile}
+} as const)
+
+export const setUserStatus = (status: string) => ({
+    type: PROFILE_SET_STATUS,
+    payload: {status}
 } as const)
