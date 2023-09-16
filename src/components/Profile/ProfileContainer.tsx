@@ -21,7 +21,7 @@ type MapStateToPropsType = {
     profilePage: InitialStateType
     profile: ProfileType | null
     status: string
-    updateStatus: string
+    updateStatus: (status:string)=>void
 }
 
 type MapDispatchToPropsType = {

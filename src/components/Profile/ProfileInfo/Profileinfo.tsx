@@ -8,9 +8,12 @@ import ProfileStatus from "./ProfileStatus";
 
 type PropsType = {
     profile: ProfileType | null
+    status: string
+    updateStatus: (status:string)=>void
+
 }
 
-const ProfileInfo: React.FC<PropsType> = ({profile}) => {
+const ProfileInfo: React.FC<PropsType> = ({profile, status,updateStatus}) => {
     if (!profile) {
         return <Preloader/>
     }
@@ -23,7 +26,7 @@ const ProfileInfo: React.FC<PropsType> = ({profile}) => {
 
             <div className={s.descriptionBlock}>
                 <h1>{profile.fullName}</h1>
-                <ProfileStatus status={profile?.aboutMe}/>
+                <ProfileStatus status={profile?.aboutMe} updateStatus={updateStatus}/>
                 <div className={s.contacts}>
                     <span>My contacts: </span>
                     <span>{profile.contacts.website ? `${profile.contacts.website} | ` : null}</span>

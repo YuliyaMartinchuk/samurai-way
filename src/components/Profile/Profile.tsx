@@ -5,10 +5,10 @@ import {ProfilePropsType} from "./ProfileContainer";
 
 
 
-export const Profile: React.FC<ProfilePropsType> = ({profile}) => {
+export const Profile: React.FC<ProfilePropsType> = ({profile, status, updateStatus}) => {
     return (
         <div>
-            <ProfileInfo profile={profile}/>
+            <ProfileInfo profile={profile} status={status}  updateStatus={updateStatus}/>
             <MyPostsContainer/>
         </div>)
 }

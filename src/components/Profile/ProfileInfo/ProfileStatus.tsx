@@ -5,10 +5,15 @@ import s from "./Profileinfo.module.css"
 
 type PropsType = {
     status: string
+    updateStatus: (status:string)=>void
 }
 
 class ProfileStatus extends React.Component<PropsType> {
-    state = {editMode: false}
+
+    state = {
+        editMode: false,
+        status: this.props.status
+    }
 
     activateEditMode = () => {
         this.setState({
@@ -18,6 +23,12 @@ class ProfileStatus extends React.Component<PropsType> {
     deActivateEditMode= () =>  {
         this.setState({
             editMode: false
+        })
+        this.props.updateStatus(this.state.status)
+    }
+    onStatusChanged = (e:any) => {
+        this.setState({
+            status:e.currentTarget.value
         })
     }
 
@@ -32,7 +43,7 @@ class ProfileStatus extends React.Component<PropsType> {
                 }
                 {this.state.editMode &&
                     <div>
-                        <input autoFocus={true} onBlur={this.deActivateEditMode.bind(this)} className={s.status} value={this.props.status}/>
+                        <input onChange={this.onStatusChanged}  autoFocus={true} onBlur={this.deActivateEditMode} className={s.status} value={this.props.status}/>
                     </div>
                 }
             </div>
