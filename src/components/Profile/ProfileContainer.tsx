@@ -1,5 +1,4 @@
 import React from 'react';
-import {Profile} from "./Profile";
 import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux-store";
 import {
@@ -13,6 +12,7 @@ import {
     getUserProfileTC,
     getUserStatusTC, updateUserStatusTC
 } from "../../redux/thunks/profileThunks";
+import {Profile} from "./Profile";
 
 
 type PathParamsType = {
@@ -36,7 +36,7 @@ export type OwnPropsType = MapStateToPropsType & MapDispatchToPropsType
 export type ProfilePropsType =
     RouteComponentProps<PathParamsType> & OwnPropsType
 
-export class ProfileContainerAPI extends React.Component<ProfilePropsType> {
+ class ProfileContainerAPI extends React.Component<ProfilePropsType> {
     componentDidMount() {
         let userId = this.props.match.params.userId
         if (!userId) {
@@ -76,5 +76,3 @@ export const ProfileContainer = compose<any>(
     withRouter,
     withAuthRedirectComponent)
 (ProfileContainerAPI)
-
-
