@@ -53,7 +53,7 @@ const initialState = {
     ] as PostType[],
     newPostText: " " as string,
     profile: null as ProfileType | null,
-    status: ""
+    status: " "
 }
 
 export type InitialStateType = typeof initialState
