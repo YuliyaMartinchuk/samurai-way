@@ -71,7 +71,7 @@ export const ProfileContainer = compose<any>(
         {
             getUserProfile: getUserProfileTC,
             getUserStatus: getUserStatusTC,
-            updateUserStatus: updateUserStatusTC
+            updateStatus: updateUserStatusTC
         }),
     withRouter,
     withAuthRedirectComponent)
