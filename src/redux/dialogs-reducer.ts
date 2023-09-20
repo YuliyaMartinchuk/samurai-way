@@ -1,12 +1,11 @@
-import {ActionsTypes} from "./store";
 
-export type MessagePropsType = {
+
+export type MessageProps = {
     id: number
     message: string
-    // avatar: string
 }
 
-export type DialogsPropsType = {
+export type DialogsProps = {
     id: number
     name: string
 }
@@ -19,7 +18,7 @@ const initialState = {
         {id: 4, name: "Alex"},
         {id: 5, name: "Nick"},
         {id: 6, name: "Tim"}
-    ] as DialogsPropsType[],
+    ] as DialogsProps[],
     messages: [
         {id: 1, message: "Hello"},
         {id: 2, message: "How are you?"},
@@ -27,28 +26,23 @@ const initialState = {
         {id: 4, message: "What's up?"},
         {id: 5, message: "How is your day going?"},
         {id: 6, message: "Exactly!"}
-    ] as MessagePropsType[],
-    newMessageBody: ""
+    ] as MessageProps[]
 }
 
 export type initialStateType = typeof initialState
 
-const dialogsReducer = (state: initialStateType = initialState, action: ActionsTypes): initialStateType => {
+const dialogsReducer = (state: initialStateType = initialState, action: DialogsActionType): initialStateType => {
     switch (action.type) {
-        case "UPDATE-NEW-MESSAGE-BODY": {
-            return {...state, newMessageBody: action.body}
-        }
         case "SEND-MESSAGE": {
-            const newMessage: MessagePropsType = {
+            const newMessage: MessageProps = {
                 id: 6,
-                message: state.newMessageBody
+                message: action.newMassageBody
             }
 
             return {
                 ...state,
                 messages:
-                    [...state.messages, newMessage],
-                newMessageBody: ""
+                    [...state.messages, newMessage]
             }
         }
         default:
@@ -56,11 +50,9 @@ const dialogsReducer = (state: initialStateType = initialState, action: ActionsT
     }
 }
 
-export const sendMessageAC = () => ({type: "SEND-MESSAGE"} as const)
+export const sendMessageAC = (newMassageBody:string) => ({type: "SEND-MESSAGE", newMassageBody} as const)
 
-export const updateNewMessageAC = (body: string) => ({
-    type: "UPDATE-NEW-MESSAGE-BODY",
-    body: body
-} as const)
+
+type DialogsActionType = ReturnType<typeof sendMessageAC>
 
 export default dialogsReducer
