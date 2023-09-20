@@ -2,8 +2,7 @@ import {ActionType} from "../actions/actionTypes";
 import {
     PROFILE_ADD_POST,
     PROFILE_SET_STATUS,
-    PROFILE_SET_USER_PROFILE,
-    PROFILE_UPDATE_NEW_POST_TEXT
+    PROFILE_SET_USER_PROFILE
 } from "../actions/actionTypeTitle";
 
 
@@ -51,7 +50,6 @@ const initialState = {
         {id: 3, message: "My day", likesCount: 10},
         {id: 4, message: "It's my first post", likesCount: 50}
     ] as PostType[],
-    newPostText: " " as string,
     profile: null as ProfileType | null,
     status: " "
 }
@@ -63,22 +61,16 @@ export const profileReducer = (state: InitialStateType = initialState, action:Ac
         case PROFILE_ADD_POST: {
             const newPost: PostType = {
                 id: 5,
-                message: state.newPostText,
+                message: action.newPostText,
                 likesCount: 0
             };
             return {
                 ...state,
-                posts: [newPost, ...state.posts],
-                newPostText: ""
+                posts: [newPost, ...state.posts]
             }
 
         }
-        case PROFILE_UPDATE_NEW_POST_TEXT: {
-            return {
-                ...state,
-                newPostText: action.payload.newText
-            }
-        }
+
         case PROFILE_SET_USER_PROFILE: {
             return {
                 ...state,

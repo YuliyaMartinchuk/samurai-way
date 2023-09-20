@@ -2,30 +2,9 @@ import React from 'react';
 import s from "./Dialogs.module.css"
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
-import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {DialogsProps} from "./DialogsContainer";
+import {AddMessageFormReduxForm, FormAddMessageDataType} from "./DialogsForm";
 
-
-export type FormAddMessageDataType = {
-    newMassageBody:string
-}
-
-const AddMessageForm = (props:InjectedFormProps<FormAddMessageDataType> ) => {
-    return (
-        <form onSubmit={props.handleSubmit}>
-            <div>
-                <Field placeholder={"Enter your message"} name={"newMassageBody"} component={"textarea"}></Field>
-            </div>
-            <div>
-                <button>Send</button>
-            </div>
-        </form>
-    )
-}
-
-const AddMessageFormReduxForm = reduxForm<FormAddMessageDataType>( {
-    form: "dialogsForm"
-})(AddMessageForm)
 
 const Dialogs = (props: DialogsProps) => {
     const state = props.dialogsPage

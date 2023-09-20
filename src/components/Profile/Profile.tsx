@@ -1,6 +1,6 @@
 import React from "react";
 import ProfileInfo from "./ProfileInfo/Profileinfo";
-import MyPostsContainer from "./MyPosts/Post/MyPostsContainer";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import {ProfilePropsType} from "./ProfileContainer";
 
 

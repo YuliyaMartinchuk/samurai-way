@@ -1,5 +1,5 @@
-import dialogsReducer, {sendMessageAC} from "./dialogs-reducer";
-import sidebarReducer from "./sidebar-reducer";
+import dialogsReducer, {sendMessageAC} from "./reducers/dialogs-reducer";
+import sidebarReducer from "./reducers/sidebar-reducer";
 //
 //
 // type PostPropsType = {
