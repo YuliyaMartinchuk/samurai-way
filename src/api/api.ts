@@ -30,12 +30,28 @@ export const profileAPI = {
 
     },
     updateStatus(status: string) {
-        return instance.put(`profile/status`, {status:status})
+        return instance.put(`profile/status`, {status: status})
     }
 }
 
-export const authAPI = {
+export type FormDataType = {
+    email: string
+    password: string
+    rememberMe: boolean
+}
+
+
+export const c = {
     me() {
         return instance.get(`auth/me`)
+    },
+
+    login(data:FormDataType) {
+        return instance.post(`auth/login`, {data})
+    },
+    logout() {
+        return instance.delete(`auth/login`)
     }
 }
+
+
