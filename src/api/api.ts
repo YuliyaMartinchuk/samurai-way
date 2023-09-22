@@ -41,7 +41,7 @@ export type FormDataType = {
 }
 
 
-export const c = {
+export const authAPI = {
     me() {
         return instance.get(`auth/me`)
     },
