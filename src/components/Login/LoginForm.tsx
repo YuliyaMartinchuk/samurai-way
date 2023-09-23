@@ -7,24 +7,25 @@ import {
 import {Input} from "../common/Preloader/FormsControls/FormsControls";
 import { required} from "../../utils/validators/validators";
 
-export type LoginFormDataType = {
-    login:string,
+export type FormDataType = {
+    email:string,
     password:string,
     rememberMe:boolean
 }
 
-export const LoginForm = (props:InjectedFormProps<LoginFormDataType>) => {
+export const LoginForm = (props:InjectedFormProps<FormDataType>) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field placeholder={"Login"}
-                       name={"login"}
+                <Field placeholder={"email"}
+                       name={"email"}
                        component={Input}
                        validate = {[required]}
                 />
             </div>
             <div>
                 <Field placeholder={"Password"}
+                       type = {"password"}
                        name={"password"}
                        component={Input}
                        validate = {[required]}
@@ -44,6 +45,6 @@ export const LoginForm = (props:InjectedFormProps<LoginFormDataType>) => {
 
 }
 
-export const LoginReduxForm = reduxForm<LoginFormDataType>({
+export const LoginReduxForm = reduxForm<FormDataType>({
     form: "login"
 })(LoginForm)

@@ -1,10 +1,23 @@
 import React from 'react';
 
-import {LoginFormDataType, LoginReduxForm} from "./LoginForm";
+import {FormDataType, LoginReduxForm} from "./LoginForm";
+import {compose} from "redux";
+import {connect} from "react-redux";
+import {loginTC} from "../../redux/thunks/authThunks";
+import {AppStateType} from "../../redux/redux-store";
+import {Redirect} from "react-router-dom";
 
-export const Login = () => {
-    const onSubmit = (formData:LoginFormDataType) => {
-        console.log(formData)
+type LoginType = {
+    login: (formData: FormDataType) => void
+    isAuth: boolean
+}
+
+export const Login = (props:LoginType) => {
+    const onSubmit = (formData:FormDataType) => {
+       props.login(formData)
+    }
+    if (props.isAuth) {
+        return <Redirect to={"/profile"}/>
     }
     return <div>
         <h1>LOGIN</h1>
@@ -12,3 +25,18 @@ export const Login = () => {
     </div>
 };
 
+type MapStateToPropsType = {
+    isAuth: boolean
+}
+
+const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
+    return {
+        isAuth: state.auth.isAuth
+    }
+}
+
+export const LoginContainer = compose<any>(
+    connect(mapStateToProps, {
+        login:loginTC
+    }),
+)(Login)

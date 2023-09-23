@@ -1,10 +1,10 @@
-import {applyMiddleware, combineReducers, createStore} from "redux";
+import {AnyAction, applyMiddleware, combineReducers, createStore} from "redux";
 import {profileReducer} from "./reducers/profileReducer";
 import dialogsReducer from "./reducers/dialogs-reducer";
 import sidebarReducer from "./reducers/sidebar-reducer";
 import {usersReducer} from "./reducers/usersReducer";
 import {authReducer} from "./reducers/authReducer";
-import thunk from 'redux-thunk'
+import thunk, {ThunkDispatch} from 'redux-thunk'
 import {reducer as formReducer} from 'redux-form'
 
 const rootReducers = combineReducers({
@@ -19,7 +19,7 @@ const rootReducers = combineReducers({
 export type AppStateType = ReturnType<typeof rootReducers>
 
 export const store = createStore(rootReducers, applyMiddleware(thunk))
-
+export type AppThunkDispatch = ThunkDispatch<AppStateType, any, AnyAction>
 
 
 export default store
