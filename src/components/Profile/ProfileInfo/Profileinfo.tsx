@@ -3,8 +3,8 @@ import s from "./Profileinfo.module.css"
 import {ProfileType} from "../../../redux/reducers/profileReducer";
 import backgroundImage from "../../../assets/images/backgroundImage.jpg"
 import {Preloader} from "../../common/Preloader/Preloader";
-import ProfileStatus from "./ProfileStatus";
 import defaultUserPhoto from "../../../assets/images/defaultUserPhoto.jpg"
+import {ProfileStatusWithHooks} from "./ProfileStatusWithHooks";
 
 
 type PropsType = {
@@ -28,7 +28,7 @@ const ProfileInfo: React.FC<PropsType> = ({profile, status, updateStatus}) => {
             <div className={s.descriptionBlock}>
                 <h1>{profile.fullName}</h1>
                 <p className={s.status}>{profile?.aboutMe}</p>
-                <ProfileStatus status={status} updateStatus={updateStatus}/>
+                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
                 <div className={s.contacts}>
                     <span>My contacts: </span>
                     <span>{profile.contacts.website ? `${profile.contacts.website} | ` : null}</span>
