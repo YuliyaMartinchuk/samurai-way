@@ -9,6 +9,12 @@ import {Users} from "./Users";
 import {Preloader} from "../common/Preloader/Preloader";
 import {changePageTC, followTC, getUsersTC, unFollowTC} from "../../redux/thunks/usersThunks";
 import {compose} from "redux";
+import {
+    getCurrentPage, getFollowingInProgress, getIsFetching,
+    getPageSize,
+    getTotalUsersCount,
+    getUsersPage
+} from "../../redux/selectors/usersSelectors";
 
 
 type MapStateToPropsType = {
@@ -58,14 +64,25 @@ export class UsersContainerAPI extends React.Component<UsersPropsType> {
     }
 }
 
+// const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
+//     return {
+//         usersPage: state.usersPage,
+//         pageSize: state.usersPage.pageSize,
+//         totalUsersCount: state.usersPage.totalUsersCount,
+//         currentPage: state.usersPage.currentPage,
+//         isFetching: state.usersPage.isFetching,
+//         followingInProgress: state.usersPage.followingInProgress
+//     }
+// }
+
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
-        usersPage: state.usersPage,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress
+        usersPage: getUsersPage(state),
+        pageSize: getPageSize(state),
+        totalUsersCount: getTotalUsersCount(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state),
+        followingInProgress: getFollowingInProgress(state)
     }
 }
 
