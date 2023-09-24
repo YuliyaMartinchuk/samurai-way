@@ -3,6 +3,7 @@ import {authAPI} from "../../api/api";
 import {setAuthUserDataAC} from "../actions/authAction";
 import {AppThunkDispatch} from "../redux-store";
 import {FormDataType} from "../../components/Login/LoginForm";
+import {stopSubmit} from "redux-form";
 
 export const getAuthUserDataTC = () => (dispatch:Dispatch) => {
     authAPI.me()
@@ -20,6 +21,9 @@ export const loginTC = (data:FormDataType) => (dispatch:AppThunkDispatch) => {
         .then((res) => {
             if (res.data.resultCode === 0) {
                 dispatch(getAuthUserDataTC())
+            } else {
+                const message =  res.data.messages.length > 0 ? res.data.messages[0] : "Some error"
+                dispatch(stopSubmit("login", {_error: message}))
             }
         })
 }

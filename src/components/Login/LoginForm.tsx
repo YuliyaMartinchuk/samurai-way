@@ -6,6 +6,7 @@ import {
 } from 'redux-form'
 import {Input} from "../common/Preloader/FormsControls/FormsControls";
 import { required} from "../../utils/validators/validators";
+import style from "../common/Preloader/FormsControls/FormsControls.module.css"
 
 export type FormDataType = {
     email:string,
@@ -37,6 +38,9 @@ export const LoginForm = (props:InjectedFormProps<FormDataType>) => {
                        component={Input}
                 /> remember me
             </div>
+            {props.error && <div className={style.formSummaryError}>
+                {props.error}
+            </div>}
             <div>
                 <button>Login</button>
             </div>
