@@ -6,7 +6,7 @@ import {FormDataType} from "../../components/Login/LoginForm";
 import {stopSubmit} from "redux-form";
 
 export const getAuthUserDataTC = () => (dispatch:Dispatch) => {
-    authAPI.me()
+   return authAPI.me()
         .then((res) => {
             let { id, email, login} = res.data.data
             if (res.data.resultCode === 0) {

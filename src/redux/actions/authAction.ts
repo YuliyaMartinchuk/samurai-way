@@ -4,7 +4,7 @@ import {
 } from "./actionTypeTitle";
 
 
-export type SetUserDataTypes =
+export type AuthActionsTypes =
     | ReturnType<typeof setAuthUserDataAC>
 
 
