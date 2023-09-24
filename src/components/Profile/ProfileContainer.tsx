@@ -23,6 +23,8 @@ type MapStateToPropsType = {
     profilePage: InitialStateType
     profile: ProfileType | null
     status: string
+    authorizedUserId: string| null
+    isAuth: boolean
 
 }
 
@@ -40,7 +42,7 @@ export type ProfilePropsType =
     componentDidMount() {
         let userId = this.props.match.params.userId
         if (!userId) {
-            userId = "29089"
+            userId = this.props.authorizedUserId as string
         }
         this.props.getUserProfile(userId)
         this.props.getUserStatus(userId)
@@ -62,7 +64,9 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
         profilePage: state.profilePage,
         profile: state.profilePage.profile,
-        status: state.profilePage.status
+        status: state.profilePage.status,
+        authorizedUserId: state.auth.userId,
+        isAuth: state.auth.isAuth
     }
 }
 

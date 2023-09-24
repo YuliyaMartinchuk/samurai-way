@@ -4,6 +4,7 @@ import {ProfileType} from "../../../redux/reducers/profileReducer";
 import backgroundImage from "../../../assets/images/backgroundImage.jpg"
 import {Preloader} from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
+import defaultUserPhoto from "../../../assets/images/defaultUserPhoto.jpg"
 
 
 type PropsType = {
@@ -20,8 +21,8 @@ const ProfileInfo: React.FC<PropsType> = ({profile, status, updateStatus}) => {
     return (
         <div className={s.profileUserCard}>
             <div className={s.profileUserCardImage}>
-                <img className={s.backgroundImage} src={backgroundImage}/>
-                <img className={s.avatar} src={profile?.photos.large}/>
+                <img className={s.backgroundImage} src={backgroundImage} alt={"background image"}/>
+                <img className={s.avatar} src={profile?.photos.large || defaultUserPhoto} alt={"profile photo"}/>
             </div>
 
             <div className={s.descriptionBlock}>

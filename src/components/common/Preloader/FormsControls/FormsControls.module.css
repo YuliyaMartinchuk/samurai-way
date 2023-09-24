@@ -13,7 +13,22 @@
 }
 
 .formSummaryError {
-    border: red 2px solid;
-    padding: 5px;
-    color: red;
+    box-sizing: border-box;
+    min-width: 100px;
+    padding: 1%;
+    font-size: 0.9em;
+    font-family: Montserrat, sans-serif;
+    animation: blink1 5s linear infinite;
+}
+
+@keyframes blink1 {
+    0% {
+        color: #f3c3c3;
+    }
+    50% {
+        color: red;
+    }
+    100% {
+        color: #f3c3c3;
+    }
 }
