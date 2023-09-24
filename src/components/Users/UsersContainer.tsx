@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux-store";
 import {
     FollowingInProgressType,
-    InitialStateType,
+     UserType,
 } from "../../redux/reducers/usersReducer";
 import {Users} from "./Users";
 import {Preloader} from "../common/Preloader/Preloader";
@@ -12,13 +12,12 @@ import {compose} from "redux";
 import {
     getCurrentPage, getFollowingInProgress, getIsFetching,
     getPageSize,
-    getTotalUsersCount,
-    getUsersPage
+    getTotalUsersCount, getUsers,
 } from "../../redux/selectors/usersSelectors";
 
 
 type MapStateToPropsType = {
-    usersPage: InitialStateType
+    users: UserType[]
     pageSize: number
     totalUsersCount: number
     currentPage: number
@@ -50,7 +49,7 @@ export class UsersContainerAPI extends React.Component<UsersPropsType> {
             <>
                 {this.props.isFetching ? <Preloader/> : null}
                 <Users
-                    users={this.props.usersPage.users}
+                    users={this.props.users}
                     totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
                     onPageChanged={this.onPageChanged}
@@ -64,20 +63,9 @@ export class UsersContainerAPI extends React.Component<UsersPropsType> {
     }
 }
 
-// const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
-//     return {
-//         usersPage: state.usersPage,
-//         pageSize: state.usersPage.pageSize,
-//         totalUsersCount: state.usersPage.totalUsersCount,
-//         currentPage: state.usersPage.currentPage,
-//         isFetching: state.usersPage.isFetching,
-//         followingInProgress: state.usersPage.followingInProgress
-//     }
-// }
-
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
-        usersPage: getUsersPage(state),
+        users: getUsers(state),
         pageSize: getPageSize(state),
         totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
