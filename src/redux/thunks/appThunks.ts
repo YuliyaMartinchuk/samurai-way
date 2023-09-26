@@ -2,9 +2,8 @@ import {getAuthUserDataTC} from "./authThunks";
 import {AppThunkDispatch} from "../redux-store";
 import {initializedSuccess} from "../actions/appAction";
 
-export const initializeAppTC = () => (dispatch: AppThunkDispatch) => {
+export const initializeAppTC = () => async(dispatch: AppThunkDispatch) => {
     const promise = dispatch(getAuthUserDataTC())
-    promise.then(() => {
+    await  promise
         dispatch(initializedSuccess())
-    })
 }
