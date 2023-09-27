@@ -1,5 +1,5 @@
 import {
-    SET_USER_DATA_AUTH,
+    AUTH_SET_USER_DATA,
 
 } from "./actionTypeTitle";
 
@@ -9,7 +9,7 @@ export type AuthActionsTypes =
 
 
 export const setAuthUserDataAC = (userId: string | null, email: string | null, login: string | null, isAuth:boolean) => ({
-    type: SET_USER_DATA_AUTH,
+    type: AUTH_SET_USER_DATA,
     payload: {
         data: {
             userId, email, login, isAuth

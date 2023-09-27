@@ -1,5 +1,5 @@
 import {
-    TOGGLE_IS_FETCHING, TOGGLE_IS_FOLLOWING_PROGRESS,
+    USERS_TOGGLE_IS_FETCHING, USERS_TOGGLE_IS_FOLLOWING_PROGRESS,
     USERS_FOLLOW,
     USERS_SET_CURRENT_PAGE,
     USERS_SET_TOTAL_USERS_COUNT,
@@ -76,13 +76,13 @@ export const usersReducer = (state: InitialStateType = initialState, action: Act
                 totalUsersCount: action.payload.totalCount
             }
         }
-        case TOGGLE_IS_FETCHING: {
+        case USERS_TOGGLE_IS_FETCHING: {
             return {
                 ...state,
                 isFetching: action.payload.isFetching
             }
         }
-        case TOGGLE_IS_FOLLOWING_PROGRESS: {
+        case USERS_TOGGLE_IS_FOLLOWING_PROGRESS: {
             return {
                 ...state,
                 followingInProgress: action.payload.isFetching

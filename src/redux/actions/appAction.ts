@@ -1,5 +1,5 @@
 import {
-    INITIALIZED_SUCCESS_APP
+    APP_INITIALIZED_SUCCESS
 } from "./actionTypeTitle";
 
 
@@ -8,6 +8,6 @@ export type AppActionTypes =
 
 
 export const initializedSuccess = () => ({
-    type: INITIALIZED_SUCCESS_APP
+    type: APP_INITIALIZED_SUCCESS
 } as const)
 

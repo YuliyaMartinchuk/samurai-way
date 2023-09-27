@@ -1,5 +1,5 @@
 import React from 'react';
-import {initialStateType, sendMessageAC} from "../../redux/reducers/dialogsReducer";
+import {initialStateType} from "../../redux/reducers/dialogsReducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux-store";
@@ -7,6 +7,7 @@ import {compose} from "redux";
 import {
     withAuthRedirectComponent
 } from "../../hok/withAuthRedirect";
+import {sendMessageAC} from "../../redux/actions/dialogsAction";
 
 type MapStateToPropsType = {
     dialogsPage: initialStateType

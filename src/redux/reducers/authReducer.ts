@@ -1,5 +1,5 @@
 import {
-    SET_USER_DATA_AUTH
+    AUTH_SET_USER_DATA
 } from "../actions/actionTypeTitle";
 import {ActionType} from "../actions/actionTypes";
 
@@ -20,7 +20,7 @@ export type InitialStateType = typeof initialState
 
 export const authReducer = (state: InitialStateType = initialState, action: ActionType): InitialStateType => {
     switch (action.type) {
-        case SET_USER_DATA_AUTH: {
+        case AUTH_SET_USER_DATA: {
             return {
                 ...state,
                 ...action.payload.data

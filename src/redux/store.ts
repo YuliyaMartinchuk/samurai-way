@@ -1,4 +1,4 @@
-import dialogsReducer, {sendMessageAC} from "./reducers/dialogsReducer";
+import dialogsReducer from "./reducers/dialogsReducer";
 import sidebarReducer from "./reducers/sidebarReducer";
 //
 //
