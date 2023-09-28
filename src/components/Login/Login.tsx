@@ -12,11 +12,11 @@ type LoginType = {
     isAuth: boolean
 }
 
-export const Login = (props:LoginType) => {
+export const Login: React.FC<LoginType> = ({login, isAuth}) => {
     const onSubmit = (formData:FormDataType) => {
-       props.login(formData)
+       login(formData)
     }
-    if (props.isAuth) {
+    if (isAuth) {
         return <Redirect to={"/profile"}/>
     }
     return <div>
