@@ -5,9 +5,9 @@ import {
     setCurrentPage,
     setTotalUsersCount,
     setUsers,
-    toggleFollowingProgress,
     toggleIsFetching, unFollow
 } from "../actions/usersAction";
+import {followUnfollow} from "../../utils/followUnfollow/followUnfollow";
 
 export const getUsersTC = (page: number, pageSize: number) => async (dispatch: Dispatch) => {
     dispatch(toggleIsFetching(true))
@@ -26,19 +26,9 @@ export const changePageTC = (pageNumber: number, pageSize: number) => async (dis
 }
 
 export const followTC = (userId: number) => async (dispatch: Dispatch) => {
-    dispatch(toggleFollowingProgress(true, userId))
-    const res = await usersAPI.follow(userId)
-    if (res.resultCode === 0) {
-        dispatch(follow(userId))
-    }
-    dispatch(toggleFollowingProgress(false, userId))
+    await followUnfollow(dispatch, userId,usersAPI.follow.bind(usersAPI), follow )
 }
 
 export const unFollowTC = (userId: number) => async (dispatch: Dispatch) => {
-    dispatch(toggleFollowingProgress(true, userId))
-    const res = await usersAPI.unFollow(userId)
-    if (res.resultCode === 0) {
-        dispatch(unFollow(userId))
-    }
-    dispatch(toggleFollowingProgress(false, userId))
+    await followUnfollow(dispatch, userId,usersAPI.unFollow.bind(usersAPI), unFollow )
 }

@@ -7,6 +7,7 @@ import {
     USERS_UNFOLLOW
 } from "../actions/actionTypeTitle";
 import {ActionType} from "../actions/actionTypes";
+import {updateObjectInArray} from "../../utils/objectHelpers/objectHelpers";
 
 export type PhotosType = {
     small: string,
@@ -44,17 +45,13 @@ export const usersReducer = (state: InitialStateType = initialState, action: Act
         case USERS_FOLLOW: {
             return {
                 ...state,
-                users: state.users.map(u => u.id === action.payload.userId
-                    ? {...u, followed: true}
-                    : u)
+                users: updateObjectInArray(state.users, action.payload.userId,'id', {followed: true})
             }
         }
         case USERS_UNFOLLOW: {
             return {
                 ...state,
-                users: state.users.map(u => u.id === action.payload.userId
-                    ? {...u, followed: false}
-                    : u)
+                users: updateObjectInArray(state.users, action.payload.userId,'id', {followed: false})
             }
         }
 
