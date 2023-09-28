@@ -23,10 +23,10 @@ export const Pagination: React.FC<PropsType> = ({
     }
     return (
         <div>
-            {pages.map(p => {
+            {pages.map(page => {
                 return (
-                    <span onClick={() => onPageChanged(p)}
-                          className={currentPage === p ? s.selectedPage : ""}>{p}</span>
+                    <span key={page} onClick={() => onPageChanged(page)}
+                          className={currentPage === page ? s.selectedPage : ""}>{page}</span>
                 )
             })}
         </div>

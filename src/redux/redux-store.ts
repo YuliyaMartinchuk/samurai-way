@@ -7,6 +7,7 @@ import {authReducer} from "./reducers/authReducer";
 import thunk, {ThunkDispatch} from 'redux-thunk'
 import {reducer as formReducer} from 'redux-form'
 import {appReducer} from "./reducers/appReducer";
+import {composeWithDevTools} from "@redux-devtools/extension";
 
 const rootReducers = combineReducers({
     profilePage: profileReducer,
@@ -19,8 +20,7 @@ const rootReducers = combineReducers({
 })
 
 export type AppStateType = ReturnType<typeof rootReducers>
-
-export const store = createStore(rootReducers, applyMiddleware(thunk))
+export const store = createStore(rootReducers, composeWithDevTools(applyMiddleware(thunk)))
 export type AppThunkDispatch = ThunkDispatch<AppStateType, any, AnyAction>
 
 
