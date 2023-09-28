@@ -3,11 +3,16 @@ import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux-store";
 import {
     FollowingInProgressType,
-     UserType,
+    UserType,
 } from "../../redux/reducers/usersReducer";
 import {Users} from "./Users";
 import {Preloader} from "../common/Preloader/Preloader";
-import {changePageTC, followTC, getUsersTC, unFollowTC} from "../../redux/thunks/usersThunks";
+import {
+    changePageTC,
+    followTC,
+    getUsersTC,
+    unFollowTC
+} from "../../redux/thunks/usersThunks";
 import {compose} from "redux";
 import {
     getCurrentPage, getFollowingInProgress, getIsFetching,
@@ -26,10 +31,10 @@ type MapStateToPropsType = {
 }
 
 type MapDispatchToPropsType = {
-    getUsersTC: (currentPage: number, pageSize: number) => void
-    changePageTC: (pageNumber: number, pageSize:number) => void
-    followTC: (userId: number) => void
-    unFollowTC: (userId: number) => void
+    getUsers: (currentPage: number, pageSize: number) => void
+    changePage: (pageNumber: number, pageSize: number) => void
+    follow: (userId: number) => void
+    unFollow: (userId: number) => void
 }
 
 export type UsersPropsType = MapStateToPropsType & MapDispatchToPropsType
@@ -37,11 +42,13 @@ export type UsersPropsType = MapStateToPropsType & MapDispatchToPropsType
 export class UsersContainerAPI extends React.Component<UsersPropsType> {
 
     componentDidMount() {
-        this.props.getUsersTC(this.props.currentPage,this.props.pageSize)
+        const {currentPage, pageSize} = this.props
+        this.props.getUsers(currentPage, pageSize)
     }
 
     onPageChanged = (pageNumber: number) => {
-        this.props.changePageTC(pageNumber,this.props.pageSize)
+        const {pageSize} = this.props
+        this.props.changePage(pageNumber, pageSize)
     }
 
     render() {
@@ -54,8 +61,8 @@ export class UsersContainerAPI extends React.Component<UsersPropsType> {
                     pageSize={this.props.pageSize}
                     onPageChanged={this.onPageChanged}
                     currentPage={this.props.currentPage}
-                    follow={this.props.followTC}
-                    unFollow={this.props.unFollowTC}
+                    follow={this.props.follow}
+                    unFollow={this.props.unFollow}
                     followingInProgress={this.props.followingInProgress}
                 />
             </>
@@ -75,7 +82,10 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 }
 
 export const UsersContainer = compose<any>(connect(mapStateToProps, {
-     getUsersTC, changePageTC,followTC, unFollowTC
-})) (UsersContainerAPI)
+    getUsers: getUsersTC,
+    changePage: changePageTC,
+    follow: followTC,
+    unFollow: unFollowTC
+}))(UsersContainerAPI)
 
 
