@@ -1,5 +1,5 @@
 import {PostType, profileReducer, ProfileType} from "./profileReducer";
-import {addPostAC, deletePostAC} from "../actions/profileActions";
+import {addPostAC, deletePost} from "../actions/profileActions";
 
 const state = {
     posts: [
@@ -26,11 +26,11 @@ it("message of new post should be corrected", () => {
 
 it("after deleting length of messages should be decrement", () => {
 
-    const newState = profileReducer(state, deletePostAC(1))
+    const newState = profileReducer(state, deletePost(1))
     expect(newState.posts.length).toBe(3)
 })
 
 it("after deleting length shouldn't be decrement if id is incorrect", () => {
-    const newState = profileReducer(state, deletePostAC(1000))
+    const newState = profileReducer(state, deletePost(1000))
     expect(newState.posts.length).toBe(4)
 })

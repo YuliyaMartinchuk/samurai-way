@@ -1,15 +1,16 @@
 import {
-    PROFILE_ADD_POST, PROFILE_DELETE_POST,
+    PROFILE_ADD_POST, PROFILE_DELETE_POST, PROFILE_SAVE_PHOTO_SUCCESS,
     PROFILE_SET_STATUS,
     PROFILE_SET_USER_PROFILE
 } from "./actionTypeTitle";
-import {ProfileType} from "../reducers/profileReducer";
+import {ProfilePhotoType, ProfileType} from "../reducers/profileReducer";
 
 export type ProfileActionsTypes =
     | ReturnType<typeof addPostAC>
     | ReturnType<typeof setUserProfile>
     | ReturnType<typeof setUserStatus>
-    | ReturnType<typeof deletePostAC>
+    | ReturnType<typeof deletePost>
+    | ReturnType<typeof savePhotoSuccess>
 
 
 export const addPostAC = (newPostText: string) => ({
@@ -28,7 +29,12 @@ export const setUserStatus = (status: string) => ({
 } as const)
 
 
-export const deletePostAC = (id: number) => ({
+export const deletePost = (id: number) => ({
     type: PROFILE_DELETE_POST,
     payload: {id}
+} as const)
+
+export const savePhotoSuccess = ( photos: ProfilePhotoType) => ({
+    type: PROFILE_SAVE_PHOTO_SUCCESS,
+    payload: {photos}
 } as const)

@@ -2,6 +2,7 @@ import {ActionType} from "../actions/actionTypes";
 import {
     PROFILE_ADD_POST,
     PROFILE_DELETE_POST,
+    PROFILE_SAVE_PHOTO_SUCCESS,
     PROFILE_SET_STATUS,
     PROFILE_SET_USER_PROFILE
 } from "../actions/actionTypeTitle";
@@ -86,6 +87,9 @@ export const profileReducer = (state: InitialStateType = initialState, action:Ac
         }
         case PROFILE_DELETE_POST: {
             return {...state, posts: state.posts.filter(posts => posts.id != action.payload.id)}
+        }
+        case PROFILE_SAVE_PHOTO_SUCCESS: {
+            return {...state, profile: state.profile ? {...state.profile, photos: action.payload.photos} : null}
         }
         default:
             return state

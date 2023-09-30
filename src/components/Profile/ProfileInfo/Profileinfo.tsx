@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import s from "./Profileinfo.module.css"
 import {ProfileType} from "../../../redux/reducers/profileReducer";
 import backgroundImage from "../../../assets/images/backgroundImage.jpg"
@@ -11,24 +11,42 @@ type PropsType = {
     profile: ProfileType | null
     status: string
     updateStatus: (status: string) => void
-
+    isOwner: boolean
+    savePhoto:(file: File) => void
 }
 
-const ProfileInfo: React.FC<PropsType> = ({profile, status, updateStatus}) => {
+const ProfileInfo: React.FC<PropsType> = ({
+                                              profile,
+                                              status,
+                                              updateStatus,
+                                              isOwner,
+                                              savePhoto
+                                          }) => {
     if (!profile) {
         return <Preloader/>
+    }
+
+    const mainPhotoSelected = (e: ChangeEvent<HTMLInputElement>) => {
+        e.target.files && savePhoto(e.target.files[0])
     }
     return (
         <div className={s.profileUserCard}>
             <div className={s.profileUserCardImage}>
-                <img className={s.backgroundImage} src={backgroundImage} alt={"background image"}/>
-                <img className={s.avatar} src={profile?.photos.large || defaultUserPhoto} alt={"profile photo"}/>
+                <img className={s.backgroundImage} src={backgroundImage}
+                     alt={"background image"}/>
+                <img className={s.avatar}
+                     src={profile?.photos.large || defaultUserPhoto}
+                     alt={"profile photo"}/>
+                <div>
+                    {isOwner && <input type="file" onChange={mainPhotoSelected}/>}
+                </div>
             </div>
 
             <div className={s.descriptionBlock}>
-                <h1>{profile.fullName}</h1>
-                <p className={s.status}>{profile?.aboutMe}</p>
-                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+                <h1 className={s.profileName}>{profile.fullName}</h1>
+                <p className={s.description}>{profile.aboutMe}</p>
+                <ProfileStatusWithHooks status={status}
+                                        updateStatus={updateStatus}/>
                 <div className={s.contacts}>
                     <span>My contacts: </span>
                     <span>{profile.contacts.website ? `${profile.contacts.website} | ` : null}</span>
