@@ -1,3 +1,26 @@
-.selectedPage {
+.block {
+    display: flex;
+    justify-content: center;
+}
+.pagination {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    gap: 5px;
+}
+
+.pageNumber {
+    padding: 2px;
+    border: 1px solid grey;
+    min-width: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.pageNumber.selectedPage {
     font-weight: bold;
+    border-color: black;
 }
