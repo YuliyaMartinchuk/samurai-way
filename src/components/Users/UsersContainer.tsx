@@ -81,7 +81,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     }
 }
 
-export const UsersContainer = compose<any>(connect(mapStateToProps, {
+export default compose<React.ComponentType>(connect(mapStateToProps, {
     getUsers: getUsersTC,
     changePage: changePageTC,
     follow: followTC,

@@ -35,7 +35,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     }
 }
 
-export const LoginContainer = compose<any>(
+export default compose<React.ComponentType>(
     connect(mapStateToProps, {
         login:loginTC
     }),

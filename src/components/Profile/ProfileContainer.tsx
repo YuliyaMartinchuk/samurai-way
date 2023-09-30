@@ -7,7 +7,7 @@ import {
 } from "../../redux/reducers/profileReducer";
 import {RouteComponentProps, withRouter} from "react-router-dom";
 import {compose} from "redux";
-import {withAuthRedirectComponent} from "../../hok/withAuthRedirect";
+import {withAuthRedirectComponent} from "../../hok/withAuthRedirect/withAuthRedirect";
 import {
     getUserProfileTC,
     getUserStatusTC, updateUserStatusTC
@@ -73,7 +73,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     }
 }
 
-export const ProfileContainer = compose<any>(
+export default compose<React.ComponentType>(
     connect(mapStateToProps,
         {
             getUserProfile: getUserProfileTC,
