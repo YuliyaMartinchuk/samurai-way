@@ -10,9 +10,14 @@ import {compose} from "redux";
 import {withAuthRedirectComponent} from "../../hok/withAuthRedirect/withAuthRedirect";
 import {
     getUserProfileTC,
-    getUserStatusTC, savePhotoTC, updateUserStatusTC
+    getUserStatusTC, savePhotoTC, saveProfileTC, updateUserStatusTC
 } from "../../redux/thunks/profileThunks";
 import {Profile} from "./Profile";
+import {
+    ProfileDataFormType
+} from "./ProfileInfo/ProfileDataForm/ProfileDataForm";
+import {UserType} from "../../redux/reducers/usersReducer";
+import {getUsers} from "../../redux/selectors/usersSelectors";
 
 
 type PathParamsType = {
@@ -25,6 +30,7 @@ type MapStateToPropsType = {
     status: string
     authorizedUserId: string| null
     isAuth: boolean
+    users: UserType[]
 }
 
 type MapDispatchToPropsType = {
@@ -32,6 +38,8 @@ type MapDispatchToPropsType = {
     getUserStatus: (userId: string) => void
     updateStatus: (status: string) => void
     savePhoto: (file: File) => void
+    saveProfile:(profile: ProfileDataFormType) =>Promise<any>
+
 }
 
 export type OwnPropsType = MapStateToPropsType & MapDispatchToPropsType
@@ -69,6 +77,8 @@ export type ProfilePropsType =
                 status={this.props.status}
                 updateStatus={this.props.updateStatus}
                 savePhoto={this.props.savePhoto}
+                saveProfile={this.props.saveProfile}
+                users={this.props.users}
             />
         )
     }
@@ -80,7 +90,8 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
         profile: state.profilePage.profile,
         status: state.profilePage.status,
         authorizedUserId: state.auth.userId,
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        users: getUsers(state)
     }
 }
 
@@ -90,7 +101,8 @@ export default compose<React.ComponentType>(
             getUserProfile: getUserProfileTC,
             getUserStatus: getUserStatusTC,
             updateStatus: updateUserStatusTC,
-            savePhoto: savePhotoTC
+            savePhoto: savePhotoTC,
+            saveProfile:saveProfileTC
         }),
     withRouter,
     withAuthRedirectComponent)

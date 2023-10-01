@@ -32,7 +32,7 @@ export const ProfileStatusWithHooks: React.FC<PropsType> = (props) => {
     }
 
     return (
-        <div>
+        <div >
             {!editMode &&
                 <div>
                 <span

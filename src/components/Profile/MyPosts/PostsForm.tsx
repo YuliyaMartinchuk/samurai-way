@@ -4,7 +4,7 @@ import {
     maxLengthCreator,
     required
 } from "../../../utils/validators/validators";
-import {Textarea} from "../../common/Preloader/FormsControls/FormsControls";
+import {Textarea} from "../../common/FormsControls/FormsControls";
 
 
 export type AddPostFormType = {

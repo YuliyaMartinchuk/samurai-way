@@ -15,18 +15,11 @@ export type PostType = {
 }
 
 export type ProfileContactsType = {
-    facebook: string|null
-    website: string|null
-    vk: string|null
-    twitter: string|null
-    instagram: string|null
-    youtube: string|null
-    github: string|null
-    mainLink: string|null
+    [key: string]: string | null
 }
 
 export type ProfilePhotoType = {
-    small: string,
+    small: string
     large: string
 }
 

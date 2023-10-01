@@ -29,11 +29,11 @@
 }
 
 .profileUserCard button {
-    position: absolute;
     font-size: 13px;
     font-weight: bold;
     cursor: pointer;
-    width: 7em;
+    width: 4em;
+    height:2em;
     background: #a69bef;
     border: 1px solid #8074c2;
     color: #fff;
@@ -60,17 +60,16 @@
     margin-top: 0.4em;
     margin-bottom: 0.5em;
 }
-.description {
-    color: #0a5db6;
-}
+
 .contacts {
     color: #75787b;
     font-size: 0.98em;
     margin-top: 0.4em;
 }
 
-.otherDescription {
+.description {
     margin-top: 0.4em;
-    color: #000305;
+    color: #0a5db6;
     font-size: 0.98em;
 }
+

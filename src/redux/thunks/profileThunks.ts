@@ -5,6 +5,9 @@ import {
     setUserProfile,
     setUserStatus
 } from "../actions/profileActions";
+import {ProfileType} from "../reducers/profileReducer";
+import {AppStateType, AppThunkDispatch} from "../redux-store";
+import {stopSubmit} from "redux-form";
 
 export const getUserProfileTC = (userId: string) => async (dispatch: Dispatch) => {
     const res = await profileAPI.getProfile(userId)
@@ -27,5 +30,21 @@ export const savePhotoTC = (file: string) => async (dispatch: Dispatch) => {
     const res = await profileAPI.savePhoto(file)
     if (res.data.resultCode === 0) {
         dispatch(savePhotoSuccess(res.data.data.photos))
+    }
+}
+
+export const saveProfileTC = (profile: ProfileType) => async (dispatch: AppThunkDispatch, getState: () => AppStateType) => {
+    const userId = getState().auth.userId
+    if (!userId) {
+        console.warn('userId not found')
+        return
+    }
+    const res = await profileAPI.saveProfile(profile)
+
+    if (res.data.resultCode === 0) {
+        dispatch(getUserProfileTC(userId))
+    } else {
+        dispatch(stopSubmit('edit-profile', {_error: res.data.messages[0] || 'Incorrect data'}))
+        return Promise.reject(res.data.messages[0])
     }
 }

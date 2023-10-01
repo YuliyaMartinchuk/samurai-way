@@ -6,9 +6,9 @@ import {
 import {
     createField, GetStringKeys,
     Input
-} from "../common/Preloader/FormsControls/FormsControls";
+} from "../common/FormsControls/FormsControls";
 import { required} from "../../utils/validators/validators";
-import style from "../common/Preloader/FormsControls/FormsControls.module.css"
+import style from "../common/FormsControls/FormsControls.module.css"
 
 export type FormDataType = {
     email:string,
@@ -29,7 +29,7 @@ export const LoginForm: React.FC<LoginFormType> = ({error,handleSubmit}) => {
                 {createField<LoginFormValuesTypeKeys>("Password", "password", [required], Input, {type: 'password'})}
             </div>
             <div>
-                {createField<LoginFormValuesTypeKeys>( undefined,"rememberMe",[], Input, {type: 'checkbox'}, "rememberMe")}
+                {createField<LoginFormValuesTypeKeys>( "","rememberMe",[], Input, {type: 'checkbox'}, "rememberMe")}
             </div>
             {error && <div className={style.formSummaryError}>
                 {error}

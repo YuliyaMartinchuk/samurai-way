@@ -3,7 +3,7 @@ import React, {
 } from "react";
 import {Field, WrappedFieldMetaProps} from "redux-form";
 import styles from "./FormsControls.module.css"
-import {FieldValidatorType} from "../../../../utils/validators/validators";
+import {FieldValidatorType} from "../../../utils/validators/validators";
 
 
 type DefaultInputPropsType = DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>
