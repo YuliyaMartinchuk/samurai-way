@@ -1,4 +1,5 @@
 import {
+    AUTH_GET_CAPTCHA_URL,
     AUTH_SET_USER_DATA
 } from "../actions/actionTypeTitle";
 import {ActionType} from "../actions/actionTypes";
@@ -7,7 +8,8 @@ const initialState:AuthMeType  = {
     userId: null,
     email: null,
     login: null,
-    isAuth: false
+    isAuth: false,
+    captchaUrl:null// if null, then captcha is not required
 }
 
 export type AuthMeType  = {
@@ -15,6 +17,7 @@ export type AuthMeType  = {
     email:  string | null
     login: string | null
     isAuth: boolean
+    captchaUrl:string | null
 }
 export type InitialStateType = typeof initialState
 
@@ -24,6 +27,12 @@ export const authReducer = (state: InitialStateType = initialState, action: Acti
             return {
                 ...state,
                 ...action.payload.data
+            }
+        }
+        case AUTH_GET_CAPTCHA_URL: {
+            return {
+                ...state,
+                captchaUrl: action.payload.captchaUrl
             }
         }
 

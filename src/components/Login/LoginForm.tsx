@@ -7,19 +7,24 @@ import {
     createField, GetStringKeys,
     Input
 } from "../common/FormsControls/FormsControls";
-import { required} from "../../utils/validators/validators";
+import {required} from "../../utils/validators/validators";
 import style from "../common/FormsControls/FormsControls.module.css"
 
 export type FormDataType = {
-    email:string,
-    password:string,
-    rememberMe:boolean
+    email: string,
+    password: string,
+    rememberMe: boolean
+    captcha:  string | null
+}
+type LoginFormPropsType = {
+    captchaUrl: string | null
 }
 
-type LoginFormType = InjectedFormProps<FormDataType>
-type LoginFormValuesTypeKeys = GetStringKeys<FormDataType>;
 
-export const LoginForm: React.FC<LoginFormType> = ({error,handleSubmit}) => {
+type LoginFormValuesTypeKeys = GetStringKeys<FormDataType>
+type AllSampleFormProps = LoginFormPropsType & InjectedFormProps<FormDataType, LoginFormPropsType>
+
+export const LoginForm: React.FC<AllSampleFormProps> = ({error, handleSubmit,captchaUrl}) => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -29,8 +34,11 @@ export const LoginForm: React.FC<LoginFormType> = ({error,handleSubmit}) => {
                 {createField<LoginFormValuesTypeKeys>("Password", "password", [required], Input, {type: 'password'})}
             </div>
             <div>
-                {createField<LoginFormValuesTypeKeys>( "","rememberMe",[], Input, {type: 'checkbox'}, "rememberMe")}
+                {createField<LoginFormValuesTypeKeys>("", "rememberMe", [], Input, {type: 'checkbox'}, "rememberMe")}
             </div>
+            {captchaUrl && <img src={captchaUrl} alt={"captchaUrl"}/>}
+            {captchaUrl &&
+                createField<LoginFormValuesTypeKeys>("Symbols from image", "captcha", [required], Input)}
             {error && <div className={style.formSummaryError}>
                 {error}
             </div>}
@@ -42,6 +50,6 @@ export const LoginForm: React.FC<LoginFormType> = ({error,handleSubmit}) => {
 
 }
 
-export const LoginReduxForm = reduxForm<FormDataType>({
+export const LoginReduxForm = reduxForm<FormDataType,LoginFormPropsType>({
     form: "login"
 })(LoginForm)

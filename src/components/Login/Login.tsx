@@ -10,9 +10,10 @@ import {Redirect} from "react-router-dom";
 type LoginType = {
     login: (formData: FormDataType) => void
     isAuth: boolean
+    captchaUrl:string|null
 }
 
-export const Login: React.FC<LoginType> = ({login, isAuth}) => {
+export const Login: React.FC<LoginType> = ({login, isAuth, captchaUrl}) => {
     const onSubmit = (formData:FormDataType) => {
        login(formData)
     }
@@ -21,17 +22,19 @@ export const Login: React.FC<LoginType> = ({login, isAuth}) => {
     }
     return <div>
         <h1>LOGIN</h1>
-        <LoginReduxForm onSubmit={onSubmit}/>
+        <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl} />
     </div>
 };
 
 type MapStateToPropsType = {
     isAuth: boolean
+    captchaUrl:string|null
 }
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        captchaUrl: state.auth.captchaUrl
     }
 }
 
