@@ -2,7 +2,7 @@ import React from "react";
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import {PostsProps} from "./MyPostsContainer";
-import {AddNewPostFormReduxForm, AddPostFormType} from "./PostsForm";
+import {AddNewPostFormReduxForm, AddPostFormType} from "../PostsForm/PostsForm";
 
 const  MyPosts = React.memo((props: PostsProps) => {
     console.log("render")

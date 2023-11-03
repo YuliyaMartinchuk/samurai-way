@@ -1,0 +1,21 @@
+.descriptionBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info {
+    margin-left: 8px;
+    font-weight: bolder;
+}
+.contacts {
+    color: #75787b;
+    font-size: 0.98em;
+    margin-top: 0.4em;
+}
+.description {
+    margin-top: 0.4em;
+    color: #0a5db6;
+    font-size: 0.98em;
+}
+
