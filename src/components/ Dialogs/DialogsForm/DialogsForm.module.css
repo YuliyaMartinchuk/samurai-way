@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.textarea {
+    color: #333232;
+    background: #e8ebfa;
+    border-radius: 10px ;
+    padding: 8px 16px;
+
+}
+.buttonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid rgba(229, 231, 235, 1);
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.button {
+    background-color: #2563EB;
+    padding: 0 20px;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-weight: 500;
+    height: 36px;
+    border: none;
+    border-radius: 6px;
+}
+
+.button:hover {
+    opacity: 0.9;
+}

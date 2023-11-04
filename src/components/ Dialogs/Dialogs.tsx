@@ -3,7 +3,7 @@ import s from "./Dialogs.module.css"
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
 import {DialogsProps} from "./DialogsContainer";
-import {AddMessageFormReduxForm, FormAddMessageDataType} from "./DialogsForm";
+import {AddMessageFormReduxForm, FormAddMessageDataType} from "./DialogsForm/DialogsForm";
 
 
 const Dialogs = (props: DialogsProps) => {
