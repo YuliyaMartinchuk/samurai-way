@@ -1,0 +1,22 @@
+
+.container {
+    background-color: #f9fafb;
+    width: 75em;
+     margin: 0 auto;
+     display: grid;
+     grid-template-areas:
+    "h h"
+    "n c";
+     grid-template-rows: 4rem 1fr;
+     grid-template-columns: 2fr 10fr;
+     grid-gap: 10px;
+}
+.content {
+    width:100%;
+    background-color: rgb(223, 231, 206);
+    grid-area: c;
+}
+
+
+
+

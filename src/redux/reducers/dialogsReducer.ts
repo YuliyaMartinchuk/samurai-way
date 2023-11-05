@@ -1,26 +1,80 @@
 import {DIALOGS_SEND_MESSAGE} from "../actions/actionTypeTitle";
 import {ActionType} from "../actions/actionTypes";
+import avatar1 from "../../assets/images/avatar/avavtar1.jpg"
+import avatar2 from "../../assets/images/avatar/avavtar2.jpg"
+import avatar3 from "../../assets/images/avatar/avavtar3.jpg"
+import avatar4 from "../../assets/images/avatar/avavtar4.jpg"
+import avatar5 from "../../assets/images/avatar/avavtar5.jpg"
+import avatar6 from "../../assets/images/avatar/avavtar6.jpg"
+import avatar7 from "../../assets/images/avatar/avavtar7.jpg"
+import avatar8 from "../../assets/images/avatar/avavtar8.jpg"
 
+export type DialogUserType = {
+    id: number
+    avatar: string
+    userFirstName: string
+    userLastName: string
+}
+
+export type DialogUsersType = DialogUserType[]
 
 export type MessageProps = {
     id: number
     message: string
 }
 
-export type DialogsProps = {
-    id: number
-    name: string
-}
 
 const initialState = {
     dialogs: [
-        {id: 1, name: "Ann"},
-        {id: 2, name: "Valera"},
-        {id: 3, name: "Maks"},
-        {id: 4, name: "Alex"},
-        {id: 5, name: "Nick"},
-        {id: 6, name: "Tim"}
-    ] as DialogsProps[],
+        {
+            id: 1,
+            avatar: avatar1,
+            userFirstName: 'Barbara',
+            userLastName: 'Harris'
+        },
+        {
+            id: 2,
+            avatar: avatar2,
+            userFirstName: 'Donald',
+            userLastName: 'Davis'
+        },
+        {
+            id: 3,
+            avatar: avatar3,
+            userFirstName: 'Gregory',
+            userLastName: ' Wilson'
+        },
+        {
+            id: 4,
+            avatar: avatar4,
+            userFirstName: 'Theresa',
+            userLastName: 'Munoz'
+        },
+        {
+            id: 5,
+            avatar: avatar5,
+            userFirstName: 'Travis',
+            userLastName: 'Jennings'
+        },
+        {
+            id: 6,
+            avatar: avatar6,
+            userFirstName: 'Martha',
+            userLastName: 'Fleming'
+        },
+        {
+            id: 7,
+            avatar: avatar7,
+            userFirstName: 'Tiffany',
+            userLastName: 'Garcia'
+        },
+        {
+            id: 8,
+            avatar: avatar8,
+            userFirstName: 'Charles',
+            userLastName: 'Newman'
+        }
+    ] as DialogUserType[],
     messages: [
         {id: 1, message: "Hello"},
         {id: 2, message: "How are you?"},

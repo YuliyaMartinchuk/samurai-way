@@ -8,7 +8,7 @@ import {AddMessageFormReduxForm, FormAddMessageDataType} from "./DialogsForm/Dia
 
 const Dialogs = (props: DialogsProps) => {
     const state = props.dialogsPage
-    const dialogsElement = state.dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id}/>)
+    const dialogsElement = state.dialogs.map(d => <DialogItem key={d.id} id={d.id} dialog={d}/>)
     const messageElement = state.messages.map(m => <Message message={m.message} id={m.id} key={m.id}/>)
 
     const addNewMessage = (values:FormAddMessageDataType) => {
@@ -16,7 +16,7 @@ const Dialogs = (props: DialogsProps) => {
     }
 
     return (
-        <div className={s.dialogs}>
+        <div className={s.container}>
             <div className={s.dialogsItems}>
                 {dialogsElement}
             </div>

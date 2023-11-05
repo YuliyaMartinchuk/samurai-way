@@ -5,8 +5,8 @@ import './index.css';
 import store from "./redux/redux-store";
 import {HashRouter} from "react-router-dom";
 import {Provider} from "react-redux";
-import App from "./App";
-
+import App from "./App/App";
+import './assets/styles.css'
 
 ReactDOM.render(
     <HashRouter>

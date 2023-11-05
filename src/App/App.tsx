@@ -1,21 +1,22 @@
 import React from 'react';
-import './App.css';
+import './App.module.css';
 import {Redirect, Route, Switch, withRouter} from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import {
     HeaderContainer
-} from "./components/Header/HeaderContainer";
-import {AppStateType} from "./redux/redux-store";
+} from "../components/Header/HeaderContainer";
+import {AppStateType} from "../redux/redux-store";
 import {connect} from "react-redux";
 import {compose} from "redux";
-import {initializeAppTC} from "./redux/thunks/appThunks";
-import {Preloader} from "./components/common/Preloader/Preloader";
-import {withSuspense} from "./hok/withSuspense/withSuspense";
+import {initializeAppTC} from "../redux/thunks/appThunks";
+import {Preloader} from "../components/common/Preloader/Preloader";
+import {withSuspense} from "../hok/withSuspense/withSuspense";
+import s from "./App.module.css"
 
-const DialogsContainer = React.lazy(() => import("./components/ Dialogs/DialogsContainer"))
-const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"))
-const UsersContainer = React.lazy(() => import("./components/Users/UsersContainer"))
-const LoginContainer = React.lazy(() => import("./components/Login/Login"))
+const DialogsContainer = React.lazy(() => import("../components/ Dialogs/DialogsContainer"))
+const ProfileContainer = React.lazy(() => import("../components/Profile/ProfileContainer"))
+const UsersContainer = React.lazy(() => import("../components/Users/UsersContainer"))
+const LoginContainer = React.lazy(() => import("../components/Login/Login"))
 
 type MapStateToPropsType = {
     initialized: boolean
@@ -37,10 +38,10 @@ class App extends React.Component<AppPropsType> {
             return <Preloader/>
         }
         return (
-            <div className="app-wrapper">
+            <div className={s.container}>
                 <HeaderContainer/>
                 <Navbar/>
-                <div className="app-wrapper-content">
+                <div className={s.content}>
                     <Switch>
                         <Route exact path="/" render={() => <Redirect to={'/profile'}/>}/>
                         <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
