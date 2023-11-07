@@ -8,7 +8,7 @@ import {
     Input
 } from "../common/FormsControls/FormsControls";
 import {required} from "../../utils/validators/validators";
-import style from "../common/FormsControls/FormsControls.module.css"
+import s from "./Login.module.css"
 
 export type FormDataType = {
     email: string,
@@ -26,7 +26,7 @@ type AllSampleFormProps = LoginFormPropsType & InjectedFormProps<FormDataType, L
 
 export const LoginForm: React.FC<AllSampleFormProps> = ({error, handleSubmit,captchaUrl}) => {
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={s.loginForm}>
             <div>
                 {createField<LoginFormValuesTypeKeys>("Email", "email", [required], Input)}
             </div>
@@ -39,11 +39,11 @@ export const LoginForm: React.FC<AllSampleFormProps> = ({error, handleSubmit,cap
             {captchaUrl && <img src={captchaUrl} alt={"captchaUrl"}/>}
             {captchaUrl &&
                 createField<LoginFormValuesTypeKeys>("Symbols from image", "captcha", [required], Input)}
-            {error && <div className={style.formSummaryError}>
+            {error && <div className={s.formSummaryError}>
                 {error}
             </div>}
             <div>
-                <button>Login</button>
+                <button className={s.loginButton}>Login</button>
             </div>
         </form>
     )

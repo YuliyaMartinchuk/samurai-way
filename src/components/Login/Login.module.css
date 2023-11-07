@@ -1,0 +1,84 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 480px;
+    width: 100%;
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.testLoginInfo {
+    max-width: 480px;
+    width: 100%;
+    background-color: white;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+    color: #666666;
+    line-height: 26px;
+}
+
+.title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.formSummaryError {
+    box-sizing: border-box;
+    min-width: 100px;
+    font-size: 0.9em;
+    font-family: Montserrat, sans-serif;
+    animation: blink1 3s linear infinite;
+}
+
+.loginButton {
+    width: 100%;
+    font-weight: 600;
+    background-color: #2563EB;
+    color: #FFFFFF;
+
+    padding: 0 20px;
+    cursor: pointer;
+    height: 36px;
+    border: none;
+    border-radius: 6px;
+}
+
+.loginButton:hover {
+    opacity: 0.9;
+}
+
+@keyframes blink1 {
+    0% {
+        color: #ff4b4c;
+    }
+    50% {
+        color: #ffe4c4;
+    }
+    100% {
+        color: #ff4b4c;
+    }
+}
+
+

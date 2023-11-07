@@ -42,6 +42,7 @@ export function createField<FormKeyType extends string>(
     validators: Array<FieldValidatorType>,
     component: React.FC<FormsControlType>,
     props?: {
+        className?: string,
         type?: string
     },
     text = '',
