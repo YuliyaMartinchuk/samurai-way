@@ -14,45 +14,44 @@ export const ProfileData: React.FC<ProfileData> = ({
                                                        isOwner, goToEditMode
                                                    }) => {
     return <div className={s.container}>
-        <div>
-            <span>Full name: </span>{profile?.fullName}
-        </div>
-        <div className={s.description}>
-            <div>
-                <span>Looking for a job: </span>
-                <div className={s.info}>
-                    {profile?.lookingForAJob ? "yes" : "no"}
-                </div>
-
-            </div>
-            {profile?.lookingForAJob &&
-                <div>
-                    <span>My professional skills: </span>
-                    <div className={s.info}>{profile?.lookingForAJobDescription}
-                    </div>
-                </div>
-            }
-            <div>
-                <span>About me: </span>
-                <div className={s.info}>
-                    {profile?.aboutMe}
-                </div>
-            </div>
-            {profile?.contacts &&
-                <div >
-                    <span>Contacts: </span>
-                    <div className={s.contacts}>
-                        {Object.entries(profile.contacts).map(([key, value]) =>
-                            value &&
-                             <Contact key={key} contactTitle={key}
-                                            contactValue={profile.contacts[key]}/>
-                        )}
-                    </div>
-
-                </div>}
+        <div className={s.description}>Full name:</div>
+        <div className={s.info}>
+            {profile?.fullName}
         </div>
         <div>
-            {isOwner && <button onClick={goToEditMode}>edit</button>}
+            <div className={s.description}>Looking for a job:</div>
+            <div className={s.info}>
+                {profile?.lookingForAJob ? "Yes" : "No"}
+            </div>
+
+        </div>
+        {profile?.lookingForAJob &&
+            <div>
+                <div className={s.description}>My professional skills:</div>
+                <div className={s.info}>{profile?.lookingForAJobDescription}
+                </div>
+            </div>
+        }
+        <div>
+            <div className={s.description}>About me:</div>
+            <div className={s.info}>
+                {profile?.aboutMe}
+            </div>
+        </div>
+        {profile?.contacts &&
+            <div>
+                <div className={s.description}>Contacts:</div>
+                <div className={s.contacts}>
+                    {Object.entries(profile.contacts).map(([key, value]) =>
+                        value &&
+                        <Contact key={key} contactTitle={key}
+                                 contactValue={profile.contacts[key]}/>
+                    )}
+                </div>
+            </div>}
+        <div>
+            {isOwner && <button className={s.editButton}
+                                onClick={goToEditMode}>edit</button>}
         </div>
     </div>
 }

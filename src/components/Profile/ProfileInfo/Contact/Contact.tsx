@@ -6,5 +6,5 @@ type ContactProps = {
 }
 
 export const Contact: React.FC<ContactProps> = ({contactTitle, contactValue}) => {
-    return <div><span>{contactTitle}: </span>{contactValue}</div>
+    return <div ><span>{contactTitle}: </span>{contactValue}</div>
 }

@@ -1,21 +1,45 @@
-.descriptionBlock {
+.container {
     display: flex;
     flex-direction: column;
-    gap: 12px;
 }
 
 .info {
-    margin-left: 8px;
-    font-weight: bolder;
-}
-.contacts {
-    color: #75787b;
-    font-size: 0.98em;
-    margin-top: 0.4em;
-}
-.description {
-    margin-top: 0.4em;
-    color: #0a5db6;
-    font-size: 0.98em;
+    margin-left: 0.6em;
 }
 
+.contacts {
+    margin-left: 0.6em;
+    margin-bottom: 1em;
+}
+.description {
+    margin: 0.6em 0;
+    color: #0a5db6;
+}
+
+.editButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #f0f2f5;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    color: #666666;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.editButton:hover {
+    opacity: 0.9;
+}
+.checkbox {
+    width: 1em;
+    height: 1em;
+}
+.textarea {
+    color: #333232;
+    background: #e8ebfa;
+    border-radius: 0.6em ;
+    padding: 0.4em;
+}

@@ -4,7 +4,7 @@ import ProfileDataForm, {
 } from "../../ProfileInfo/ProfileDataForm/ProfileDataForm";
 import React, {useState} from "react";
 import {Preloader} from "../../../common/Preloader/Preloader";
-import s from "../../ProfileInfo/Profileinfo.module.css";
+import s from "./AboutMe.module.css";
 
 import {ProfileData} from "../../ProfileInfo/ProfileData/ProfileData";
 
@@ -34,8 +34,8 @@ const AboutMe: React.FC<PropsType> = ({
             .then(() => setEditMode(false))
     }
     return (
-        <div className={s.profileUserCard}>
-            <h3>About Me</h3>
+        <div className={s.container}>
+            <h3 className={s.title}>About Me:</h3>
             {editMode
                 ? <ProfileDataForm profile={profile} initialValues={profile}
                                    onSubmit={onSubmit}/>

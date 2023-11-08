@@ -1,0 +1,16 @@
+
+
+
+.saveButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #2563EB;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: 600;
+}
