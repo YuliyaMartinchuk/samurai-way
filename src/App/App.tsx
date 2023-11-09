@@ -38,8 +38,9 @@ class App extends React.Component<AppPropsType> {
             return <Preloader/>
         }
         return (
-            <div className={s.container}>
+            <div className={s.root}>
                 <HeaderContainer/>
+                <div className={s.container}>
                 <Navbar/>
                 <div className={s.content}>
                     <Switch>
@@ -50,6 +51,7 @@ class App extends React.Component<AppPropsType> {
                         <Route path="/login" render={withSuspense(LoginContainer)}/>
                         <Route path="*" render={() => <div>404 NOT FOUND</div>}/>
                     </Switch>
+                </div>
                 </div>
             </div>
 

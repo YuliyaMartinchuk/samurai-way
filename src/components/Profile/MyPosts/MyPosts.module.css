@@ -1,8 +1,4 @@
 .postsBlock{
-
-    border-radius: 0.3rem;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    border: .1em solid rgba(0, 0, 0, 0.2);
     margin-bottom: 1em;
     display: flex;
     flex-direction: column;
@@ -11,4 +7,7 @@
 
 .posts {
     margin-top: 10px;
+}
+h3 {
+    margin-bottom: 1em;
 }

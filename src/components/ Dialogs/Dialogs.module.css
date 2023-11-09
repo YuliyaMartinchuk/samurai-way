@@ -2,15 +2,33 @@
     display: flex;
 }
 
-.dialogsItems a {
+.dialogsItems {
     display: flex;
     flex-direction: column;
     background-color: #e5e6e8;
-
+    border: .1em solid rgba(0, 0, 0, 0.2);
 }
 
 .messages {
     padding: 10px;
     width: 100%;
+    border: .1em solid rgba(0, 0, 0, 0.2);
 }
 
+.messages__items {
+    display: flex;
+    flex-direction: column;
+    background-color: #e5e6e8;
+    color: #585757;
+    margin-bottom: 0.4em;
+    border: .1em solid rgba(0, 0, 0, 0.2);
+}
+.messages__item {
+    display: flex;
+    flex-direction: column;
+    background-color: #e5e6e8;
+    color: #585757;
+    padding: 0.4em;
+    margin-bottom: 0.4em;
+
+}

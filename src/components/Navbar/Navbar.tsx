@@ -5,18 +5,6 @@ import {NavLink} from "react-router-dom";
 
 
 const Navbar = () => {
-    // return (
-        // <StoreContext.Consumer>
-        //     {(store) => {
-        //
-        //         const friendsList = store.getState().sidebar.friends.map(el => {
-        //             return (
-        //                 <div key={el.id}>
-        //                     <img className={s.avatar} src={el.avatar}/>
-        //                     <div className={s.name}>{el.name}</div>
-        //                 </div>
-        //             )
-        //         })
                 return (
                     <nav className={s.nav}>
                         <div className={s.item}>
@@ -46,9 +34,6 @@ const Navbar = () => {
 
                     </nav>
                 )
-        //     }
-        //     }
-        // </StoreContext.Consumer>
-    // )
+
 }
 export default Navbar

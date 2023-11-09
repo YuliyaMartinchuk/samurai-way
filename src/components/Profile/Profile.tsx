@@ -26,22 +26,27 @@ export const Profile: React.FC<PropsType> = ({
                                                  isOwner,
                                                  savePhoto, saveProfile, users
                                              }) => {
-    return <div>
-        <ProfileInfo profile={profile} status={status}
-                     updateStatus={updateStatus} isOwner={isOwner}
-                     savePhoto={savePhoto}
-                     />
-        <div className={s.PostsAndSidebarContainer}>
-            <div>
-                <MyPostsContainer/>
-            </div>
-            <div>
-                <ProfileSidebar profile={profile} isOwner={isOwner}
-                                saveProfile={saveProfile} users={users}/>
+    return (<div className={s.container}>
+        <div className={s.content}>
+            <ProfileInfo profile={profile}
+                         status={status}
+                         updateStatus={updateStatus}
+                         isOwner={isOwner}
+                         savePhoto={savePhoto}
+            />
+            <div className={s.items}>
+                <div className={s.timeline}>
+                    <div className={s.postForm}>
+                            <MyPostsContainer/>
+                    </div>
+                </div>
+                <div className={s.sidebar}>
+                    <ProfileSidebar profile={profile} isOwner={isOwner}
+                                    saveProfile={saveProfile} users={users}/>
+                </div>
             </div>
         </div>
-
-    </div>
+    </div>)
 }
 
 

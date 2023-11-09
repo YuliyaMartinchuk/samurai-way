@@ -18,7 +18,7 @@ const AddNewPostForm = (props: InjectedFormProps<AddPostFormType>) => {
     return (
         <div className={s.container}>
             <form onSubmit={props.handleSubmit}>
-                <div>
+                <div className={s.textareaButtonBlock}>
                     <Field placeholder={"Enter your post"}
                            name={"newPostText"}
                            className={s.textarea}
@@ -26,10 +26,9 @@ const AddNewPostForm = (props: InjectedFormProps<AddPostFormType>) => {
                            validate = {[required, maxLength10]}
                     >
                     </Field>
-                </div>
-                <div className={s.buttonContainer}>
                     <button className={s.button}>Add post</button>
                 </div>
+
             </form>
         </div>
 

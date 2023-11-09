@@ -1,16 +1,56 @@
-
-.content img {
-    width: 100%;
-    height: 400px;
+.container {
+    margin:0.7em;
 }
 
-.PostsAndSidebarContainer {
-    width: 100%;
-    display: grid;
-    grid-template-areas:
-"p a"
-"p f";
-    grid-template-columns: 7fr 3fr;
-    grid-gap: 20px;
+.content {
+    margin: 0 auto;
 }
 
+.timeline {
+    flex-grow: 2;
+    flex-basis: 0;
+}
+.sidebar {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.items {
+    display: flex;
+    gap: 20px;
+
+}
+
+.imgAndTextarea {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.postForm {
+    background-color:  #e5e6e8;
+    padding: 0.7em;
+    border-radius: 8px;
+    overflow: hidden;
+    border: .1em solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.avatar {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+@media (max-width: 992px) {
+    .items {
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .timeline {
+        max-width: 100%;
+    }
+}
