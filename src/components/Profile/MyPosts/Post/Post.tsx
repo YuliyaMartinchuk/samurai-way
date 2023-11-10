@@ -1,22 +1,27 @@
 import React from "react";
 import s from "./Post.module.css"
+import {PostHeader} from "../PostHeader/PostHeader";
+import {PostType, ProfileType} from "../../../../redux/reducers/profileReducer";
+import likeIcon from '../../../../assets/images/icon-heart.svg'
 
 type PostPropsType ={
-    message:string,
-    likesCount:number
+    profile: ProfileType | null
+    post: PostType
 
 }
 
 const Post: React.FC<PostPropsType> = (props:PostPropsType) => {
-
+    const {profile,post} = props
     return (
-        <div className={s.item}>
-            <img src="https://i.pinimg.com/564x/1d/93/7f/1d937faee0026150d54b97df59c0af81.jpg"/>
-            {props.message}
-            <div>
-                <span>like</span> {props.likesCount}
-            </div>
+        <div className={s.container}>
+            <PostHeader profile={profile}/>
+            <div className={s.item}>{post.message}</div>
+                <div className={s.likes}>
+                    <img  className={s.likesIcon}  src={likeIcon} alt="icon-likes"/>
+                    <span className={s.likesCount}>{post.likesCount}</span>
+                </div>
         </div>
+
     )
 }
 export default Post

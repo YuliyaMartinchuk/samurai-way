@@ -1,5 +1,5 @@
 import React from "react";
-import { PostType} from "../../../redux/reducers/profileReducer";
+import {PostType, ProfileType} from "../../../redux/reducers/profileReducer";
 import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
@@ -8,6 +8,7 @@ import {addPostAC} from "../../../redux/actions/profileActions";
 
 type MapStateToPropsType = {
     posts: PostType[]
+    profile: ProfileType | null
 }
 
 type MapDispatchToPropsType = {
@@ -18,7 +19,8 @@ export type PostsProps = MapStateToPropsType &  MapDispatchToPropsType
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
-        posts: state.profilePage.posts
+        posts: state.profilePage.posts,
+        profile:state.profilePage.profile
     }
 }
 

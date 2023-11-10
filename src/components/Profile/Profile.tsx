@@ -9,6 +9,7 @@ import {ProfileSidebar} from "./ProfileSidebar/ProfileSidebar";
 import {UserType} from "../../redux/reducers/usersReducer";
 import s from "./Profile.module.css"
 
+
 type PropsType = {
     profile: ProfileType | null
     status: string
@@ -36,7 +37,7 @@ export const Profile: React.FC<PropsType> = ({
             />
             <div className={s.items}>
                 <div className={s.timeline}>
-                    <div className={s.postForm}>
+                    <div >
                             <MyPostsContainer/>
                     </div>
                 </div>

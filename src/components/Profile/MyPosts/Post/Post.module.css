@@ -1,8 +1,26 @@
-.item {
-    color: #fff;
+.container {
+    background-color: #e5e6e8;
+    padding: 1em;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ebe9e6;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    margin: 20px 0;
 }
- .item img {
-     width: 40px;
-     height: 40px;
-     border-radius: 40px;
- }
+
+.likes {
+    display: flex;
+    align-items: center;
+    margin-top: 0.8em;
+    width: 28px;
+    height: 28px;
+}
+
+.likesIcon {
+    padding: 0.3em;
+}
+
+.likesCount {
+    font-weight: bolder;
+}
+

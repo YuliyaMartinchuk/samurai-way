@@ -3,13 +3,17 @@ import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import {PostsProps} from "./MyPostsContainer";
 import {AddNewPostFormReduxForm, AddPostFormType} from "../PostsForm/PostsForm";
+import {PostHeader} from "./PostHeader/PostHeader";
 
 const  MyPosts = React.memo((props: PostsProps) => {
-    console.log("render")
+    const { profile} = props
+
     const postsElement =
-        props.posts.map((p, index) => <Post key={index}
-                                            message={p.message}
-                                            likesCount={p.likesCount}/>)
+        props.posts.map((post, index) =>
+            <Post key={index}
+                  post={post}
+                  profile={profile}
+            />)
 
     const onAddPost = (values: AddPostFormType) => {
         props.addPost(values.newPostText)
@@ -17,9 +21,11 @@ const  MyPosts = React.memo((props: PostsProps) => {
 
     return (
         <div className={s.postsBlock}>
-            <h3>My posts</h3>
-            <AddNewPostFormReduxForm onSubmit={onAddPost}/>
-            <div className={s.posts}>
+            <div  className={s.postForm}>
+                <PostHeader profile={profile}/>
+                <AddNewPostFormReduxForm onSubmit={onAddPost}/>
+            </div>
+            <div>
                 {postsElement}
             </div>
         </div>

@@ -18,17 +18,18 @@ const AddNewPostForm = (props: InjectedFormProps<AddPostFormType>) => {
     return (
         <div className={s.container}>
             <form onSubmit={props.handleSubmit}>
-                <div className={s.textareaButtonBlock}>
-                    <Field placeholder={"Enter your post"}
+                <div>
+                    <Field placeholder={"What's new with you?"}
                            name={"newPostText"}
                            className={s.textarea}
                            component={Textarea}
                            validate = {[required, maxLength10]}
                     >
                     </Field>
+                </div>
+                <div  className={s.buttonBlock}>
                     <button className={s.button}>Add post</button>
                 </div>
-
             </form>
         </div>
 
