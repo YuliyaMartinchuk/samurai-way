@@ -5,6 +5,7 @@ import {
 } from "../../redux/reducers/usersReducer";
 import {Pagination} from "../common/Pagination/Pagination";
 import {User} from "./User";
+import s from "./users.module.css"
 
 type PropsType = {
     users: UserType[]
@@ -29,14 +30,19 @@ export const Users: React.FC<PropsType> = ({
                                                followingInProgress
                                            }) => {
     return (
-        <div>
+        <div className={s.root}>
+        <div className={s.container}>
+           <div className={s.users}>
+               {users.map(user => <User key={user.id} user={user}
+                                        followingInProgress={followingInProgress}
+                                        follow={follow} unFollow={unFollow}/>)}
+           </div>
+
             <Pagination currentPage={currentPage}
                         pageSize={pageSize}
                         totalItemsCount={totalUsersCount}
                         onPageChanged={onPageChanged}/>
-            {users.map(user => <User key={user.id} user={user}
-                                     followingInProgress={followingInProgress}
-                                     follow={follow} unFollow={unFollow}/>)}
+        </div>
         </div>
     );
 }
