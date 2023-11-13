@@ -38,7 +38,7 @@ export const Pagination: React.FC<PropsType> = ({
     const rightPortionPageNumber = portionNumber * portionSize
 
     return (
-        <div className={s.block}>
+        <div className={s.container}>
         <div className={s.pagination}>
             {portionNumber > 1 &&
                 <button onClick={onClickPrevHandler}>PREV</button>}
@@ -51,7 +51,7 @@ export const Pagination: React.FC<PropsType> = ({
                     )
                 })}
             {portionCount > portionNumber &&
-                <button onClick={onClickNextHandler}>NEXT</button>}
+                <button className={s.button} onClick={onClickNextHandler}>NEXT</button>}
         </div>
         </div>
     );

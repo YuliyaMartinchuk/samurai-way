@@ -1,13 +1,12 @@
-.block {
+.container {
     display: flex;
     justify-content: center;
 }
 .pagination {
-    width: 150px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    margin: 30px;
-    gap: 5px;
+    justify-content: center ;
+    gap: 15px;
 }
 
 .pageNumber {
@@ -17,10 +16,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
+.pageNumber:hover {
+    background-color: #2563EB;
+    color: #e5e6e8;
+}
 
 .pageNumber.selectedPage {
+    color: #e5e6e8;
+    background-color: #2563EB;
     font-weight: bold;
-    border-color: black;
+    border: none;
+}
+
+.pageNumber.selectedPage:hover {
+    opacity: 0.9;
+}
+.button {
+    padding: 0.5em 1em;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    background-color: #2563EB;
+}
+
+.button:hover {
+    opacity: 0.9;
 }
