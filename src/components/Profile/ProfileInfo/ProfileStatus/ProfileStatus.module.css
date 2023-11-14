@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    margin-top: 0.4em;
+    margin-bottom: 0.5em;
+    justify-content: center;
+    align-items: center;
+}
+
+.status {
+    font-family:  'Noto Serif Display', serif;
+    color: #19a440;
+    font-size: 1.1em;
+}
+
+.input {
+    background: #e8ebfa;
+    text-align: center;
+    color: #333232;
+    border-radius: 0.6em ;
+    padding: 0.4em;
+}

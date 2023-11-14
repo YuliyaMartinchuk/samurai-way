@@ -1,5 +1,5 @@
 import React, {ChangeEvent, useEffect, useState} from "react";
-import s from "./Profileinfo.module.css"
+import s from "./ProfileStatus.module.css"
 
 
 
@@ -32,7 +32,7 @@ export const ProfileStatusWithHooks: React.FC<PropsType> = (props) => {
     }
 
     return (
-        <div >
+        <div  className={s.container}>
             {!editMode &&
                 <div>
                 <span
@@ -44,7 +44,7 @@ export const ProfileStatusWithHooks: React.FC<PropsType> = (props) => {
             {editMode &&
                 <div>
                     <input
-                        className={s.status}
+                        className={s.input}
                         autoFocus={true}
                         onBlur={deActivateEditMode}
                         onChange={onStatusChanged}

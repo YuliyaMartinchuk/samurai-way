@@ -1,5 +1,5 @@
 import React, {ChangeEvent} from "react";
-import s from "./Profileinfo.module.css"
+import s from "../Profileinfo.module.css"
 
 
 type PropsType = {
@@ -42,7 +42,7 @@ class ProfileStatus extends React.Component<PropsType> {
                 {!this.state.editMode &&
                     <div>
                         <span onDoubleClick={this.activateEditMode}
-                              className={s.status}>{this.props.status || 'No status'}</span>
+                             >{this.props.status || 'No status'}</span>
                     </div>
                 }
                 {this.state.editMode &&
