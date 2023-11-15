@@ -9,19 +9,39 @@
 }
 
 .content {
+    display: flex;
+    justify-content: space-between;
     width: 75em;
     margin: 0 auto;
+
 }
 
-.container img {
+.headerIcon {
     width: 60px;
     padding: 10px 0;
 }
 
 .loginBlock {
-    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.loginBlock a {
-    color: white;
+.button {
+    background-color: transparent;
+    padding: 0 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.logoutIcon {
+    height: 15px;
+    width: 15px;
+    color: black;
+
+}
+
+.navlink {
+    cursor: pointer;
+    color: #666666;
 }
