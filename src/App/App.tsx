@@ -12,6 +12,7 @@ import {initializeAppTC} from "../redux/thunks/appThunks";
 import {Preloader} from "../components/common/Preloader/Preloader";
 import {withSuspense} from "../hok/withSuspense/withSuspense";
 import s from "./App.module.css"
+import {Music} from "../components/Music/Music";
 
 const DialogsContainer = React.lazy(() => import("../components/ Dialogs/DialogsContainer"))
 const ProfileContainer = React.lazy(() => import("../components/Profile/ProfileContainer"))
@@ -49,6 +50,7 @@ class App extends React.Component<AppPropsType> {
                         <Route path="/dialogs" render={withSuspense(DialogsContainer)}/>
                         <Route path="/users" render={withSuspense(UsersContainer)}/>
                         <Route path="/login" render={withSuspense(LoginContainer)}/>
+                        <Route path="/music" render={() => <Music/>}/>
                         <Route path="*" render={() => <div>404 NOT FOUND</div>}/>
                     </Switch>
                 </div>
