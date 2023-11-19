@@ -1,4 +1,4 @@
-import {usersAPI} from "../../api/api";
+
 import {Dispatch} from "redux";
 import {
     follow,
@@ -8,6 +8,7 @@ import {
     toggleIsFetching, unFollow
 } from "../actions/usersAction";
 import {followUnfollow} from "../../utils/followUnfollow/followUnfollow";
+import {usersAPI} from "../../api/usersApi";
 
 export const getUsersTC = (page: number, pageSize: number) => async (dispatch: Dispatch) => {
     dispatch(toggleIsFetching(true))

@@ -1,5 +1,4 @@
 import {Dispatch} from "redux";
-import {profileAPI} from "../../api/api";
 import {
     savePhotoSuccess,
     setUserProfile,
@@ -8,6 +7,7 @@ import {
 import {ProfileType} from "../reducers/profileReducer";
 import {AppStateType, AppThunkDispatch} from "../redux-store";
 import {stopSubmit} from "redux-form";
+import {profileAPI} from "../../api/profileApi";
 
 export const getUserProfileTC = (userId: string) => async (dispatch: Dispatch) => {
     const res = await profileAPI.getProfile(userId)

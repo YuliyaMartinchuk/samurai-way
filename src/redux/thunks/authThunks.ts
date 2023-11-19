@@ -1,9 +1,10 @@
 import {Dispatch} from "redux";
-import {authAPI, securityAPI} from "../../api/api";
 import {getCaptchaUrl, setAuthUserData} from "../actions/authAction";
 import {AppThunkDispatch} from "../redux-store";
 import {FormDataType} from "../../components/Login/LoginForm";
 import {stopSubmit} from "redux-form";
+import {authAPI} from "../../api/authApi";
+import {securityAPI} from "../../api/securityApi";
 
 export const getAuthUserDataTC = () => async (dispatch: Dispatch) => {
     const res = await authAPI.me()
