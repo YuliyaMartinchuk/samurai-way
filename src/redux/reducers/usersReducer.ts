@@ -10,8 +10,8 @@ import {ActionType} from "../actions/actionTypes";
 import {updateObjectInArray} from "../../utils/objectHelpers/objectHelpers";
 
 export type PhotosType = {
-    small: string,
-    large: string
+    small: string|null,
+    large: string|null
 }
 export type LocationType = {
     city: string,
