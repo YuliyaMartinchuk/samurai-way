@@ -43,7 +43,7 @@ export const saveProfileTC = (profile: ProfileType) => async (dispatch: AppThunk
     const res = await profileAPI.saveProfile(profile)
 
     if (res.data.resultCode === ResultCode.Success) {
-        dispatch(getUserProfileTC(userId))
+        dispatch(getUserProfileTC(String(userId)))
     } else {
         dispatch(stopSubmit('edit-profile', {_error: res.data.messages[0] || 'Incorrect data'}))
         return Promise.reject(res.data.messages[0])

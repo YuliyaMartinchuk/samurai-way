@@ -28,7 +28,7 @@ type MapStateToPropsType = {
     profilePage: InitialStateType
     profile: ProfileType | null
     status: string
-    authorizedUserId: string| null
+    authorizedUserId: number| null
     isAuth: boolean
     users: UserType[]
 }
@@ -50,7 +50,7 @@ export type ProfilePropsType =
     refreshProfile () {
         let userId = this.props.match.params.userId
         if (!userId) {
-            userId = this.props.authorizedUserId as string
+            userId = String(this.props.authorizedUserId)
             if (!userId) {
                 this.props.history.push("/login")
             }

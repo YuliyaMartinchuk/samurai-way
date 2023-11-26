@@ -1,16 +1,26 @@
 import {FormDataType} from "../components/Login/LoginForm";
-import {instance} from "./instance";
+import {BaseResponseType, instance} from "./instance";
 
 export const authAPI = {
     me() {
-        return instance.get(`auth/me`)
+        return instance.get<BaseResponseType<MeResponseDataType>>(`auth/me`)
     },
 
     login(data:FormDataType) {
-        return instance.post(`auth/login`, data)
+        return instance.post<BaseResponseType<LoginResponseDataType>>(`auth/login`, data)
     },
     logout() {
-        return instance.delete(`auth/login`)
+        return instance.delete<BaseResponseType>(`auth/login`)
 
     }
+}
+
+type MeResponseDataType = {
+    id: number
+    email: string
+    login: string
+}
+
+type LoginResponseDataType = {
+    userId: number
 }

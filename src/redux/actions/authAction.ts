@@ -10,7 +10,7 @@ export type AuthActionsTypes =
     | ReturnType<typeof getCaptchaUrl>
 
 
-export const setAuthUserData = (userId: string | null, email: string | null, login: string | null, isAuth:boolean) => ({
+export const setAuthUserData = (userId: number | null, email: string | null, login: string | null, isAuth:boolean) => ({
     type: AUTH_SET_USER_DATA,
     payload: {
         data: {

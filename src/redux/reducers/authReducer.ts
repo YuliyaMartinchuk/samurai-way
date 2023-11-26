@@ -13,7 +13,7 @@ const initialState:AuthMeType  = {
 }
 
 export type AuthMeType  = {
-    userId: string | null
+    userId: number | null
     email:  string | null
     login: string | null
     isAuth: boolean

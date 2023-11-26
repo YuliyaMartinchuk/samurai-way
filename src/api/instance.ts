@@ -10,3 +10,9 @@ export enum ResultCode {
     Error = 1,
     CaptchaIsRequired = 10
 }
+
+export type BaseResponseType<T = {}, RC = ResultCode> = {
+    resultCode: RC
+    messages: string[]
+    data: T
+}
