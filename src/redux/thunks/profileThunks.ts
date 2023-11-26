@@ -8,6 +8,7 @@ import {ProfileType} from "../reducers/profileReducer";
 import {AppStateType, AppThunkDispatch} from "../redux-store";
 import {stopSubmit} from "redux-form";
 import {profileAPI} from "../../api/profileApi";
+import {ResultCode} from "../../api/instance";
 
 export const getUserProfileTC = (userId: string) => async (dispatch: Dispatch) => {
     const res = await profileAPI.getProfile(userId)
@@ -21,14 +22,14 @@ export const getUserStatusTC = (userId: string) => async (dispatch: Dispatch) =>
 
 export const updateUserStatusTC = (status: string) => async (dispatch: Dispatch) => {
      const res = await profileAPI.updateStatus(status)
-    if (res.data.resultCode === 0) {
+    if (res.data.resultCode === ResultCode.Success) {
         dispatch(setUserStatus(status))
     }
 }
 
 export const savePhotoTC = (file: string) => async (dispatch: Dispatch) => {
     const res = await profileAPI.savePhoto(file)
-    if (res.data.resultCode === 0) {
+    if (res.data.resultCode === ResultCode.Success) {
         dispatch(savePhotoSuccess(res.data.data.photos))
     }
 }
@@ -41,7 +42,7 @@ export const saveProfileTC = (profile: ProfileType) => async (dispatch: AppThunk
     }
     const res = await profileAPI.saveProfile(profile)
 
-    if (res.data.resultCode === 0) {
+    if (res.data.resultCode === ResultCode.Success) {
         dispatch(getUserProfileTC(userId))
     } else {
         dispatch(stopSubmit('edit-profile', {_error: res.data.messages[0] || 'Incorrect data'}))

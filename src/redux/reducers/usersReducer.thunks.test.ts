@@ -6,6 +6,7 @@ import {
     toggleFollowingProgress,
     unFollow
 } from "../actions/usersAction";
+import {ResultCode} from "../../api/instance";
 
 jest.mock("../../api/usersApi")
 
@@ -21,7 +22,7 @@ beforeEach(() => {
 })
 
 const result = {
-    resultCode: 0,
+    resultCode: ResultCode.Success,
     messages: [],
     data: {}
 
@@ -33,6 +34,7 @@ test("success follow thunk", async () => {
 
     const thunk = followTC(1)
 
+    // @ts-ignore
     await thunk(dispatchMock, getStateMock,{})
 
     expect(dispatchMock).toBeCalledTimes(1)
@@ -45,6 +47,7 @@ test("success unfollow thunk", async () => {
 
     const thunk = unFollowTC(1)
 
+    // @ts-ignore
     await thunk(dispatchMock, getStateMock,{})
 
     expect(dispatchMock).toBeCalledTimes(1)
