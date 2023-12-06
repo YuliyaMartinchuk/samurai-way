@@ -27,14 +27,15 @@ type AllSampleFormProps = LoginFormPropsType & InjectedFormProps<FormDataType, L
 export const LoginForm: React.FC<AllSampleFormProps> = ({error, handleSubmit,captchaUrl}) => {
     return (
         <form onSubmit={handleSubmit} className={s.loginForm}>
-            <div>
+            <div >
                 {createField<LoginFormValuesTypeKeys>("Email", "email", [required], Input)}
             </div>
             <div>
                 {createField<LoginFormValuesTypeKeys>("Password", "password", [required], Input, {type: 'password'})}
             </div>
-            <div>
-                {createField<LoginFormValuesTypeKeys>("", "rememberMe", [], Input, {type: 'checkbox'}, "rememberMe")}
+            <div className={s.rememberMeContainer}>
+                {createField<LoginFormValuesTypeKeys>("", "rememberMe", [], Input, {type: 'checkbox', className: s.checkbox}, "")}
+                <label htmlFor="rememberMe" className={s.checkboxText}>Remember me</label>
             </div>
             {captchaUrl && <img src={captchaUrl} alt={"captchaUrl"}/>}
             {captchaUrl &&
