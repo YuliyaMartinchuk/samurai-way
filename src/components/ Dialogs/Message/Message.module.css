@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0.7em;
+}
+
+.messages__item {
+    max-width: 400px;
+    padding: 0.5em 0.7em;
+    background-color: #585757;
+    border-radius: 0.5em;
+    color: #FFFFFF;
+}
