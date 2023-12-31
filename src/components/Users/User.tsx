@@ -1,5 +1,5 @@
 import React from 'react';
-import s from "./users.module.css";
+import s from "./user.module.css";
 import userPhoto from "../../assets/images/defaultUserPhoto.jpg";
 import {
     FollowingInProgressType,
@@ -23,7 +23,8 @@ export const User: React.FC<PropsType> = ({
                                               followingInProgress
                                           }) => {
     return (
-        <div>
+        <div className={s.root}>
+            <div className={s.container}>
             <span>
                 <div>
                     <NavLink to={`profile/${user.id}`}>
@@ -34,13 +35,13 @@ export const User: React.FC<PropsType> = ({
                 </div>
                 <div>
                     {user.followed
-                        ? <button
-                            disabled={followingInProgress.some(id => id === user.id)}
+                        ? <button className={s.buttonUnfollow}
+                                  disabled={followingInProgress.some(id => id === user.id)}
                             onClick={() => {
                                 unFollow(user.id)
                             }}>
                             unfollow</button>
-                        : <button
+                        : <button className={s.buttonFollow}
                             disabled={followingInProgress.some(id => id === user.id)}
                             onClick={() => {
                                 follow(user.id)
@@ -51,14 +52,15 @@ export const User: React.FC<PropsType> = ({
             </span>
             <span>
                 <span>
-                    <div>{user.name}</div>
-                    <div>{user.status}</div>
+                    <div className={s.name}>{user.name}</div>
+                    <div className={s.status}>{user.status}</div>
                 </span>
                 <span>
                     <div>{"u.location.country"}</div>
                     <div>{"u.location.city"}</div>
                 </span>
             </span>
+        </div>
         </div>
     )
 }
