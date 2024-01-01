@@ -14,7 +14,6 @@
     border-bottom: .2em solid #E5B6F2;
     height: 16em;
     width: 100%;
-
 }
 
 .avatar {
@@ -23,9 +22,8 @@
     height: 7em;
     padding: 0.25em;
     border-radius: 7em;
-    margin-top: -6em;
+    margin-top: -10em;
     box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
-
 }
 
 .descriptionBlock {
@@ -50,4 +48,24 @@
     color: #0a5db6;
     font-size: 0.98em;
 }
+.profileAvatar {
+    position: relative;
+    z-index: 2;
+}
+.fileInput {
+    display: none;
 
+}
+.fileInputLabel {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.fileInputIcon {
+    background-color: #f0f2f5;
+    vertical-align: middle;
+    border-radius: 50%;
+    padding: 4px;
+
+    transition: 0.3s;
+}

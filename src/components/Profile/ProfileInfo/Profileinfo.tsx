@@ -7,6 +7,7 @@ import backgroundImage from "../../../assets/images/backgroundImage.jpg"
 import {Preloader} from "../../common/Preloader/Preloader";
 import defaultUserPhoto from "../../../assets/images/defaultUserPhoto.jpg"
 import {ProfileStatusWithHooks} from "./ProfileStatus/ProfileStatusWithHooks";
+import editIcon from "../../../assets/images/editIcon.svg"
 
 
 type PropsType = {
@@ -39,12 +40,16 @@ const ProfileInfo: React.FC<PropsType> = ({
             <div className={s.profileUserCardImage}>
                 <img className={s.backgroundImage} src={backgroundImage}
                      alt={"background image"}/>
+                <div className={s.profileAvatar}>
                 <img className={s.avatar}
                      src={profile?.photos.large || defaultUserPhoto}
                      alt={"profile photo"}/>
-                <div>
                     {isOwner &&
-                        <input type="file" onChange={mainPhotoSelected}/>}
+                        <label htmlFor="mainPhotoInput" className={s.fileInputLabel}>
+                        <input  id="mainPhotoInput" type="file" onChange={mainPhotoSelected}   className={s.fileInput}/>
+                            <img className={s.fileInputIcon} src={editIcon} alt='editIcon'/>
+                        </label>
+                    }
                 </div>
                 <h1 className={s.profileName}>{profile.fullName}</h1>
             </div>
