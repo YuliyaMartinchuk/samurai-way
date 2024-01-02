@@ -1,11 +1,11 @@
 import React from "react";
 import ProfileInfo from "./ProfileInfo/Profileinfo";
-import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import MyPostsContainer from "./MyPosts/MyPostsContainer/MyPostsContainer";
 import {ProfileType} from "../../redux/reducers/profileReducer";
 import {
     ProfileDataFormType
-} from "./ProfileInfo/ProfileDataForm/ProfileDataForm";
-import {ProfileSidebar} from "./ProfileSidebar/ProfileSidebar";
+} from "./ProfileInfo/ProfileDataForm";
+import {ProfileSidebar} from "./ProfileSidebar";
 import {UserType} from "../../redux/reducers/usersReducer";
 import s from "./Profile.module.css"
 

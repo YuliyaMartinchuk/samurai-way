@@ -6,9 +6,9 @@ import {
 import {
     createField, GetStringKeys,
     Input
-} from "../common/FormsControls/FormsControls";
-import {required} from "../../utils/validators/validators";
-import s from "./Login.module.css"
+} from "../../common/FormsControls/FormsControls";
+import {required} from "../../../utils/validators/validators";
+import s from "../Login.module.css"
 
 export type FormDataType = {
     email: string,

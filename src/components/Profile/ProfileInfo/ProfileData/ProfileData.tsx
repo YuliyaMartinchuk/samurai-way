@@ -1,7 +1,7 @@
 import {ProfileType} from "../../../../redux/reducers/profileReducer";
 import React from "react";
 import s from "./ProfileData.module.css"
-import {Contact} from "../Contact/Contact";
+import {Contact} from "../Contact";
 
 type ProfileData = {
     profile: ProfileType | null

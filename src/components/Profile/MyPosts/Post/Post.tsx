@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Post.module.css"
-import {PostHeader} from "../PostHeader/PostHeader";
+import {PostHeader} from "../PostHeader";
 import {PostType, ProfileType} from "../../../../redux/reducers/profileReducer";
 import likeIcon from '../../../../assets/images/icon-heart.svg'
 

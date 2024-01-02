@@ -1,23 +1,23 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {AppStateType} from "../../redux/redux-store";
+import {AppStateType} from "../../../redux/redux-store";
 import {
     InitialStateType,
     ProfileType
-} from "../../redux/reducers/profileReducer";
+} from "../../../redux/reducers/profileReducer";
 import {RouteComponentProps, withRouter} from "react-router-dom";
 import {compose} from "redux";
-import {withAuthRedirectComponent} from "../../hok/withAuthRedirect/withAuthRedirect";
+import {withAuthRedirectComponent} from "../../../hok/withAuthRedirect/withAuthRedirect";
 import {
     getUserProfileTC,
     getUserStatusTC, savePhotoTC, saveProfileTC, updateUserStatusTC
-} from "../../redux/thunks/profileThunks";
-import {Profile} from "./Profile";
+} from "../../../redux/thunks/profileThunks";
+import {Profile} from "../Profile";
 import {
     ProfileDataFormType
-} from "./ProfileInfo/ProfileDataForm/ProfileDataForm";
-import {UserType} from "../../redux/reducers/usersReducer";
-import {getUsers} from "../../redux/selectors/usersSelectors";
+} from "../ProfileInfo/ProfileDataForm";
+import {UserType} from "../../../redux/reducers/usersReducer";
+import {getUsers} from "../../../redux/selectors/usersSelectors";
 
 
 type PathParamsType = {

@@ -12,12 +12,12 @@ import {initializeAppTC} from "../redux/thunks/appThunks";
 import {Preloader} from "../components/common/Preloader/Preloader";
 import {withSuspense} from "../hok/withSuspense/withSuspense";
 import s from "./App.module.css"
-import {Music} from "../components/Music/Music";
-import {News} from "../components/News/News";
+import {Music} from "../components/Music";
+import {News} from "../components/News";
 
-const DialogsContainer = React.lazy(() => import("../components/ Dialogs/DialogsContainer"))
-const ProfileContainer = React.lazy(() => import("../components/Profile/ProfileContainer"))
-const UsersContainer = React.lazy(() => import("../components/Users/UsersContainer"))
+const DialogsContainer = React.lazy(() => import("../components/ Dialogs/DialogsContainer/DialogsContainer"))
+const ProfileContainer = React.lazy(() => import("../components/Profile/ProfileContainer/ProfileContainer"))
+const UsersContainer = React.lazy(() => import("../components/Users/UsersContainer/UsersContainer"))
 const LoginContainer = React.lazy(() => import("../components/Login/Login"))
 
 type MapStateToPropsType = {

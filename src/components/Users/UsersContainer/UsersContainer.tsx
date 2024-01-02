@@ -1,24 +1,24 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {AppStateType} from "../../redux/redux-store";
+import {AppStateType} from "../../../redux/redux-store";
 import {
     FollowingInProgressType,
     UserType,
-} from "../../redux/reducers/usersReducer";
-import {Users} from "./Users";
-import {Preloader} from "../common/Preloader/Preloader";
+} from "../../../redux/reducers/usersReducer";
+import {Users} from "../Users";
+import {Preloader} from "../../common/Preloader/Preloader";
 import {
     changePageTC,
     followTC,
     getUsersTC,
     unFollowTC
-} from "../../redux/thunks/usersThunks";
+} from "../../../redux/thunks/usersThunks";
 import {compose} from "redux";
 import {
     getCurrentPage, getFollowingInProgress, getIsFetching,
     getPageSize,
     getTotalUsersCount, getUsers,
-} from "../../redux/selectors/usersSelectors";
+} from "../../../redux/selectors/usersSelectors";
 
 
 type MapStateToPropsType = {

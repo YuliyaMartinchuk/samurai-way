@@ -1,9 +1,9 @@
 import React from 'react';
 import s from "./Dialogs.module.css"
-import {DialogItem} from "./DialogItem/DialogItem";
-import {Message} from "./Message/Message";
+import {DialogItem} from "./DialogItem";
+import {Message} from "./Message";
+import {AddMessageFormReduxForm, FormAddMessageDataType} from "./DialogsForm";
 import {DialogsProps} from "./DialogsContainer";
-import {AddMessageFormReduxForm, FormAddMessageDataType} from "./DialogsForm/DialogsForm";
 
 
 const Dialogs = (props: DialogsProps) => {

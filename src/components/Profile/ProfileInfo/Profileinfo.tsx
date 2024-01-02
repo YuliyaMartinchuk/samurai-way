@@ -6,7 +6,7 @@ import {
 import backgroundImage from "../../../assets/images/backgroundImage.jpg"
 import {Preloader} from "../../common/Preloader/Preloader";
 import defaultUserPhoto from "../../../assets/images/defaultUserPhoto.jpg"
-import {ProfileStatusWithHooks} from "./ProfileStatus/ProfileStatusWithHooks";
+import {ProfileStatusWithHooks} from "./ProfileStatus";
 import editIcon from "../../../assets/images/editIcon.svg"
 
 

@@ -1,7 +1,7 @@
 
 import {
     UnderConstructionPage
-} from "../UnderConstructionPage/UnderConstructionPage";
+} from "../UnderConstructionPage";
 
 type PropsType = {
 

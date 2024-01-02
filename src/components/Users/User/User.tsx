@@ -1,10 +1,10 @@
 import React from 'react';
 import s from "./user.module.css";
-import userPhoto from "../../assets/images/defaultUserPhoto.jpg";
+import userPhoto from "../../../assets/images/defaultUserPhoto.jpg";
 import {
     FollowingInProgressType,
     UserType
-} from "../../redux/reducers/usersReducer";
+} from "../../../redux/reducers/usersReducer";
 import {NavLink} from "react-router-dom";
 
 
@@ -30,7 +30,7 @@ export const User: React.FC<PropsType> = ({
                     <NavLink to={`profile/${user.id}`}>
                         <img
                             src={user.photos.small != null ? user.photos.small : userPhoto}
-                            className={s.userPhoto} alt={"user photo"}/>
+                            className={s.userPhoto} alt={"User photo"}/>
                             </NavLink>
                 </div>
                 <div>

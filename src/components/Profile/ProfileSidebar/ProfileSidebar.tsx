@@ -2,7 +2,7 @@ import React from "react";
 import {ProfileType} from "../../../redux/reducers/profileReducer";
 import {
     ProfileDataFormType
-} from "../ProfileInfo/ProfileDataForm/ProfileDataForm";
+} from "../ProfileInfo/ProfileDataForm";
 import AboutMe from "./AboutMe/AboutMe";
 import Friends from "./Friends/Friends";
 import {UserType} from "../../../redux/reducers/usersReducer";
