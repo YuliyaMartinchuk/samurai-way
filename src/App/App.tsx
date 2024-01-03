@@ -14,6 +14,7 @@ import {withSuspense} from "../hok/withSuspense/withSuspense";
 import s from "./App.module.css"
 import {Music} from "../components/Music";
 import {News} from "../components/News";
+import {Settings} from "../components/Settings";
 
 const DialogsContainer = React.lazy(() => import("../components/ Dialogs/DialogsContainer/DialogsContainer"))
 const ProfileContainer = React.lazy(() => import("../components/Profile/ProfileContainer/ProfileContainer"))
@@ -53,6 +54,7 @@ class App extends React.Component<AppPropsType> {
                         <Route path="/login" render={withSuspense(LoginContainer)}/>
                         <Route path="/News" render={() => <News/>}/>
                         <Route path="/music" render={() => <Music/>}/>
+                        <Route path="/settings" render={() => <Settings/>}/>
                         <Route path="*" render={() => <div>404 NOT FOUND</div>}/>
                     </Switch>
                 </div>
