@@ -1,11 +1,11 @@
 
 .root {
-    background-color: #D9D6D2;
+    background-color: white;
     height: 100vh;
 }
 .container{
     display: flex;
-    background-color: #D9D6D2;
+    background-color: white;
     width: 75em;
     justify-content: center;
     margin: 0 auto;
@@ -14,7 +14,7 @@
 
 .content {
     width:100%;
-    background-color: #D9D6D2;
+    background-color: white;
 }
 
 
