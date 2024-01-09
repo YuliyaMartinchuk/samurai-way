@@ -28,10 +28,10 @@ export const LoginForm: React.FC<AllSampleFormProps> = ({error, handleSubmit,cap
     return (
         <form onSubmit={handleSubmit} className={s.loginForm}>
             <div >
-                {createField<LoginFormValuesTypeKeys>("Email", "email", [required], Input)}
+                {createField<LoginFormValuesTypeKeys>("Email", "email", [required], Input,{className: s.loginInput}, 'Email Address')}
             </div>
             <div>
-                {createField<LoginFormValuesTypeKeys>("Password", "password", [required], Input, {type: 'password'})}
+                {createField<LoginFormValuesTypeKeys>("Password", "password", [required], Input, {className: s.loginInput, type: 'password'}, 'Password')}
             </div>
             <div className={s.rememberMeContainer}>
                 {createField<LoginFormValuesTypeKeys>("", "rememberMe", [], Input, {type: 'checkbox', className: s.checkbox}, "")}
