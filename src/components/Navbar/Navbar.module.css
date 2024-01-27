@@ -5,13 +5,19 @@
     min-width: 150px;
 }
 
-
 .item a{
+    display: flex;
     color: #898f9b;
-    text-decoration: none
+    text-decoration: none;
 }
 .item a.active {
     color: black
+}
+.item__image {
+    margin-right: 10px;
+}
+.item__image img {
+    width: 20px;
 }
 .avatar {
     grid-area: avatar ;
