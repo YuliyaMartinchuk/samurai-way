@@ -3,14 +3,14 @@ import {
     UserType
 } from "../../../../redux/reducers/usersReducer";
 import s from "./Friends.module.css";
-import {Friend} from "./Friend/Friend";
+import {Friend} from "./Friend";
 
 type PropsType = {
     users: UserType[]
 }
 
 
-const Friends: React.FC<PropsType> = ({users}) => {
+export const Friends = ({users}:PropsType) => {
     const [showAllFriends, setShowAllFriends] = useState(false)
     const onClickShowHandler = () => setShowAllFriends(!showAllFriends)
     const displayedFriends = showAllFriends ? users : users.slice(0, 6)
@@ -46,4 +46,3 @@ const Friends: React.FC<PropsType> = ({users}) => {
     )
 }
 
-export default Friends

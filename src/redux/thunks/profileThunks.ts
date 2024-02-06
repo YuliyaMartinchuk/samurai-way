@@ -7,7 +7,7 @@ import {
 import {ProfileType} from "../reducers/profileReducer";
 import {AppStateType, AppThunkDispatch} from "../redux-store";
 import {stopSubmit} from "redux-form";
-import {profileAPI} from "../../api/profileApi";
+import {profileAPI} from "../../api";
 import {ResultCode} from "../../api/instance";
 
 export const getUserProfileTC = (userId: string) => async (dispatch: Dispatch) => {

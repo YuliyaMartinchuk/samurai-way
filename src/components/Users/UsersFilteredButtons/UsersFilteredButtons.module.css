@@ -1,0 +1,49 @@
+.root {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+.button {
+    padding: 0 20px;
+    cursor: pointer;
+    color: #666666;
+    font-weight: 500;
+    height: 36px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+}
+
+.button:hover {
+    background-color: #2563EB;
+    color: #FFFFFF;
+}
+
+.buttonSelected {
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #2563EB;
+    border: none;
+}
+
+.buttonSelected:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 490px) {
+    .root {
+        padding: 0 20px 20px 20px;
+        gap: 10px;
+    }
+
+    .button {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .root {
+        gap: 5px;
+    }
+}

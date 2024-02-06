@@ -4,7 +4,7 @@ import {
     ProfileDataFormType
 } from "../ProfileInfo/ProfileDataForm";
 import AboutMe from "./AboutMe/AboutMe";
-import Friends from "./Friends/Friends";
+import {Friends} from "./Friends";
 import {UserType} from "../../../redux/reducers/usersReducer";
 import s from "./ProfileSidebar.module.css"
 

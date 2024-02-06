@@ -16,8 +16,9 @@ import {Profile} from "../Profile";
 import {
     ProfileDataFormType
 } from "../ProfileInfo/ProfileDataForm";
-import {UserType} from "../../../redux/reducers/usersReducer";
+import {FilterType, UserType} from "../../../redux/reducers/usersReducer";
 import {getUsers} from "../../../redux/selectors/usersSelectors";
+import {getUsersTC} from "../../../redux/thunks/usersThunks";
 
 
 type PathParamsType = {
@@ -39,6 +40,7 @@ type MapDispatchToPropsType = {
     updateStatus: (status: string) => void
     savePhoto: (file: File) => void
     saveProfile:(profile: ProfileDataFormType) =>Promise<any>
+    getUsers: (currentPage: number, pageSize: number, filter: FilterType) => void
 
 }
 
@@ -60,6 +62,7 @@ export type ProfilePropsType =
     }
     componentDidMount() {
         this.refreshProfile()
+        this.props.getUsers(1,  10, {term: '', friend: true} )
     }
 
     componentDidUpdate(prevProps: Readonly<ProfilePropsType>, prevState: Readonly<{}>, snapshot?: any) {
@@ -102,7 +105,8 @@ export default compose<React.ComponentType>(
             getUserStatus: getUserStatusTC,
             updateStatus: updateUserStatusTC,
             savePhoto: savePhotoTC,
-            saveProfile:saveProfileTC
+            saveProfile:saveProfileTC,
+            getUsers: getUsersTC,
         }),
     withRouter,
     withAuthRedirectComponent)

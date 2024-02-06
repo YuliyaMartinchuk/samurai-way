@@ -41,7 +41,7 @@ export const Pagination: React.FC<PropsType> = ({
         <div className={s.container}>
         <div className={s.pagination}>
             {portionNumber > 1 &&
-                <button onClick={onClickPrevHandler}>PREV</button>}
+                <button className={s.button} onClick={onClickPrevHandler}>PREV</button>}
             {pages
                 .filter(page => page >= leftPortionPageNumber && page <= rightPortionPageNumber)
                 .map((page) => {

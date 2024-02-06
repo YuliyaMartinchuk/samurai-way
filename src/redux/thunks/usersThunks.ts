@@ -4,19 +4,23 @@ import {
     follow,
     setCurrentPage,
     setTotalUsersCount,
-    setUsers,
+    setUsers, setUsersFilter,
     toggleIsFetching, unFollow
 } from "../actions/usersAction";
 import {followUnfollow} from "../../utils/followUnfollow/followUnfollow";
-import {usersAPI} from "../../api/usersApi";
+import {usersAPI} from "../../api";
+import {FilterType} from "../reducers/usersReducer";
 
-export const getUsersTC = (page: number, pageSize: number) => async (dispatch: Dispatch) => {
+export const getUsersTC = (page: number, pageSize: number,
+                           filter: FilterType) => async (dispatch: Dispatch) => {
     dispatch(toggleIsFetching(true))
-    const res = await usersAPI.getUsers(page, pageSize)
+    dispatch(setCurrentPage(page))
+
+    dispatch(setUsersFilter(filter))
+    const res = await usersAPI.getUsers(page, pageSize, filter.term, filter.friend)
     dispatch(toggleIsFetching(false))
     dispatch(setUsers(res.items))
-    dispatch(setTotalUsersCount(res.totalCount))
-}
+    dispatch(setTotalUsersCount(res.totalCount)) }
 
 export const changePageTC = (pageNumber: number, pageSize: number) => async (dispatch: Dispatch) => {
     dispatch(toggleIsFetching(true))
