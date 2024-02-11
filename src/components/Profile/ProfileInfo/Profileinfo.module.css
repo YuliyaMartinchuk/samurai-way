@@ -1,5 +1,5 @@
 .profileUserCard  {
-    background:#F2E3B6;
+    background:#e5e6e8;
     border-radius: 0.3rem;
     border: .1em solid rgba(0, 0, 0, 0.2);
     margin-bottom: 1em;
@@ -11,7 +11,7 @@
 }
 
 .backgroundImage {
-    border-bottom: .2em solid #E5B6F2;
+    border-bottom: .2em solid #e5e6e8;
     height: 16em;
     width: 100%;
 }
