@@ -1,0 +1,50 @@
+.item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height:45px;
+    padding: 0px 12px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.item:hover {
+    background-color:  #2a41e812;
+    scale: 1.02;
+}
+
+.item__image {
+    display: flex;
+    margin-right: 10px;
+    margin-left:10px;
+}
+
+.item__avatar {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+}
+
+.item__userName {
+    margin-left: 5px;
+}
+
+.item__link {
+    display: flex;
+    align-items: center;
+    color: #585757;
+}
+
+.item__link_active {
+    display: flex;
+    height:45px;
+    width: 100%;
+    align-items: center;
+    background-color:  #2a41e812;
+    color: #2a41e8;
+    border-radius: 10px;
+    transition: 0.3s;
+}
