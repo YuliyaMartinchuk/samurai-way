@@ -1,12 +1,12 @@
 import React from "react";
 import s from "./Navbar.module.css"
 import {NavLink} from "react-router-dom";
-import profileIcon from '../../assets/images/profileIcon.svg';
-import messageIcon from '../../assets/images/messageIcon.svg';
-import usersIcon from '../../assets/images/usersIcon.svg';
-import newsIcon from '../../assets/images/newsIcon.svg';
-import musicIcon from '../../assets/images/musicIcon.svg';
-import settingsIcon from '../../assets/images/settingsIcon.svg';
+import profileIcon from '../../../assets/images/profileIcon.svg';
+import messageIcon from '../../../assets/images/messageIcon.svg';
+import usersIcon from '../../../assets/images/usersIcon.svg';
+import newsIcon from '../../../assets/images/newsIcon.svg';
+import musicIcon from '../../../assets/images/musicIcon.svg';
+import settingsIcon from '../../../assets/images/settingsIcon.svg';
 
 
 

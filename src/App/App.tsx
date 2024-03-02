@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.module.css';
 import {Redirect, Route, Switch, withRouter} from "react-router-dom";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../components/Sidebar/Navbar/Navbar";
 import {
     HeaderContainer
 } from "../components/Header/HeaderContainer";
