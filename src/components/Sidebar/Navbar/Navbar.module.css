@@ -3,6 +3,7 @@
     grid-area: n ;
     padding: 20px;
     min-width: 150px;
+    margin: 5px 5px;
 }
 
 .item a{
