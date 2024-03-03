@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.module.css';
 import {Redirect, Route, Switch, withRouter} from "react-router-dom";
-import Navbar from "../components/Sidebar/Navbar/Navbar";
 import {
     HeaderContainer
 } from "../components/Header/HeaderContainer";
@@ -15,7 +14,9 @@ import s from "./App.module.css"
 import {Music} from "../components/Music";
 import {News} from "../components/News";
 import {Settings} from "../components/Settings";
-import {Sidebar} from "../components/Sidebar";
+import {SidebarContainer} from "../components/Sidebar/SidebarContainer";
+
+
 
 
 const DialogsContainer = React.lazy(() => import("../components/ Dialogs/DialogsContainer/DialogsContainer"))
@@ -46,7 +47,7 @@ class App extends React.Component<AppPropsType> {
             <div className={s.root}>
                 <HeaderContainer/>
                 <div className={s.container}>
-                    <Sidebar/>
+                    <SidebarContainer/>
                 <div className={s.content}>
                     <Switch>
                         <Route exact path="/" render={() => <Redirect to={'/profile'}/>}/>
