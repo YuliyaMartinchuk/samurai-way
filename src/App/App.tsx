@@ -15,6 +15,8 @@ import s from "./App.module.css"
 import {Music} from "../components/Music";
 import {News} from "../components/News";
 import {Settings} from "../components/Settings";
+import {Sidebar} from "../components/Sidebar";
+
 
 const DialogsContainer = React.lazy(() => import("../components/ Dialogs/DialogsContainer/DialogsContainer"))
 const ProfileContainer = React.lazy(() => import("../components/Profile/ProfileContainer/ProfileContainer"))
@@ -44,7 +46,7 @@ class App extends React.Component<AppPropsType> {
             <div className={s.root}>
                 <HeaderContainer/>
                 <div className={s.container}>
-                <Navbar/>
+                    <Sidebar/>
                 <div className={s.content}>
                     <Switch>
                         <Route exact path="/" render={() => <Redirect to={'/profile'}/>}/>
