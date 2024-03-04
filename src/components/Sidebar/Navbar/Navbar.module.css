@@ -32,14 +32,3 @@
     font-size: 14px;
     margin-bottom: 6px;
 }
-.friends {
-    margin: 10px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-.friendsText {
-    margin: 10px auto;
-    color: blueviolet;
-   font-weight: lighter;
-}

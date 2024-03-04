@@ -9,14 +9,13 @@ import musicIcon from '../../../assets/images/musicIcon.svg';
 import settingsIcon from '../../../assets/images/settingsIcon.svg';
 
 
-
 const Navbar = () => {
     return (
         <nav className={s.nav}>
             <div className={s.item}>
                 <NavLink to="/profile" activeClassName={s.active}>
                     <div className={s.item__image}>
-                        <img src={profileIcon} alt="profileIcon" />
+                        <img src={profileIcon} alt="profileIcon"/>
                     </div>
                     <span>Profile</span>
                 </NavLink>
@@ -56,19 +55,13 @@ const Navbar = () => {
             </div>
             <div className={s.item}>
                 <NavLink to="/settings"
-                         activeClassName={s.active}> <div className={s.item__image}>
-                    <img src={settingsIcon} alt="settingsIcon"/>
-                </div>
+                         activeClassName={s.active}>
+                    <div className={s.item__image}>
+                        <img src={settingsIcon} alt="settingsIcon"/>
+                    </div>
                     <span>Settings</span>
                 </NavLink>
             </div>
-            <div className={s.friendsText}>
-                Friends
-            </div>
-            <div className={s.friends}>
-                {/*{friendsList}*/}
-            </div>
-
         </nav>
     )
 
