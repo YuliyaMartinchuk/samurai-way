@@ -1,5 +1,5 @@
 .container {
-    background-color: #B6F2D0;
+    background-color: #6ACFC7;
     padding: 0.8em;
     border-radius: 8px;
     overflow: hidden;
@@ -14,13 +14,15 @@
 }
 
 .friendsCount {
-    color: #666666;
-    font-size: 14px;
+    color: #0C1A1A;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .seeAll {
-    font-size: 15px;
-    color: #2563EB;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0C1A1A;
     cursor: pointer;
 }
 
@@ -41,12 +43,13 @@
     justify-content: center;
     width: 100%;
     margin-top: 0.5em;
-    background-color: #f0f2f5;
+    background-color: #0C1914;
     border: none;
     border-radius: 6px;
     padding: 0.7em;
-    color: #666666;
+    color: white;
     cursor: pointer;
+    font-weight: 600;
 }
 
 .friendsButton:hover {

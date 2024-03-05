@@ -12,7 +12,7 @@
     flex-direction: column;
     max-width: 480px;
     width: 100%;
-    background-color: #e5e6e8;
+    background-color: #6ACFC7;
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -21,7 +21,7 @@
 .testLoginInfo {
     max-width: 480px;
     width: 100%;
-    background-color:  #e5e6e8;
+    background-color:  #6ACFC7;
     padding: 20px 40px;
     border-radius: 8px;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -42,7 +42,7 @@
     padding: 0.2rem;
     margin-bottom: 0.2rem;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    background-color: #e8ebfa;
+    background-color: #0C1A1A;
     border: 2px solid rgb(186, 186, 208);
 }
 
@@ -64,7 +64,7 @@
 .loginButton {
     width: 100%;
     font-weight: 600;
-    background-color: #2563EB;
+    background-color: #0C1A1A;
     color: #FFFFFF;
 
     padding: 0 20px;

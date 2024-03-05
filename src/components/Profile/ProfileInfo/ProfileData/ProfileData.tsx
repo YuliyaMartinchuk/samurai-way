@@ -51,7 +51,7 @@ export const ProfileData: React.FC<ProfileData> = ({
             </div>}
         <div>
             {isOwner && <button className={s.editButton}
-                                onClick={goToEditMode}>edit</button>}
+                                onClick={goToEditMode}>Edit</button>}
         </div>
     </div>
 }

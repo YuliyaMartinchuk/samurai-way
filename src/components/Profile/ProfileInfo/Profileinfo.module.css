@@ -1,5 +1,5 @@
 .profileUserCard  {
-    background:#e5e6e8;
+    background:#6ACFC7;
     border-radius: 0.3rem;
     border: .1em solid rgba(0, 0, 0, 0.2);
     margin-bottom: 1em;
@@ -11,7 +11,7 @@
 }
 
 .backgroundImage {
-    border-bottom: .2em solid #e5e6e8;
+    border-bottom: .2em solid #6ACFC7;
     height: 16em;
     width: 100%;
 }
@@ -45,7 +45,7 @@
 
 .description {
     margin-top: 0.4em;
-    color: #0a5db6;
+    color: white;
     font-size: 0.98em;
 }
 .profileAvatar {
@@ -62,7 +62,7 @@
 }
 
 .fileInputIcon {
-    background-color: #f0f2f5;
+    background-color: #0C1914;
     vertical-align: middle;
     border-radius: 50%;
     padding: 4px;

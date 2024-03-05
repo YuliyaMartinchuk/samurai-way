@@ -1,5 +1,5 @@
 .nav {
-    background-color: #B6F2D0;
+    background-color: #6ACFC7;
     grid-area: n ;
     padding: 20px;
     min-width: 150px;
@@ -8,11 +8,12 @@
 
 .item a{
     display: flex;
-    color: #898f9b;
+    color: #0C1A1A;
     text-decoration: none;
+    padding-bottom: 8px;
 }
 .item a.active {
-    color: black
+    color: white;
 }
 .item__image {
     margin-right: 10px;

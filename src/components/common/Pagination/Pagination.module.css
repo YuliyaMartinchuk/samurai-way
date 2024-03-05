@@ -22,13 +22,13 @@
 }
 
 .pageNumber:hover {
-    background-color: #2563EB;
-    color: #e5e6e8;
+    background-color: #0C1A1A;
+    color: #6ACFC7;
 }
 
 .pageNumber.selectedPage {
-    color: #e5e6e8;
-    background-color: #2563EB;
+    color: #6ACFC7;
+    background-color: #0C1A1A;
     font-weight: bold;
     border: none;
 }
@@ -43,7 +43,7 @@
     font-weight: 500;
     border: none;
     border-radius: 6px;
-    background-color: #2563EB;
+    background-color: #0C1A1A;
 }
 
 .button:hover {

@@ -8,12 +8,12 @@
 
 .status {
     font-family:  'Noto Serif Display', serif;
-    color: #19a440;
-    font-size: 1.1em;
+    color: #0C1A1A;
+    font-size: 20px;
 }
 
 .input {
-    background: #e8ebfa;
+    background: #0C1A1A;
     text-align: center;
     color: #333232;
     border-radius: 0.6em ;

@@ -30,12 +30,13 @@
 
 .item__userName {
     margin-left: 5px;
+    align-self: flex-start;
 }
 
 .item__link {
     display: flex;
     align-items: center;
-    color: #585757;
+    color: #0C1A1A;
 }
 
 .item__link_active {
@@ -43,8 +44,8 @@
     height:45px;
     width: 100%;
     align-items: center;
-    background-color:  #2a41e812;
-    color: #2a41e8;
+    background-color:  #AECFCC;
+    color: #0C1A1A;
     border-radius: 10px;
     transition: 0.3s;
 }

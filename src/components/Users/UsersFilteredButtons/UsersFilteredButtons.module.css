@@ -16,14 +16,14 @@
 }
 
 .button:hover {
-    background-color: #2563EB;
+    background-color: #0C1A1A;
     color: #FFFFFF;
 }
 
 .buttonSelected {
     color: #FFFFFF;
     font-weight: bold;
-    background-color: #2563EB;
+    background-color: #0C1A1A;
     border: none;
 }
 

@@ -13,7 +13,9 @@
 }
 .description {
     margin: 0.6em 0;
-    color: #0a5db6;
+    color: #0C1914;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .editButton {
@@ -21,11 +23,11 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    background-color: #f0f2f5;
+    background-color: #0C1914;
     border: none;
     border-radius: 6px;
     padding: 10px;
-    color: #666666;
+    color: white;
     cursor: pointer;
     font-weight: 600;
 }
@@ -39,7 +41,7 @@
 }
 .textarea {
     color: #333232;
-    background: #e8ebfa;
+    background: #0C1A1A;
     border-radius: 0.6em ;
     padding: 0.4em;
 }

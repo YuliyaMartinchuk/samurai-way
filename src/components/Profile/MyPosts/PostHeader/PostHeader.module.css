@@ -29,5 +29,8 @@
 
 .user__Name {
     margin-left: 5px;
-    color: #0a5db6;
+    color: #0C1A1A;
+    font-weight: 600;
+    font-size: 18px;
+    align-self: flex-start;
 }
