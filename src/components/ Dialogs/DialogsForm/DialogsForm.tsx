@@ -15,14 +15,19 @@ const AddMessageForm = (props: InjectedFormProps<FormAddMessageDataType>) => {
         <div className={s.container}>
             <form onSubmit={props.handleSubmit}>
                 <div className={s.textareaButtonBlock}>
-                    <Field placeholder={"Enter your message"}
-                           name={"newMassageBody"}
-                           className={s.textarea}
-                           component={Textarea}
-                           validate={[required, maxLength]}
-                    >
-                    </Field>
+                    <div>
+                        <Field placeholder={"Enter your message"}
+                               name={"newMassageBody"}
+                               className={s.textarea}
+                               component={Textarea}
+                               validate={[required, maxLength]}
+                        >
+                        </Field>
+                    </div>
+                    <div>
                         <button className={s.button}>Send</button>
+                    </div>
+
                 </div>
             </form>
         </div>
