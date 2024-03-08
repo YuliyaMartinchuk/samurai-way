@@ -8,8 +8,7 @@
 }
 
 .contacts {
-    margin-left: 0.6em;
-    margin-bottom: 1em;
+    margin: 0.6em 0;
 }
 .description {
     margin: 0.6em 0;
@@ -41,7 +40,8 @@
 }
 .textarea {
     color: #333232;
-    background: #0C1A1A;
+    background: #AECFCC;
     border-radius: 0.6em ;
     padding: 0.4em;
+    width: 100%;
 }

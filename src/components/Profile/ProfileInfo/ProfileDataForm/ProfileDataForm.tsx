@@ -54,7 +54,7 @@ const ProfileDataForm: React.FC<AllSampleFormProps> = ({
                     <div className={s.description}>
                         <div className={s.description}>Contacts: </div> {Object.keys(profile.contacts).map(key => {
                         return <div key={key}>
-                            <div>{key}: </div>
+                            <div className={s.description}>{key}: </div>
                             {createField(key, 'contacts.' + key, [], Input, {className:s.textarea})}
                         </div>
                     })}
