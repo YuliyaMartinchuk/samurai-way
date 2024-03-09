@@ -1,13 +1,37 @@
-import s from "../Music/Music.module.css";
-import underConstructionImage
-    from "../../assets/images/underConstructionImage.png";
+import s from "./UnderConstructionPage.module.css";
+import {useEffect, useState} from "react";
 
 export const UnderConstructionPage = () => {
+    const [progressPercentage, setProgressPercentage] = useState(0);
+
+    useEffect(() => {
+        const progressInterval = setInterval(() => {
+            setProgressPercentage((prevPercentage) => {
+                if (prevPercentage >= 50) {
+                    clearInterval(progressInterval);
+                    return 50;
+                } else {
+                    return prevPercentage + 1;
+                }
+            });
+        }, 90);
+        return () => clearInterval(progressInterval);
+    }, []);
+
     return (
         <div className={s.container}>
-            <img className={s.underConstructionImage} src={underConstructionImage}
-                 alt='not-found-404'/>
-            <h3 className={s.title}>Section is under construction.</h3>
+            <div className={s.top}>
+                <hr/>
+                <p>SOCIAL NETWORK</p>
+                <hr/>
+            </div>
+            <h1 className={s.title}>UNDER CONSTRUCTION</h1>
+            <h3>PROGRESS</h3>
+            <div className={s.progressWrapper}>
+                <div className={s.progress}
+                     style={{width: `${progressPercentage}%`}}>
+                    <span>{progressPercentage}%</span></div>
+            </div>
         </div>
-    )
+    );
 };

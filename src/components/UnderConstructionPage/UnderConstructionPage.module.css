@@ -1,12 +1,91 @@
-.underConstructionImage {
-    margin: 2em auto;
+.container {
+
+    width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    height: 100vh;
+    padding-top: 30px;
+}
+
+.top p {
+    font-size: 16px;
+    width: 160px;
     text-align: center;
-    background: transparent;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    font-weight: 900;
+    margin: 10px;
+}
+
+hr {
+    width: 100px;
+    color: white;
+    border-radius: 5px;
+    margin: 0 15px
 }
 
 .title {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    line-height: 1.1;
+    font-size: 60px;
     text-align: center;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+
+.progressWrapper {
+    width: 100%;
+    background: #2f2b2bc7;
+    display: flex;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.progress {
+    width: 0;
+    height: 10px;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.progress span {
+    color: white;
+    position: relative;
+    top: 13px;
+    left: 25px;
+    font-weight: 800;
+}
+
+@media screen and (max-width: 640px) {
+
+    .container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 50px;
+    }
+
+    i {
+        font-size: 25px;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    h1 {
+        font-size: 30px;
+    }
 }
