@@ -8,7 +8,7 @@ import {AppStateType} from "../redux/redux-store";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {initializeAppTC} from "../redux/thunks/appThunks";
-import {Preloader} from "../components/common/Preloader/Preloader";
+import {Preloader} from "../components/common/Preloader";
 import {withSuspense} from "../hok/withSuspense/withSuspense";
 import s from "./App.module.css"
 import {Music} from "../components/Music";
@@ -26,6 +26,7 @@ const LoginContainer = React.lazy(() => import("../components/Login/Login"))
 
 type MapStateToPropsType = {
     initialized: boolean
+    isAuth: boolean
 }
 type MapDispatchToPropsType = {
     initializeApp: () => void
@@ -45,9 +46,9 @@ class App extends React.Component<AppPropsType> {
         }
         return (
             <div className={s.root}>
-                <HeaderContainer/>
+                {this.props.isAuth && <HeaderContainer/>}
                 <div className={s.container}>
-                    <SidebarContainer/>
+                    {this.props.isAuth && <SidebarContainer/>}
                 <div className={s.content}>
                     <Switch>
                         <Route exact path="/" render={() => <Redirect to={'/profile'}/>}/>
@@ -70,7 +71,8 @@ class App extends React.Component<AppPropsType> {
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
-        initialized: state.app.initialized
+        initialized: state.app.initialized,
+        isAuth: state.auth.isAuth
     }
 }
 
