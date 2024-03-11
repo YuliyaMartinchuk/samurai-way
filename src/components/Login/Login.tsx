@@ -24,7 +24,11 @@ export const Login: React.FC<LoginType> = ({login, isAuth, captchaUrl}) => {
     return (
         <div className={s.wrapper}>
             <div className={s.container}>
-                <h1 className={s.title}>Login</h1>
+                <div className={s.titleWrapper}>
+                    <hr/>
+                    <p className={s.title}>Login</p>
+                    <hr/>
+                </div>
                 <LoginReduxForm
                     onSubmit={onSubmit}
                     captchaUrl={captchaUrl}/>
