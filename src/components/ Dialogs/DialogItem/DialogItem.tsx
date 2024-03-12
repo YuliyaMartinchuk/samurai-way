@@ -24,7 +24,7 @@ export const DialogItem = (props: DialogsPropsType) => {
                         {`${dialog.userFirstName} ${dialog.userLastName}`}
                     </div>
                     <div className={s.userMessage}>
-                        'Hello hello hello'
+                        'Sed diam nonummy nibh euismod tincidunt ut laoreet dolore'
                     </div>
                 </div>
             </li>

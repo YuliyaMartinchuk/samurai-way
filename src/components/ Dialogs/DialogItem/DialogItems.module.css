@@ -1,5 +1,5 @@
 .container {
-    width: 295px;
+    width: 250px;
     padding: 12px 22px;
     color: #333333;
     border-right: 2px solid #6ACFC7;
@@ -10,7 +10,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    height:50px;
+    height:40px;
     border-radius: 10px;
     transition: 0.3s;
     cursor: pointer;
@@ -30,8 +30,6 @@
 .userAndMessage {
     display: flex;
     flex-direction: column;
-    margin-left: 5px;
-
 }
 
 .item__userName {
@@ -43,22 +41,12 @@
 .userMessage {
     font-size: 14px;
     line-height: 26px;
-    color: #888;
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.item__link a{
-    display: flex;
-    align-items: center;
-    color: #585757;
-}
-
-.item__link_active a{
-    display: flex;
-    height:45px;
-    width: 100%;
-    align-items: center;
-    background-color:  #2a41e812;
-    color: #2a41e8;
-    border-radius: 10px;
-    transition: 0.3s;
+.userMessage::after {
+    content: '...';
 }
