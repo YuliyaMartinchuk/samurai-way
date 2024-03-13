@@ -1,7 +1,7 @@
 import React from 'react';
 import {UserType} from "../../../../../redux/reducers/usersReducer";
 import {NavLink} from "react-router-dom";
-import defaultUserPhoto from "../../../../../assets/images/defaultUserPhoto.jpg"
+import defaultUserPhoto from "../../../../../assets/images/defaultUserPhotoIcon.png"
 import s from "./Friend.module.css"
 
 type PropsType = {

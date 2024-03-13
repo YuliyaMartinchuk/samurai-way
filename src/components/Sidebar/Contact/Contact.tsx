@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom';
 import s from './Contact.module.css';
 
 
-import defaultUserPhoto from '../../../assets/images/defaultUserPhoto.jpg';
+import defaultUserPhoto from '../../../assets/images/defaultUserPhotoIcon.png';
 import {UserType} from "../../../redux/reducers/usersReducer";
 
 type PropsType = {

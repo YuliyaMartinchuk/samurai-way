@@ -1,6 +1,6 @@
 import React from 'react';
 import s from "./user.module.css";
-import userPhoto from "../../../assets/images/defaultUserPhoto.jpg";
+import userPhoto from "../../../assets/images/defaultUserPhoto.png";
 import {
     FollowingInProgressType,
     UserType
