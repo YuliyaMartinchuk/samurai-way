@@ -18,12 +18,12 @@ const Header = (props: HeaderPropsType) => {
                 </svg>
 
                 </div>
-                <div className={s.loginBlock}>
+                <div >
                     {props.isAuth
-                        ? <div>
+                        ? <div className={s.loginBlock}>
                             <div className={s.loginName}>{props.login}</div>
                             <button className={s.button}
-                                    onClick={props.logout}>Log out
+                                    onClick={props.logout}>
                                 <img className={s.logoutIcon} src={logoutIcon}
                                      alt="logout"/>
                             </button>
