@@ -1,5 +1,4 @@
 .postsBlock{
-    margin-bottom: 1em;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -8,13 +7,13 @@
 .posts {
 
 }
+
 h3 {
-    margin-bottom: 1em;
+
 }
 .postForm {
     background-color:  #6ACFC7;
     padding: 0.7em;
-    margin-bottom: 0.8em;
     border-radius: 8px;
     overflow: hidden;
 }
