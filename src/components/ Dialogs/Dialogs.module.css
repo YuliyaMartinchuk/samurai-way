@@ -7,11 +7,11 @@
     flex-direction: column;
     background-color: #6ACFC7;
     border: .1em solid rgba(0, 0, 0, 0.2);
-    margin: 5px 5px;
+    margin:0.7em 0 0.7em 0.7em ;
 }
 
 .messages {
-    margin: 5px 5px;
+    margin:0.7em 0 0.7em 0.7em ;
     width: 100%;
     border: .1em solid rgba(0, 0, 0, 0.2);
 }
@@ -31,5 +31,4 @@
     color: #585757;
     padding: 0.4em;
     margin-bottom: 0.4em;
-
 }
