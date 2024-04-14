@@ -13,7 +13,7 @@
 
 .pageNumber {
     padding: 2px 7px;
-    border: 1px solid grey;
+    border: 1px solid  #0C1A1A;
     min-width: 18px;
     display: flex;
     justify-content: center;
@@ -30,7 +30,8 @@
     color: #6ACFC7;
     background-color: #0C1A1A;
     font-weight: bold;
-    border: none;
+    padding: 2px 7px;
+    border: 1px solid  #0C1A1A;
 }
 
 .pageNumber.selectedPage:hover {

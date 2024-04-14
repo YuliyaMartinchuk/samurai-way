@@ -7,7 +7,8 @@ type PropsType = {
     onFilterChanged: (filter: FilterType) => void
 }
 
-export const UsersFilteredButtons: React.FC<PropsType> = (props) => {
+export const
+    UsersFilteredButtons: React.FC<PropsType> = (props) => {
     const {onFilterChanged, filter} = props
 
     const onClickFilterChangedHandler = (filter: FilterType) => onFilterChanged(filter)
