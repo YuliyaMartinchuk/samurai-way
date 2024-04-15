@@ -52,7 +52,7 @@
     color: #0C1A1A;
     font-weight: 600;
     height: 36px;
-    border: none;
+    border: 1px solid #0C1A1A;
     border-radius: 6px;
     width: 100%;
 }
