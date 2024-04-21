@@ -3,7 +3,8 @@
     background-color: #0C1A1A;
     height: 100vh;
 }
-.container{
+
+.container {
     display: flex;
     background-color: #0C1A1A;
     width: 75em;
@@ -13,7 +14,7 @@
 }
 
 .content {
-    width:100%;
+    width: 100%;
     background-color: #0C1A1A;
 }
 

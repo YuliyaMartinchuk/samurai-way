@@ -1,5 +1,5 @@
 .container {
-    margin:0.7em 0 0.7em 0.7em ;
+    margin: 0.7em 0 0.7em 0.7em;
 }
 
 .content {
@@ -10,6 +10,7 @@
     flex-grow: 2;
     flex-basis: 0;
 }
+
 .sidebar {
     flex-basis: 0;
 }
@@ -25,7 +26,6 @@
     flex-direction: column;
     gap: 16px;
 }
-
 
 
 .avatar {

@@ -1,10 +1,11 @@
-.profileUserCard  {
-    background:#6ACFC7;
+.profileUserCard {
+    background: #6ACFC7;
     border-radius: 0.3rem;
     border: .1em solid rgba(0, 0, 0, 0.2);
     margin-bottom: 1em;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
+
 .profileUserCardImage {
     margin: 0 auto;
     text-align: center;
@@ -33,7 +34,7 @@
 
 .descriptionBlock h1 {
     margin: 0;
-    font-family: "Segoe UI Black" , serif;
+    font-family: "Segoe UI Black", serif;
 }
 
 
@@ -48,14 +49,17 @@
     color: white;
     font-size: 0.98em;
 }
+
 .profileAvatar {
     position: relative;
     z-index: 2;
 }
+
 .fileInput {
     display: none;
 
 }
+
 .fileInputLabel {
     display: inline-block;
     cursor: pointer;
@@ -66,6 +70,5 @@
     vertical-align: middle;
     border-radius: 50%;
     padding: 4px;
-
     transition: 0.3s;
 }

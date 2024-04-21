@@ -1,4 +1,4 @@
-.container{
+.container {
     display: flex;
     margin-top: 0.4em;
     margin-bottom: 0.5em;
@@ -7,7 +7,7 @@
 }
 
 .status {
-    font-family:  'Noto Serif Display', serif;
+    font-family: 'Noto Serif Display', serif;
     color: #0C1A1A;
     font-size: 20px;
 }
@@ -16,6 +16,6 @@
     background: #AECFCC;
     text-align: center;
     color: #333232;
-    border-radius: 0.6em ;
+    border-radius: 0.6em;
     padding: 0.4em;
 }

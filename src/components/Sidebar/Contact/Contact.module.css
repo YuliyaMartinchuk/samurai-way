@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    height:45px;
+    height: 45px;
     padding: 0 12px;
     margin-bottom: 12px;
     border-radius: 10px;
@@ -11,14 +11,14 @@
 }
 
 .item:hover {
-    background-color:  #2a41e812;
+    background-color: #2a41e812;
     scale: 1.02;
 }
 
 .item__image {
     display: flex;
     margin-right: 10px;
-    margin-left:10px;
+    margin-left: 10px;
 }
 
 .item__avatar {
@@ -41,10 +41,10 @@
 
 .item__link_active {
     display: flex;
-    height:45px;
+    height: 45px;
     width: 100%;
     align-items: center;
-    background-color:  #AECFCC;
+    background-color: #AECFCC;
     color: #0C1A1A;
     border-radius: 10px;
     transition: 0.3s;

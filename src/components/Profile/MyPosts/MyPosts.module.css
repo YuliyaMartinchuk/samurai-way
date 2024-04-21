@@ -1,4 +1,4 @@
-.postsBlock{
+.postsBlock {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -11,8 +11,9 @@
 h3 {
 
 }
+
 .postForm {
-    background-color:  #6ACFC7;
+    background-color: #6ACFC7;
     padding: 0.7em;
     border-radius: 8px;
     overflow: hidden;

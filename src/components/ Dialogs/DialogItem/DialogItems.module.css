@@ -4,12 +4,11 @@
     color: #333333;
 }
 
-
 .item {
     width: 100%;
     display: flex;
     align-items: center;
-    height:40px;
+    height: 40px;
     border-radius: 10px;
     transition: 0.3s;
     cursor: pointer;

@@ -8,11 +8,11 @@
     background-color: #6ACFC7;
     border: .1em solid rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    margin:0.7em 0 0.7em 0.7em ;
+    margin: 0.7em 0 0.7em 0.7em;
 }
 
 .messages {
-    margin:0.7em 0 0.7em 0.7em ;
+    margin: 0.7em 0 0.7em 0.7em;
     width: 100%;
     border: .1em solid rgba(0, 0, 0, 0.2);
 }
@@ -26,6 +26,7 @@
     border: .1em solid rgba(0, 0, 0, 0.2);
     border-radius: 8px;
 }
+
 .messages__item {
     display: flex;
     flex-direction: column;

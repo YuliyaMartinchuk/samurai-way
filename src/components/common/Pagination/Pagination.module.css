@@ -4,16 +4,17 @@
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     padding: 15px;
 }
+
 .pagination {
     width: 100%;
     display: flex;
-    justify-content: center ;
+    justify-content: center;
     gap: 15px;
 }
 
 .pageNumber {
     padding: 2px 7px;
-    border: 1px solid  #0C1A1A;
+    border: 1px solid #0C1A1A;
     min-width: 18px;
     display: flex;
     justify-content: center;
@@ -31,12 +32,13 @@
     background-color: #0C1A1A;
     font-weight: bold;
     padding: 2px 7px;
-    border: 1px solid  #0C1A1A;
+    border: 1px solid #0C1A1A;
 }
 
 .pageNumber.selectedPage:hover {
     opacity: 0.9;
 }
+
 .button {
     padding: 0.5em 1em;
     cursor: pointer;

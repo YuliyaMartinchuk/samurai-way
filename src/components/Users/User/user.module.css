@@ -1,28 +1,27 @@
-
 .root {
     margin: 1em;
-    background-color:#6ACFC7;
-    border-radius: 12px ;
+    background-color: #6ACFC7;
+    border-radius: 12px;
     border: 1px solid #ebe9e6;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
- .container {
-     display: flex;
-     flex-direction: column;
-     padding: 0.2em;
-     align-items: center;
- }
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.2em;
+    align-items: center;
+}
 
 
- .userPhoto {
-     width: 160px;
-     height: 160px;
-     object-fit: cover;
-     border-radius: 8px;
-     background-color: transparent;
+.userPhoto {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: transparent;
 
- }
+}
 
 .name {
     font-size: 16px;
@@ -45,6 +44,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
 .buttonFollow {
     background-color: #DBEAFE;
     padding: 0 20px;
@@ -56,6 +56,7 @@
     border-radius: 6px;
     width: 100%;
 }
+
 .buttonUnfollow {
     background-color: #e5e7eb;
     padding: 0 20px;

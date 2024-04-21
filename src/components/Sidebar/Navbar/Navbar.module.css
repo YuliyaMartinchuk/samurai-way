@@ -1,37 +1,42 @@
 .nav {
     background-color: #6ACFC7;
-    grid-area: n ;
+    grid-area: n;
     min-width: 150px;
     border: .1em solid rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     border-radius: 8px;
     padding: 0.8em;
-    margin:0.7em 0 0 0;
+    margin: 0.7em 0 0 0;
 }
 
-.item a{
+.item a {
     display: flex;
     color: #0C1A1A;
     text-decoration: none;
     padding-bottom: 8px;
 }
+
 .item a.active {
     color: white;
 }
+
 .item__image {
     margin-right: 10px;
 }
+
 .item__image img {
     width: 20px;
 }
+
 .avatar {
-    grid-area: avatar ;
+    grid-area: avatar;
     width: 40px;
     height: 40px;
     border-radius: 40px;
 }
+
 .name {
-    grid-area: name ;
+    grid-area: name;
     color: blue;
     font-size: 14px;
     margin-bottom: 6px;
