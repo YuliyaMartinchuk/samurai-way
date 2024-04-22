@@ -14,7 +14,7 @@ type MapStateToPropsType = {
 }
 
 type MapDispatchToPropsType = {
-    sendMessage: (newMassageBody:string) => void
+    sendMessage: (newMassageBody: string) => void
 }
 
 export type DialogsProps = MapStateToPropsType & MapDispatchToPropsType
@@ -24,9 +24,8 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
         dialogsPage: state.dialogsPage,
     }
 }
-
 export default compose<React.ComponentType>(connect(mapStateToProps,
-    {sendMessage:sendMessageAC }),
-    withAuthRedirectComponent)(Dialogs )
+        {sendMessage: sendMessageAC}),
+    withAuthRedirectComponent)(Dialogs)
 
 

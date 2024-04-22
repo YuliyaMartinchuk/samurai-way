@@ -37,8 +37,8 @@ export const Profile: React.FC<PropsType> = ({
             />
             <div className={s.items}>
                 <div className={s.timeline}>
-                    <div >
-                            <MyPostsContainer/>
+                    <div>
+                        <MyPostsContainer/>
                     </div>
                 </div>
                 <div className={s.sidebar}>

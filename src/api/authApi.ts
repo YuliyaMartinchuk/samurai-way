@@ -6,7 +6,7 @@ export const authAPI = {
         return instance.get<BaseResponseType<MeResponseDataType>>(`auth/me`)
     },
 
-    login(data:FormDataType) {
+    login(data: FormDataType) {
         return instance.post<BaseResponseType<LoginResponseDataType>>(`auth/login`, data)
     },
     logout() {

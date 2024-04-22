@@ -9,8 +9,6 @@ type PropsType = {
     onPageChanged: (pageNumber: number) => void
     portionSize?: number
 }
-
-
 export const Pagination: React.FC<PropsType> = ({
                                                     pageSize,
                                                     totalItemsCount,
@@ -24,7 +22,7 @@ export const Pagination: React.FC<PropsType> = ({
     const onClickPrevHandler = () => {
         setPortionNumber(portionNumber - 1)
     }
-    const onClickNextHandler  = () => {
+    const onClickNextHandler = () => {
         setPortionNumber(portionNumber + 1)
     }
 
@@ -39,20 +37,22 @@ export const Pagination: React.FC<PropsType> = ({
 
     return (
         <div className={s.container}>
-        <div className={s.pagination}>
-            {portionNumber > 1 &&
-                <button className={s.button} onClick={onClickPrevHandler}>PREV</button>}
-            {pages
-                .filter(page => page >= leftPortionPageNumber && page <= rightPortionPageNumber)
-                .map((page) => {
-                    return (
-                        <span key={page} onClick={() => onPageChanged(page)}
-                              className={cn({[s.selectedPage]: currentPage === page}, s.pageNumber)}>{page}</span>
-                    )
-                })}
-            {portionCount > portionNumber &&
-                <button className={s.button} onClick={onClickNextHandler}>NEXT</button>}
-        </div>
+            <div className={s.pagination}>
+                {portionNumber > 1 &&
+                    <button className={s.button}
+                            onClick={onClickPrevHandler}>PREV</button>}
+                {pages
+                    .filter(page => page >= leftPortionPageNumber && page <= rightPortionPageNumber)
+                    .map((page) => {
+                        return (
+                            <span key={page} onClick={() => onPageChanged(page)}
+                                  className={cn({[s.selectedPage]: currentPage === page}, s.pageNumber)}>{page}</span>
+                        )
+                    })}
+                {portionCount > portionNumber &&
+                    <button className={s.button}
+                            onClick={onClickNextHandler}>NEXT</button>}
+            </div>
         </div>
     );
 }

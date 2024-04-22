@@ -1,11 +1,8 @@
-
 import {
     UnderConstructionPage
 } from "../UnderConstructionPage/UnderConstructionPage";
 
-type PropsType = {
-
-}
+type PropsType = {}
 export const Music = (props: PropsType) => {
-  return <UnderConstructionPage/>
+    return <UnderConstructionPage/>
 }

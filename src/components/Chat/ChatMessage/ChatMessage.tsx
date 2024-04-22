@@ -15,7 +15,8 @@ export const ChatMessage = (props: PropsType) => {
         <NavLink key={message.userId} to={path}>
             <li className={s.item}>
                 <div className={s.item__image}>
-                    <img className={s.item__photo} src={message.photo} alt="contact-photo"/>
+                    <img className={s.item__photo} src={message.photo}
+                         alt="contact-photo"/>
                 </div>
                 <div className={s.userAndMessage}>
                     <div className={s.item__userName}>

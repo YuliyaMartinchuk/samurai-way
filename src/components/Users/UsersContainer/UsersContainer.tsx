@@ -7,7 +7,7 @@ import {
     UserType,
 } from "../../../redux/reducers/usersReducer";
 import {Users} from "../Users";
-import {Preloader} from "../../common/Preloader/Preloader";
+import {Preloader} from "../../common/Preloader";
 import {
     changePageTC,
     followTC,
@@ -20,7 +20,6 @@ import {
     getPageSize,
     getTotalUsersCount, getUsers, getUsersFilter,
 } from "../../../redux/selectors/usersSelectors";
-
 
 type MapStateToPropsType = {
     users: UserType[]
@@ -52,10 +51,11 @@ export class UsersContainerAPI extends React.Component<UsersPropsType> {
         const {pageSize, filter} = this.props
         this.props.getUsers(currentPage, pageSize, filter)
     }
-    onFilterChanged = (filter: FilterType ) => {
+    onFilterChanged = (filter: FilterType) => {
         const {pageSize} = this.props
         this.props.getUsers(1, pageSize, filter)
     }
+
     render() {
         return (
             <>

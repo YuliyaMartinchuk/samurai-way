@@ -39,7 +39,7 @@ export const ProfileData: React.FC<ProfileData> = ({
             </div>
         </div>
         {profile?.contacts &&
-            <div >
+            <div>
                 <div className={s.description}>Contacts:</div>
                 <div className={s.contacts}>
                     {Object.entries(profile.contacts).map(([key, value]) =>

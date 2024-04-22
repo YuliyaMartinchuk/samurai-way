@@ -2,9 +2,7 @@ import {
     UnderConstructionPage
 } from "../UnderConstructionPage";
 
-type PropsType = {
-
-}
+type PropsType = {}
 export const Settings = (props: PropsType) => {
-  return <UnderConstructionPage/>
+    return <UnderConstructionPage/>
 }

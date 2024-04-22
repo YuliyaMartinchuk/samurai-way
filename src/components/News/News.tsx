@@ -1,11 +1,8 @@
-
 import {
     UnderConstructionPage
 } from "../UnderConstructionPage";
 
-type PropsType = {
-
-}
+type PropsType = {}
 export const News = (props: PropsType) => {
-  return <UnderConstructionPage/>
+    return <UnderConstructionPage/>
 }

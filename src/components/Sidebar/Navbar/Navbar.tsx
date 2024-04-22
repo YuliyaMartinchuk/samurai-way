@@ -8,7 +8,6 @@ import newsIcon from '../../../assets/images/newsIcon.svg';
 import musicIcon from '../../../assets/images/musicIcon.svg';
 import settingsIcon from '../../../assets/images/settingsIcon.svg';
 
-
 const Navbar = () => {
     return (
         <nav className={s.nav}>

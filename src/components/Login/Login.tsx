@@ -13,7 +13,6 @@ type LoginType = {
     isAuth: boolean
     captchaUrl: string | null
 }
-
 export const Login: React.FC<LoginType> = ({login, isAuth, captchaUrl}) => {
     const onSubmit = (formData: FormDataType) => {
         login(formData)
@@ -36,7 +35,8 @@ export const Login: React.FC<LoginType> = ({login, isAuth, captchaUrl}) => {
             <div className={s.testLoginInfo}>
                 <p>To log in get registered here:</p>
                 <p>
-                    <a href={'https://social-network.samuraijs.com/'} target={'_blank'} rel="noreferrer">
+                    <a href={'https://social-network.samuraijs.com/'}
+                       target={'_blank'} rel="noreferrer">
                         {' '}
                         https://social-network.samuraijs.com/
                     </a>

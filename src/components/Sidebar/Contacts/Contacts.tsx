@@ -1,5 +1,4 @@
 import s from './Contacts.module.css';
-
 import {Contact} from '../Contact';
 import {UserType} from "../../../redux/reducers/usersReducer";
 

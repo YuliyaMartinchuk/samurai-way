@@ -14,7 +14,7 @@ export type FormDataType = {
     email: string,
     password: string,
     rememberMe: boolean
-    captcha:  string | null
+    captcha: string | null
 }
 type LoginFormPropsType = {
     captchaUrl: string | null
@@ -22,20 +22,33 @@ type LoginFormPropsType = {
 
 
 type LoginFormValuesTypeKeys = GetStringKeys<FormDataType>
-type AllSampleFormProps = LoginFormPropsType & InjectedFormProps<FormDataType, LoginFormPropsType>
+type AllSampleFormProps =
+    LoginFormPropsType
+    & InjectedFormProps<FormDataType, LoginFormPropsType>
 
-export const LoginForm: React.FC<AllSampleFormProps> = ({error, handleSubmit,captchaUrl}) => {
+export const LoginForm: React.FC<AllSampleFormProps> = ({
+                                                            error,
+                                                            handleSubmit,
+                                                            captchaUrl
+                                                        }) => {
     return (
         <form onSubmit={handleSubmit} className={s.loginForm}>
-            <div >
-                {createField<LoginFormValuesTypeKeys>("Email", "email", [required], Input,{className: s.loginInput}, 'Email Address')}
+            <div>
+                {createField<LoginFormValuesTypeKeys>("Email", "email", [required], Input, {className: s.loginInput}, 'Email Address')}
             </div>
             <div>
-                {createField<LoginFormValuesTypeKeys>("Password", "password", [required], Input, {className: s.loginInput, type: 'password'}, 'Password')}
+                {createField<LoginFormValuesTypeKeys>("Password", "password", [required], Input, {
+                    className: s.loginInput,
+                    type: 'password'
+                }, 'Password')}
             </div>
             <div className={s.rememberMeContainer}>
-                {createField<LoginFormValuesTypeKeys>("", "rememberMe", [], Input, {type: 'checkbox', className: s.checkbox}, "")}
-                <label htmlFor="rememberMe" className={s.checkboxText}>Remember me</label>
+                {createField<LoginFormValuesTypeKeys>("", "rememberMe", [], Input, {
+                    type: 'checkbox',
+                    className: s.checkbox
+                }, "")}
+                <label htmlFor="rememberMe" className={s.checkboxText}>Remember
+                    me</label>
             </div>
             {captchaUrl && <img src={captchaUrl} alt={"captchaUrl"}/>}
             {captchaUrl &&
@@ -50,7 +63,6 @@ export const LoginForm: React.FC<AllSampleFormProps> = ({error, handleSubmit,cap
     )
 
 }
-
-export const LoginReduxForm = reduxForm<FormDataType,LoginFormPropsType>({
+export const LoginReduxForm = reduxForm<FormDataType, LoginFormPropsType>({
     form: "login"
 })(LoginForm)

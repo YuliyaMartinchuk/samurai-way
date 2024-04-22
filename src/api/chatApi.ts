@@ -1,5 +1,3 @@
-
-
 export type ChatMessageType = {
     message: string
     photo: string

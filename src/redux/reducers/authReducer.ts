@@ -4,20 +4,20 @@ import {
 } from "../actions/actionTypeTitle";
 import {ActionType} from "../actions/actionTypes";
 
-const initialState:AuthMeType  = {
+const initialState: AuthMeType = {
     userId: null,
     email: null,
     login: null,
     isAuth: false,
-    captchaUrl:null// if null, then captcha is not required
+    captchaUrl: null// if null, then captcha is not required
 }
 
-export type AuthMeType  = {
+export type AuthMeType = {
     userId: number | null
-    email:  string | null
+    email: string | null
     login: string | null
     isAuth: boolean
-    captchaUrl:string | null
+    captchaUrl: string | null
 }
 export type InitialStateType = typeof initialState
 

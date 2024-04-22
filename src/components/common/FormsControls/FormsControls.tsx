@@ -14,10 +14,16 @@ type FormsControlType = {
     FormType: string
 }
 
-const FormControl: React.FC<FormsControlType> = ({input, meta, FormType, ...props})=> {
+const FormControl: React.FC<FormsControlType> = ({
+                                                     input,
+                                                     meta,
+                                                     FormType,
+                                                     ...props
+                                                 }) => {
     const hasError = meta.error && meta.touched
     return (
-        <div className={styles.formControl + " " + (hasError? styles.error : "")}>
+        <div
+            className={styles.formControl + " " + (hasError ? styles.error : "")}>
             <div>
                 <FormType {...input} {...props}/>
             </div>
@@ -27,13 +33,13 @@ const FormControl: React.FC<FormsControlType> = ({input, meta, FormType, ...prop
 }
 
 
-export const Textarea: React.FC<FormsControlType> = ({ ...props}) => {
-return   <FormControl {...props} FormType="textarea" />
+export const Textarea: React.FC<FormsControlType> = ({...props}) => {
+    return <FormControl {...props} FormType="textarea"/>
 
 }
 
 export const Input: React.FC<FormsControlType> = ({...props}) => {
-    return <FormControl {...props} FormType="input" />
+    return <FormControl {...props} FormType="input"/>
 }
 
 export function createField<FormKeyType extends string>(

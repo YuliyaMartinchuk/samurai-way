@@ -6,7 +6,7 @@ import {logoutTC} from "../../../redux/thunks/authThunks";
 
 type MapStateToPropsType = {
     isAuth: boolean
-    login:string | null
+    login: string | null
 }
 type MapDispatchToPropsType = {
     logout: () => void
@@ -16,16 +16,15 @@ export type  HeaderPropsType = MapStateToPropsType & MapDispatchToPropsType
 
 export class HeaderContainerAPI extends React.Component<HeaderPropsType> {
     render() {
-    return (
-        <Header {...this.props}/>
-    )
-}}
-
-const mapStateToProps = (state: AppStateType): MapStateToPropsType  => {
+        return (
+            <Header {...this.props}/>
+        )
+    }
+}
+const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
         isAuth: state.auth.isAuth,
         login: state.auth.login,
     }
 }
-
-export const HeaderContainer = connect(mapStateToProps, {logout:logoutTC})(HeaderContainerAPI as any)
+export const HeaderContainer = connect(mapStateToProps, {logout: logoutTC})(HeaderContainerAPI as any)

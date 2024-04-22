@@ -10,8 +10,8 @@ import {ActionType} from "../actions/actionTypes";
 import {updateObjectInArray} from "../../utils/objectHelpers/objectHelpers";
 
 export type PhotosType = {
-    small: string|null,
-    large: string|null
+    small: string | null,
+    large: string | null
 }
 export type LocationType = {
     city: string,
@@ -27,7 +27,7 @@ export type UserType = {
     location?: LocationType
 }
 
- export type FollowingInProgressType = number[]
+export type FollowingInProgressType = number[]
 export type FilterType = {
     term?: string;
     friend?: null | boolean
@@ -54,13 +54,13 @@ export const usersReducer = (state: InitialStateType = initialState, action: Act
         case USERS_FOLLOW: {
             return {
                 ...state,
-                users: updateObjectInArray(state.users, action.payload.userId,'id', {followed: true})
+                users: updateObjectInArray(state.users, action.payload.userId, 'id', {followed: true})
             }
         }
         case USERS_UNFOLLOW: {
             return {
                 ...state,
-                users: updateObjectInArray(state.users, action.payload.userId,'id', {followed: false})
+                users: updateObjectInArray(state.users, action.payload.userId, 'id', {followed: false})
             }
         }
 
@@ -92,7 +92,7 @@ export const usersReducer = (state: InitialStateType = initialState, action: Act
             return {
                 ...state,
                 followingInProgress: action.payload.isFetching
-                    ? [...state.followingInProgress,action.payload.userId]
+                    ? [...state.followingInProgress, action.payload.userId]
                     : state.followingInProgress.filter(id => id !== action.payload.userId)
             }
         }

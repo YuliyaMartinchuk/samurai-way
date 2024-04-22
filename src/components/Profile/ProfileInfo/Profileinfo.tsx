@@ -4,7 +4,7 @@ import {
     ProfileType
 } from "../../../redux/reducers/profileReducer";
 import backgroundImage from "../../../assets/images/backgroundImage.jpg"
-import {Preloader} from "../../common/Preloader/Preloader";
+import {Preloader} from "../../common/Preloader";
 import defaultUserPhoto from "../../../assets/images/defaultUserPhoto.jpg"
 import {ProfileStatusWithHooks} from "./ProfileStatus";
 import editIcon from "../../../assets/images/editIcon.svg"
@@ -41,13 +41,17 @@ const ProfileInfo: React.FC<PropsType> = ({
                 <img className={s.backgroundImage} src={backgroundImage}
                      alt={"background image"}/>
                 <div className={s.profileAvatar}>
-                <img className={s.avatar}
-                     src={profile?.photos.large || defaultUserPhoto}
-                     alt={"profile photo"}/>
+                    <img className={s.avatar}
+                         src={profile?.photos.large || defaultUserPhoto}
+                         alt={"profile photo"}/>
                     {isOwner &&
-                        <label htmlFor="mainPhotoInput" className={s.fileInputLabel}>
-                        <input  id="mainPhotoInput" type="file" onChange={mainPhotoSelected}   className={s.fileInput}/>
-                            <img className={s.fileInputIcon} src={editIcon} alt='editIcon'/>
+                        <label htmlFor="mainPhotoInput"
+                               className={s.fileInputLabel}>
+                            <input id="mainPhotoInput" type="file"
+                                   onChange={mainPhotoSelected}
+                                   className={s.fileInput}/>
+                            <img className={s.fileInputIcon} src={editIcon}
+                                 alt='editIcon'/>
                         </label>
                     }
                 </div>

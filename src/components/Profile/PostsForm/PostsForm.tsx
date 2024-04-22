@@ -12,7 +12,7 @@ export type AddPostFormType = {
     newPostText: string
 }
 
-const maxLength10 =  maxLengthCreator(10)
+const maxLength10 = maxLengthCreator(10)
 
 const AddNewPostForm = (props: InjectedFormProps<AddPostFormType>) => {
     return (
@@ -23,11 +23,11 @@ const AddNewPostForm = (props: InjectedFormProps<AddPostFormType>) => {
                            name={"newPostText"}
                            className={s.textarea}
                            component={Textarea}
-                           validate = {[required, maxLength10]}
+                           validate={[required, maxLength10]}
                     >
                     </Field>
                 </div>
-                <div  className={s.buttonBlock}>
+                <div className={s.buttonBlock}>
                     <button className={s.button}>Add post</button>
                 </div>
             </form>
@@ -35,7 +35,6 @@ const AddNewPostForm = (props: InjectedFormProps<AddPostFormType>) => {
 
     )
 }
-
 export const AddNewPostFormReduxForm = reduxForm<AddPostFormType>({
     form: "addPostForm"
 })(AddNewPostForm)

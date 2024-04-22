@@ -1,9 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-
 import s from './Contact.module.css';
-
-
 import defaultUserPhoto from '../../../assets/images/defaultUserPhotoIcon.png';
 import {UserType} from "../../../redux/reducers/usersReducer";
 
@@ -20,7 +17,8 @@ export const Contact = (props: PropsType) => {
                 <NavLink to={`/profile/${contact.id}`} className={s.item__link}
                          activeClassName={s.item__link_active}>
                     <div className={s.item__image}>
-                        <img className={s.item__avatar} src={contact.photos.large || defaultUserPhoto}
+                        <img className={s.item__avatar}
+                             src={contact.photos.large || defaultUserPhoto}
                              alt="contact-avatar"/>
                     </div>
                     <span

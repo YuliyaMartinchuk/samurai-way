@@ -17,7 +17,6 @@ type PropsType = {
     onSubmit: (formData: ProfileDataFormType) => void
 }
 
-
 export type ProfileDataFormType = {
     fullName: string;
     aboutMe: string;
@@ -36,28 +35,33 @@ const ProfileDataForm: React.FC<AllSampleFormProps> = ({
                                                        }) => {
     return <form className={s.container} onSubmit={handleSubmit}>
         <div>
-                <div className={s.description}>Full name: </div> {createField<ProfileDataFormValuesTypeKeys>("Full name", "fullName", [], Input, {className:s.textarea})}
-            <div >
+            <div className={s.description}>Full name:</div>
+            {createField<ProfileDataFormValuesTypeKeys>("Full name", "fullName", [], Input, {className: s.textarea})}
+            <div>
                 <div>
-                    <div className={s.description}>Looking for a job: </div>
-                    {createField<ProfileDataFormValuesTypeKeys>("", "lookingForAJob", [], Input, {type: 'checkbox', className: s.checkbox})}
+                    <div className={s.description}>Looking for a job:</div>
+                    {createField<ProfileDataFormValuesTypeKeys>("", "lookingForAJob", [], Input, {
+                        type: 'checkbox',
+                        className: s.checkbox
+                    })}
                 </div>
                 <div>
-                    <div className={s.description}>My professional skills: </div>
-                    {createField<ProfileDataFormValuesTypeKeys>("My professional skills", "lookingForAJobDescription", [], Textarea, {className:s.textarea})}
+                    <div className={s.description}>My professional skills:</div>
+                    {createField<ProfileDataFormValuesTypeKeys>("My professional skills", "lookingForAJobDescription", [], Textarea, {className: s.textarea})}
                 </div>
                 <div>
-                    <div className={s.description}>About me: </div>
-                    {createField<ProfileDataFormValuesTypeKeys>("About me", "aboutMe", [], Textarea, {className:s.textarea})}
+                    <div className={s.description}>About me:</div>
+                    {createField<ProfileDataFormValuesTypeKeys>("About me", "aboutMe", [], Textarea, {className: s.textarea})}
                 </div>
                 {profile?.contacts &&
                     <div className={s.description}>
-                        <div className={s.description}>Contacts: </div> {Object.keys(profile.contacts).map(key => {
-                        return <div key={key}>
-                            <div className={s.description}>{key}: </div>
-                            {createField(key, 'contacts.' + key, [], Input, {className:s.textarea})}
-                        </div>
-                    })}
+                        <div className={s.description}>Contacts:</div>
+                        {Object.keys(profile.contacts).map(key => {
+                            return <div key={key}>
+                                <div className={s.description}>{key}:</div>
+                                {createField(key, 'contacts.' + key, [], Input, {className: s.textarea})}
+                            </div>
+                        })}
                     </div>}
 
             </div>

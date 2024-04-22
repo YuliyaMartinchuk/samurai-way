@@ -1,8 +1,7 @@
-
 import {ActionType} from "../actions/actionTypes";
 import {APP_INITIALIZED_SUCCESS} from "../actions/actionTypeTitle";
 
-const initialState  = {
+const initialState = {
     initialized: false
 }
 

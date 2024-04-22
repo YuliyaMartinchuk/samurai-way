@@ -14,8 +14,6 @@ type PropsType = {
     follow: (userId: number) => void
     unFollow: (userId: number) => void
 }
-
-
 export const User: React.FC<PropsType> = ({
                                               user,
                                               follow,
@@ -37,20 +35,20 @@ export const User: React.FC<PropsType> = ({
                     {user.followed
                         ? <button className={s.buttonUnfollow}
                                   disabled={followingInProgress.some(id => id === user.id)}
-                            onClick={() => {
-                                unFollow(user.id)
-                            }}>
+                                  onClick={() => {
+                                      unFollow(user.id)
+                                  }}>
                             unfollow</button>
                         : <button className={s.buttonFollow}
-                            disabled={followingInProgress.some(id => id === user.id)}
-                            onClick={() => {
-                                follow(user.id)
-                            }}>
+                                  disabled={followingInProgress.some(id => id === user.id)}
+                                  onClick={() => {
+                                      follow(user.id)
+                                  }}>
                             follow</button>
                     }
                 </div>
             </span>
-            <span>
+                <span>
                 <span>
                     <div className={s.name}>{user.name}</div>
                     <div className={s.status}>{user.status}</div>
@@ -60,7 +58,7 @@ export const User: React.FC<PropsType> = ({
                     <div>{"u.location.city"}</div>
                 </span>
             </span>
-        </div>
+            </div>
         </div>
     )
 }
